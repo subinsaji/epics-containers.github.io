@@ -1,10 +1,10 @@
 [
   {
-    "version": "main",
-    "url": "https://epics-containers.github.io/epics-containers.github.io/main/"
-  },
-  {
     "version": "dev",
     "url": "https://epics-containers.github.io/epics-containers.github.io/dev/"
+  },
+  {
+    "version": "main",
+    "url": "https://epics-containers.github.io/epics-containers.github.io/main/"
   }
 ]
