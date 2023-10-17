@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Run an IOC without Kubernetes &#8212; epics-containers.github.io 0.9.1.dev8+g5eb99c1 documentation</title>
+    <title>Run an IOC without Kubernetes &#8212; epics-containers.github.io 0.9.1.dev12+g5c19f55 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
-    <script src="../../_static/documentation_options.js?v=3b241f00"></script>
+    <script src="../../_static/documentation_options.js?v=b54ea57e"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -494,9 +494,9 @@ document.write(`
                   
   <section id="run-an-ioc-without-kubernetes">
 <h1>Run an IOC without Kubernetes<a class="headerlink" href="#run-an-ioc-without-kubernetes" title="Link to this heading">#</a></h1>
-<p>When we run a containerized IOC we are selecting a generic IOC container image
+<p>When we run a containerized IOC we are selecting a Generic IOC container image
 to launch and some configuration to pass to the IOC.  The configuration we
-pass is what makes the IOC a unique instance instead of a generic IOC.</p>
+pass is what makes the IOC a unique instance instead of a Generic IOC.</p>
 <p>In the tutorials we are running the IOC in a Kubernetes cluster and we
 use a Kubernetes ConfigMap to pass the configuration to the IOC.</p>
 <p>However it is perfectly possible to do this without Kubernetes. To demonstrate
@@ -507,7 +507,7 @@ will see the IOC running in a container:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>podman<span class="w"> </span>run<span class="w"> </span>--net<span class="w"> </span>host<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/iocs/bl01t-ea-ioc-01/config:/repos/epics/ioc/config<span class="w">  </span>ghcr.io/epics-containers/ioc-template-linux-runtime:23.3.3
 </pre></div>
 </div>
-<p>What you have done here is pull down the generic <code class="docutils literal notranslate"><span class="pre">ioc-template-linux-runtime</span></code>
+<p>What you have done here is pull down the Generic <code class="docutils literal notranslate"><span class="pre">ioc-template-linux-runtime</span></code>
 container image from the GitHub Container Registry and run it.
 The <code class="docutils literal notranslate"><span class="pre">-it</span></code> means it is an interactive terminal session.  <code class="docutils literal notranslate"><span class="pre">--rm</span></code> means the
 container is removed when it exits, best for keeping your cache tidy.
@@ -522,7 +522,7 @@ find its configuration. The leading $(pwd) means the current working directory
 is appended to the path and that is required because the path for mounting
 into a container must be absolute.</p>
 <p><code class="docutils literal notranslate"><span class="pre">iocs/bl01t-ea-ioc-01/config</span></code> contains a simple iocShell boot script and the
-default behaviour is to pass that to the generic IOC binary.</p>
+default behaviour is to pass that to the Generic IOC binary.</p>
 <p>Using this approach you could manage your config folders and IOC launches
 yourself using whatever mechanism you prefer. Probably docker compose or
 docker swarm would be the most likely candidates.</p>

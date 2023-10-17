@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Testing and Deploying a Generic IOC &#8212; epics-containers.github.io 0.9.1.dev8+g5eb99c1 documentation</title>
+    <title>Testing and Deploying a Generic IOC &#8212; epics-containers.github.io 0.9.1.dev12+g5c19f55 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
-    <script src="../../_static/documentation_options.js?v=3b241f00"></script>
+    <script src="../../_static/documentation_options.js?v=b54ea57e"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -524,7 +524,7 @@ and click on the latest build you should see something like this:</p>
 </section>
 <section id="publishing-the-generic-ioc-container-to-ghcr">
 <h2>Publishing the Generic IOC Container to GHCR<a class="headerlink" href="#publishing-the-generic-ioc-container-to-ghcr" title="Link to this heading">#</a></h2>
-<p>Now give your genericIOC a version tag and push it to GitHub.</p>
+<p>Now give your GenericIOC a version tag and push it to GitHub.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>tag<span class="w"> </span><span class="m">23</span>.4.1
 git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span><span class="m">23</span>.4.1
 </pre></div>
@@ -549,14 +549,14 @@ something like this:</p>
 </section>
 <section id="making-the-tests-relevant-to-our-generic-ioc">
 <h2>Making the Tests Relevant to our Generic IOC<a class="headerlink" href="#making-the-tests-relevant-to-our-generic-ioc" title="Link to this heading">#</a></h2>
-<p>You may notice that some tests were run as part of the CI. These generic
+<p>You may notice that some tests were run as part of the CI. These Generic
 tests are used by the ioc-template and are defined in the <code class="docutils literal notranslate"><span class="pre">tests</span></code> directory.
-We need to update them to be relevant to our new generic IOC.</p>
+We need to update them to be relevant to our new Generic IOC.</p>
 <p>TODO: I just noticed that the tests do not use the build cache (but also
 they are not required to push the built container so don’t hold up
 development).</p>
 <p>In the <code class="docutils literal notranslate"><span class="pre">ioc/config</span></code> folder we have some default config that is used by the
-generic IOC if no config is provided. We can use this for testing and need
+Generic IOC if no config is provided. We can use this for testing and need
 to update the tests to use it too.</p>
 <p>To do this remove the file <code class="docutils literal notranslate"><span class="pre">ioc/config/ioc.db</span></code> and replace the contents
 of <code class="docutils literal notranslate"><span class="pre">ioc/config/st.cmd</span></code> with:</p>
@@ -600,7 +600,7 @@ check_pv<span class="w"> </span><span class="s1">&#39;EXAMPLE:CAM:AcquirePeriod&
 <p>We have made a very simple test that only checks one PV value, but that is
 good enough to validate that the IOC is running and that the config is
 being loaded. You can add more sophisticated tests as needed to your
-own generic IOCs.</p>
+own Generic IOCs.</p>
 <p>If you had any issues with getting this tutorial working, you can get a
 fully working version of the ioc-adurl project from the following link:</p>
 <blockquote>

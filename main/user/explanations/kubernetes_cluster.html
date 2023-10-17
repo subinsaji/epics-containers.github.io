@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Kubernetes Cluster Config &#8212; epics-containers.github.io 0.9.1.dev8+g5eb99c1 documentation</title>
+    <title>Kubernetes Cluster Config &#8212; epics-containers.github.io 0.9.1.dev12+g5c19f55 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
-    <script src="../../_static/documentation_options.js?v=3b241f00"></script>
+    <script src="../../_static/documentation_options.js?v=b54ea57e"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -571,11 +571,11 @@ IOCs on a Beamline.</p>
 </section>
 <section id="beamline-local-cluster-nodes">
 <h3>Beamline Local Cluster Nodes<a class="headerlink" href="#beamline-local-cluster-nodes" title="Link to this heading">#</a></h3>
-<p>As part of the investigation work some worker nodes in Argus have been connected that are physically located at the beamline. These nodes do not share the same rack as Argus, and hence are part of a different routed subnet to the /22 that the control plane and main workers are within. This model assumes one centralised control plane (and some generic workers), and a set of beamline cluster nodes that may be distributed across the network (in different subnets).</p>
+<p>As part of the investigation work some worker nodes in Argus have been connected that are physically located at the beamline. These nodes do not share the same rack as Argus, and hence are part of a different routed subnet to the /22 that the control plane and main workers are within. This model assumes one centralised control plane (and some Generic workers), and a set of beamline cluster nodes that may be distributed across the network (in different subnets).</p>
 <p>The beamline cluster nodes require a few interesting sets of configuration to make this architecture work. See the following subheadings for details.</p>
 <section id="metallb-pools">
 <h4>Metallb Pools<a class="headerlink" href="#metallb-pools" title="Link to this heading">#</a></h4>
-<p>Metallb cannot be used to provide loadBalancer services for pods running on the beamline cluster nodes. This is because metallb currently only supports a single pool of IPs to allocate from. In the case of Argus, the pool is allocated from within the /22 in which the control plane (and a few generic workers) sit. Should a pod with a loadBalancer Service IP get brought up on a beamline cluster node, the traffic would not be routable because the beamline TOR switch does not send ARP messages for subnets that it is not directly connected to. This is not an issue running IOCs since they do not make use of loadBalancer Services. There is a feature request for Metallb to support address pools that is currently pending.</p>
+<p>Metallb cannot be used to provide loadBalancer services for pods running on the beamline cluster nodes. This is because metallb currently only supports a single pool of IPs to allocate from. In the case of Argus, the pool is allocated from within the /22 in which the control plane (and a few Generic workers) sit. Should a pod with a loadBalancer Service IP get brought up on a beamline cluster node, the traffic would not be routable because the beamline TOR switch does not send ARP messages for subnets that it is not directly connected to. This is not an issue running IOCs since they do not make use of loadBalancer Services. There is a feature request for Metallb to support address pools that is currently pending.</p>
 </section>
 <section id="node-labelling-and-taints">
 <h4>Node Labelling and Taints<a class="headerlink" href="#node-labelling-and-taints" title="Link to this heading">#</a></h4>
