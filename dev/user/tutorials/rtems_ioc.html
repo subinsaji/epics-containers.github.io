@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>RTEMS - Deploying an Example IOC &#8212; epics-containers.github.io 0.10.dev38+g3e22d1e documentation</title>
+    <title>RTEMS - Deploying an Example IOC &#8212; epics-containers.github.io 0.10.dev39+gd62daec documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
-    <script src="../../_static/documentation_options.js?v=16fafba0"></script>
+    <script src="../../_static/documentation_options.js?v=f44d9c77"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -494,8 +494,8 @@ document.write(`
                   
   <section id="rtems-deploying-an-example-ioc">
 <h1>RTEMS - Deploying an Example IOC<a class="headerlink" href="#rtems-deploying-an-example-ioc" title="Link to this heading">#</a></h1>
-<p>The previous tutorials walked through how to create a generic linux soft
-IOC and how to deploy an IOC instance using that generic IOC.</p>
+<p>The previous tutorials walked through how to create a Generic linux soft
+IOC and how to deploy an IOC instance using that Generic IOC.</p>
 <p>epics-containers also supports RTEMS 5 running on MVVME5500. We will
 now will look at the differences for this architecture. Further
 architectures will be supported in future.</p>
@@ -599,10 +599,10 @@ rm<span class="w"> </span>iocs/bl01t-ea-ioc-02/config/extra.db
 </pre></div>
 </div>
 <p>We are going to make a very basic IOC with some hand coded database with
-a couple of simple records. Therefore the generic IOC that we use can just
+a couple of simple records. Therefore the Generic IOC that we use can just
 be ioc-template.</p>
 <p>Generic IOCs have multiple targets, they always have a
-<code class="docutils literal notranslate"><span class="pre">developer</span></code> target which is used for building and debugging the generic IOC and
+<code class="docutils literal notranslate"><span class="pre">developer</span></code> target which is used for building and debugging the Generic IOC and
 a <code class="docutils literal notranslate"><span class="pre">runtime</span></code> target which is lightweight and usually used when running the IOC
 in the cluster. The matrix of targets also includes an architecture dimension,
 at present the ioc-template supports two architectures, <code class="docutils literal notranslate"><span class="pre">linux</span></code> and

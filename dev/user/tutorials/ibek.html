@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Defining IOC Instances using IBEK &#8212; epics-containers.github.io 0.10.dev38+g3e22d1e documentation</title>
+    <title>Defining IOC Instances using IBEK &#8212; epics-containers.github.io 0.10.dev39+gd62daec documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
-    <script src="../../_static/documentation_options.js?v=16fafba0"></script>
+    <script src="../../_static/documentation_options.js?v=f44d9c77"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -530,21 +530,21 @@ at runtime.</p>
 <li><p>exists to avoid duplication of support module definitions</p></li>
 <li><p>and to avoid working on multiple support modules while kicking off epics-containers</p></li>
 <li><p>in future YAML could be supplied in each support module itself - but until epics-containers is widely used, this is a good way to get started</p></li>
-<li><p>the ibek-defs repo is added as a git-submodule to every generic ioc (ioc-xxx) repo and in this ensures that a rebuild of a generic ioc will be with a consistent set of YAML files until a developer explicitly updates the submodule.</p></li>
+<li><p>the ibek-defs repo is added as a git-submodule to every Generic ioc (ioc-xxx) repo and in this ensures that a rebuild of a Generic ioc will be with a consistent set of YAML files until a developer explicitly updates the submodule.</p></li>
 </ul>
 </section>
 <section id="how-to-work-on-ibek-defs">
 <h2>How to work on ibek-defs<a class="headerlink" href="#how-to-work-on-ibek-defs" title="Link to this heading">#</a></h2>
-<p>Building a new generic ioc and making it compatible with ibek means creating ibek support YAML for all of its dependent support modules (where they do not already exist)</p>
-<p>These steps assume you have a generic ioc for ADUrl based on ioc_template as discussed in <a class="reference internal" href="generic_ioc.html"><span class="doc">Create a Generic IOC</span></a>.
-Your generic ioc has a default ioc instance used for testing.
+<p>Building a new Generic ioc and making it compatible with ibek means creating ibek support YAML for all of its dependent support modules (where they do not already exist)</p>
+<p>These steps assume you have a Generic ioc for ADUrl based on ioc_template as discussed in <a class="reference internal" href="generic_ioc.html"><span class="doc">Create a Generic IOC</span></a>.
+Your Generic ioc has a default ioc instance used for testing.
 In ioc/config/st.cmd we have a default startup script for the example IOC.
 To work on ibek support we will remove this file and replace it with <code class="docutils literal notranslate"><span class="pre">ioc.yaml</span></code>.
 We already have a git submodule for ibek-defs which we used for accessing patch files
 during build, this will also be used for creating and editing support yaml files.</p>
 <p>TODO: this will become a concrete example for walking through as a tutorial with ioc-adurl.</p>
 <p>NOTE: these steps are for building and testing the example IOC that comes with
-the generic ioc template. This will break the system test and that would need
+the Generic ioc template. This will break the system test and that would need
 to be updated accordingly. To just work on ibek support files using an external
 ioc instance YAML file see <a class="reference internal" href="../how-to/ibek-defs.html"><span class="doc">Updating and Testing ibek-defs</span></a> (I probably need to combine
 these two pages into something coherent).</p>

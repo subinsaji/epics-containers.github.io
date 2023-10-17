@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>IOC Helm Chart Details &#8212; epics-containers.github.io 0.10.dev38+g3e22d1e documentation</title>
+    <title>IOC Helm Chart Details &#8212; epics-containers.github.io 0.10.dev39+gd62daec documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
-    <script src="../../_static/documentation_options.js?v=16fafba0"></script>
+    <script src="../../_static/documentation_options.js?v=f44d9c77"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -524,12 +524,12 @@ of the values that go into an IOC instance chart will be drawn from
 domain defaults which can be found in the folder <code class="docutils literal notranslate"><span class="pre">beamline-chart</span></code>. Values
 you need to supply here are:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">base_image</span></code> - the generic IOC image to use for this IOC instance. A
-generic IOC image contains all the necessary support modules for a
+<li><p><code class="docutils literal notranslate"><span class="pre">base_image</span></code> - the Generic IOC image to use for this IOC instance. A
+Generic IOC image contains all the necessary support modules for a
 given class of device and a compiled IOC binary with all those modules
 linked. The IOC instance we are defining in a helm chart provides the startup
 script and possibly database that makes this IOC instance unique. In this
-case the generic IOC is for the area-detector simulator device.</p></li>
+case the Generic IOC is for the area-detector simulator device.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">prefix</span></code> - the EPICS PV prefix for this IOC instance. This will set an
 environment variable IOC_PREFIX which declares the prefix for the IOC’s
 devIOCStats records. You can leave this value out if you use the ioc
@@ -541,7 +541,7 @@ IOC name as the prefix.</p></li>
 it pulls in all the other templates from our dependencies. This file
 has to appear here but is boilerplate and should not need to be changed.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">config</span></code> this folder contains any files unique to this IOC instance. At
-runtime on the cluster when the generic IOC image is running it will see
+runtime on the cluster when the Generic IOC image is running it will see
 these files as mounted into the folder <code class="docutils literal notranslate"><span class="pre">/repos/epics/ioc/config</span></code>.
 In this case we have an EPICS startup script <code class="docutils literal notranslate"><span class="pre">st.cmd</span></code> only
 and the default behaviour is just to run the IOC binary and pass it

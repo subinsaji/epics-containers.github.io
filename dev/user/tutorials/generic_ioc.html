@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Create a Generic IOC &#8212; epics-containers.github.io 0.10.dev38+g3e22d1e documentation</title>
+    <title>Create a Generic IOC &#8212; epics-containers.github.io 0.10.dev39+gd62daec documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
-    <script src="../../_static/documentation_options.js?v=16fafba0"></script>
+    <script src="../../_static/documentation_options.js?v=f44d9c77"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -494,22 +494,22 @@ document.write(`
                   
   <section id="create-a-generic-ioc">
 <h1>Create a Generic IOC<a class="headerlink" href="#create-a-generic-ioc" title="Link to this heading">#</a></h1>
-<p>In this tutorial we will learn how to create a generic IOC container image and
+<p>In this tutorial we will learn how to create a Generic IOC container image and
 test our changes locally before deploying it.</p>
 <p>This is a type 2. change from the list at <a class="reference internal" href="ioc_changes.html#ioc-change-types"><span class="std std-ref">Types of Changes</span></a>.</p>
 <p>The example IOC used ADSimDetector, we will make a similar IOC that uses
 ADUrl to get images from a web cam.</p>
 <section id="create-a-new-generic-ioc-project">
 <h2>Create a New Generic IOC project<a class="headerlink" href="#create-a-new-generic-ioc-project" title="Link to this heading">#</a></h2>
-<p>By convention generic IOC projects are named <code class="docutils literal notranslate"><span class="pre">ioc-XXX</span></code> where <code class="docutils literal notranslate"><span class="pre">XXX</span></code> is the
+<p>By convention Generic IOC projects are named <code class="docutils literal notranslate"><span class="pre">ioc-XXX</span></code> where <code class="docutils literal notranslate"><span class="pre">XXX</span></code> is the
 name of the primary support module used by the IOC. Here we will be building
 <code class="docutils literal notranslate"><span class="pre">ioc-adurl</span></code>.</p>
 <p>Much like creating a new beamline we have a template project that can be used
-as the starting point for a new generic IOC. Again we will create this in
+as the starting point for a new Generic IOC. Again we will create this in
 your personal GitHub user space.</p>
 <section id="create-a-new-ioc-xxx-repo">
 <h3>Create a new ioc-XXX repo<a class="headerlink" href="#create-a-new-ioc-xxx-repo" title="Link to this heading">#</a></h3>
-<p>TODO: the following steps to create a new generic IOC project will be automated
+<p>TODO: the following steps to create a new Generic IOC project will be automated
 using an <code class="docutils literal notranslate"><span class="pre">ec</span></code> command.</p>
 <ol class="arabic">
 <li><p>Create a new, completely blank repository in your GitHub account
@@ -623,8 +623,8 @@ and will all be based upon the epics base images named:</p>
 <p>Where ARCH is currently <code class="docutils literal notranslate"><span class="pre">linux</span></code> or <code class="docutils literal notranslate"><span class="pre">rtems</span></code> and TARGET will always be <code class="docutils literal notranslate"><span class="pre">developer</span></code>
 and <code class="docutils literal notranslate"><span class="pre">runtime</span></code>. Support for further architectures will be added in the future.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">developer</span></code> image contains all the tools needed to build support modules
-and is used for building and debugging the generic IOC. The <code class="docutils literal notranslate"><span class="pre">runtime</span></code> image
-is a minimal image that holds the minimum required to run the generic IOC.</p>
+and is used for building and debugging the Generic IOC. The <code class="docutils literal notranslate"><span class="pre">runtime</span></code> image
+is a minimal image that holds the minimum required to run the Generic IOC.</p>
 <p>The changes we will make to the template Dockerfile are as follows:</p>
 <section id="add-more-support-modules">
 <h3>Add more support modules<a class="headerlink" href="#add-more-support-modules" title="Link to this heading">#</a></h3>

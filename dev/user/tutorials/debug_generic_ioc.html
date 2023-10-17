@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Debugging Generic IOC Builds &#8212; epics-containers.github.io 0.10.dev38+g3e22d1e documentation</title>
+    <title>Debugging Generic IOC Builds &#8212; epics-containers.github.io 0.10.dev39+gd62daec documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
-    <script src="../../_static/documentation_options.js?v=16fafba0"></script>
+    <script src="../../_static/documentation_options.js?v=f44d9c77"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -540,12 +540,12 @@ with the <code class="docutils literal notranslate"><span class="pre">[E7]</span
 </pre></div>
 </div>
 <p>The middle result looks most promising so we will install it (back <em>inside</em>
-the generic IOC container now):</p>
+the Generic IOC container now):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>libgraphicsmagick++1-dev
 </pre></div>
 </div>
-<p>The reason using apt-file outside of the generic IOC works is because
-the generic IOC and the devcontainer are built upon the same version of
+<p>The reason using apt-file outside of the Generic IOC works is because
+the Generic IOC and the devcontainer are built upon the same version of
 Ubuntu and have the same packages available.</p>
 <p>If we try the build again now it will still fail. We need to tell the
 AreaDetector build system where to find the new header file. This
@@ -554,7 +554,7 @@ need to set the variable <code class="docutils literal notranslate"><span class=
 <code class="docutils literal notranslate"><span class="pre">CONFIG_SITE.linux-x86_64.Common</span></code>.
 We can see from the <code class="docutils literal notranslate"><span class="pre">apt-file</span></code> output that the header file is in
 <code class="docutils literal notranslate"><span class="pre">/usr/include/GraphicsMagick</span></code> which is not a default include path.
-Therefore we need to edit this file inside our generic IOC container:
+Therefore we need to edit this file inside our Generic IOC container:
 <code class="docutils literal notranslate"><span class="pre">/repos/epics/support/adurl/configure/CONFIG_SITE.linux-x86_64.Common</span></code></p>
 </section>
 <section id="making-changes-inside-the-container">
@@ -679,7 +679,7 @@ container from scratch because we changed the first command in the Dockerfile.</
 </section>
 <section id="wrapping-up">
 <h2>Wrapping Up<a class="headerlink" href="#wrapping-up" title="Link to this heading">#</a></h2>
-<p>You now have a new generic IOC that can be used to test the ADUrl plugin.</p>
+<p>You now have a new Generic IOC that can be used to test the ADUrl plugin.</p>
 <p>The next tutorial will discuss how to test this IOC, including publishing
 the image to a container registry so that it can run in Kubernetes.</p>
 </section>
