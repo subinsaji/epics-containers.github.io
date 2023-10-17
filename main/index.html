@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>epics-containers &#8212; epics-containers.github.io 0.9.1.dev12+g5c19f55 documentation</title>
+    <title>epics-containers &#8212; epics-containers.github.io 0.9.1.dev14+g7251f53 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
   <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
-    <script src="_static/documentation_options.js?v=b54ea57e"></script>
+    <script src="_static/documentation_options.js?v=756008ad"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -408,7 +408,7 @@ document.write(`
 <p><a class="reference external" href="https://github.com/epics-containers/k8s-epics-docs/actions?query=workflow%3A%22Docs+CI%22"><img alt="Docs CI" src="https://github.com/epics-containers/k8s-epics-docs/workflows/Docs%20CI/badge.svg?branch=main" /></a> <a class="reference external" href="https://opensource.org/licenses/Apache-2.0"><img alt="Apache License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a></p>
 <p>The epics-containers GitHub organization holds a collection of tools and
 documentation for building, deploying and managing containerized EPICS IOCs.</p>
-<p>See <a class="reference external" href="https://epics-containers.github.io/user/explanations/introduction.html">Essential Concepts</a> and the <a class="reference external" href="https://epics-containers.github.io/user/tutorials/intro.html">Getting Started Guide</a> .</p>
+<p>See <a class="reference external" href="https://epics-containers.github.io/main/user/explanations/introduction.html">Essential Concepts</a> and the <a class="reference external" href="https://epics-containers.github.io/main/user/tutorials/intro.html">Getting Started Guide</a> .</p>
 <p>Please contribute with comments and suggestions in the wiki or issues pages:</p>
 <table class="table">
 <tbody>
@@ -430,40 +430,19 @@ documentation for building, deploying and managing containerized EPICS IOCs.</p>
 </tbody>
 </table>
 </section>
+<section id="update-for-october-2023">
+<h1>Update for October 2023<a class="headerlink" href="#update-for-october-2023" title="Link to this heading">#</a></h1>
+<p>The final round of improvements done. The latest framework has
+become much simpler and has a good developer experience.</p>
+<p><strong>WARNING</strong></p>
+<p>The Tutorials are currently out of date and won’t work. These are
+being updated now and will be available by end of November 2023.</p>
+</section>
 <section id="quick-start">
 <h1>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading">#</a></h1>
 <p>For a set of tutorials to introduce the concepts of epics-containers see
 <a class="reference internal" href="user/tutorials/intro.html"><span class="doc">Tutorials Introduction</span></a>. For a description of the architecture see
 <a class="reference internal" href="user/explanations/introduction.html#essential"><span class="std std-ref">Essential Concepts</span></a>.</p>
-</section>
-<section id="update-for-october-2023">
-<h1>Update for October 2023<a class="headerlink" href="#update-for-october-2023" title="Link to this heading">#</a></h1>
-<p>The final round of improvements are under way. The latest framework has
-become much simpler and has a good developer experience.</p>
-<p>The Tutorials are currently out of date and won’t work. These should be
-updated to the new Epics Containers Framework by end of Nov 2023.</p>
-</section>
-<section id="update-for-march-2023">
-<h1>Update for March 2023<a class="headerlink" href="#update-for-march-2023" title="Link to this heading">#</a></h1>
-<p>Since the documentation for epics-containers was first published in Oct 2021,
-there have been significant updates to the projects in this organization.</p>
-<p>The documentation is now being updated to reflect these changes.</p>
-<p>Notable improvements are:</p>
-<ul class="simple">
-<li><p>The developer experience has now been improved.</p>
-<ul>
-<li><p>Addition of a developer container with all the necessary tools included</p></li>
-<li><p>Addition of a CLI tool to assist building deploying and managing
-containerize EPICS IOCs.</p></li>
-</ul>
-</li>
-<li><p>simplified container build approach which minimizes cache busting and
-improves build times.</p></li>
-<li><p>Addition of support for IOCS running on MVME5500 with RTEMS 5. (this
-could be extended to any cross-compiled architectures that use a
-telnet shell and get their binaries from share file-systems (such as TFTP
-or NFS))</p></li>
-</ul>
 </section>
 <section id="communication">
 <h1>Communication<a class="headerlink" href="#communication" title="Link to this heading">#</a></h1>

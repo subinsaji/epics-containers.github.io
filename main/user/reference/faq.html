@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Frequently Asked Questions &#8212; epics-containers.github.io 0.9.1.dev12+g5c19f55 documentation</title>
+    <title>Frequently Asked Questions &#8212; epics-containers.github.io 0.9.1.dev14+g7251f53 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
-    <script src="../../_static/documentation_options.js?v=b54ea57e"></script>
+    <script src="../../_static/documentation_options.js?v=756008ad"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -496,14 +496,8 @@ document.write(`
 <h1>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Link to this heading">#</a></h1>
 <section id="why-no-mention-of-operator-interfaces">
 <span id="no-opi"></span><h2>Why no mention of Operator Interfaces?<a class="headerlink" href="#why-no-mention-of-operator-interfaces" title="Link to this heading">#</a></h2>
-<p>OPI was out of scope for the proof of concept. That is because we
-expect there to be a web based EPICS OPI available by the time we go
-live with K8s IOCs. Kubernetes is very well suited to running web
-servers so this is a natural fit.</p>
-<p>There are a number of ways to support the current OPI solutions without
-breaking the repositories-only model. The simplest approach is to extract
-the OPI files from the container running in Kubernetes with <strong>kubectl cp</strong>.
-Then keep a local cache and run the OPI code locally.</p>
+<p>UPDATE: with the introduction of PVI we are providing auto generated
+engineering screens. TODO: more details will be added to a new section.</p>
 </section>
 <section id="why-have-ioc-xxx-repositories">
 <h2>Why have ioc-XXX repositories?<a class="headerlink" href="#why-have-ioc-xxx-repositories" title="Link to this heading">#</a></h2>
@@ -535,12 +529,11 @@ default the last 10 are saved.</p>
 the beamline has only one Kubernetes worker node then the previous image will
 be in the node’s local cache. If you have more than one then you will need
 a global image cache which is useful anyway for reducing traffic to the
-registries (JetStack have performed a POC for DLS that demonstrates such a
-global cache)</p>
+registries. At DLS we have a global cache for all container registry
+interactions, it uses Harbour. See <a class="reference external" href="https://goharbor.io/">https://goharbor.io/</a> for more details.</p>
 <p>Note that making changes to an IOC and spinning them up would not be possible
-if all registries were in the cloud. However it is recommended that the ‘work’
-registries are on prem. The production helm registry is also likely to be on
-prem since there is little benefit in sharing a facility’s IOC instances.</p>
+if all registries were in the cloud and the internet connection had failed.
+However it is recommended that the ‘work’ registries are on premises.</p>
 </section>
 </section>
 
