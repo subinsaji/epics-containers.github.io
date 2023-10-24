@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Create a Beamline Repository &#8212; epics-containers.github.io 0.10.dev42+g2eec183 documentation</title>
+    <title>Create a Beamline Repository &#8212; epics-containers.github.io 0.10.dev42+gd7d50a3 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
-    <script src="../../_static/documentation_options.js?v=335ca640"></script>
+    <script src="../../_static/documentation_options.js?v=aed3db7c"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -509,12 +509,16 @@ IOC names. This is a restriction that helm introduces for package names.</p>
 </div>
 <p>In this tutorial we will create the test beamline repository <code class="docutils literal notranslate"><span class="pre">bl01t</span></code>.
 When the project <code class="docutils literal notranslate"><span class="pre">bl01t</span></code> is pushed to GitHub, continuous integration will
-generate helm charts for each IOC instance it defines
-and push them to your GitHub account’s OCI registry.</p>
+verify that each of the IOCs in the beamline are valid by launching them
+with basic configuration.</p>
+<p>Each of these instances will be using a
+Generic IOC image. Ideally the CI for each Generic IOC should have already run
+system tests against simulated hardware. (this is something we aspire to
+using simulated hardware provided by <a class="reference external" href="https://github.com/dls-controls/tickit">Tickit</a>)</p>
 <p>The beamline will come with a single example IOC and further steps in the
 following tutorials will teach you how to add your own.</p>
 <p>For accelerator domains the approach described here will be identical. The
-only difference is that IOCs are split by domain rather than by beamline.
+only difference is that IOC repos are split by domain rather than by beamline.
 A different naming convention will be used for accelerator domains (to be
 determined).</p>
 <section id="to-start">
