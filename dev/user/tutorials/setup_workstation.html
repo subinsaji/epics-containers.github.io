@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Setup a Developer Workstation &#8212; epics-containers.github.io 0.10.dev40+g04b0357 documentation</title>
+    <title>Setup a Developer Workstation &#8212; epics-containers.github.io 0.10.dev41+gafc2308 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
-    <script src="../../_static/documentation_options.js?v=12c42a00"></script>
+    <script src="../../_static/documentation_options.js?v=740c714f"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -500,11 +500,10 @@ The only tools you need to install are:</p>
 <ul class="simple">
 <li><p>Visual Studio Code</p></li>
 <li><p>a container platform, either podman or docker</p></li>
+<li><p>Python 3.9 or later</p></li>
+<li><p>a Python virtual environment</p></li>
 </ul>
-<p>That’s it. The reason the list is so short is that we will be using
-a developer container which includes all the tools needed. Thus you only need
-docker or podman to get the devcontainer up and running.</p>
-<p>Visual Studio Code is also recommended because it has excellent integration with
+<p>Visual Studio Code is recommended because it has excellent integration with
 devcontainers. It also has useful extensions for working with Kubernetes,
 EPICS, WSL2 and more.</p>
 <div class="admonition note">
@@ -516,12 +515,10 @@ are not supported.</p>
 <section id="options">
 <h2>Options<a class="headerlink" href="#options" title="Link to this heading">#</a></h2>
 <p>You are not required to use the tools above to develop with epics-containers.
-If you have your own preferred code editor you can use that. If you prefer
-not to work inside a container to do development that is also a possibility.</p>
+If you have your own preferred code editor you can use that.</p>
 <p>See these how-to pages for more information:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../how-to/own_tools.html#own-editor"><span class="std std-ref">Working with your own code editor</span></a></p></li>
-<li><p><a class="reference internal" href="../how-to/own_tools.html#no-devcontainer"><span class="std std-ref">Working without a Devcontainer</span></a></p></li>
 </ul>
 </section>
 <section id="platform-support">
@@ -552,9 +549,8 @@ devcontainer in the next tutorial.</p>
 <li><p>Recommended: <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=nsd.vscode-epics">VSCode EPICS</a></p></li>
 <li><p>Recommended: <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools">Kubernetes</a></p></li>
 </ul>
-<p>Next install docker or podman as the your container platform. I am using
-podman 4.2.0 on RHEL8, docker <em>could</em> also be supported but note the warning below.
-All commands in these tutorials will use <code class="docutils literal notranslate"><span class="pre">podman</span></code> cli commands.
+<p>Next install docker or podman as the your container platform. epics-containers
+has been tested with podman 4.4.1 on RedHat 8, and docker is also be supported.
 If you are using docker, simply replace <code class="docutils literal notranslate"><span class="pre">podman</span></code> with <code class="docutils literal notranslate"><span class="pre">docker</span></code> in the commands.</p>
 <p>The podman version required is 4.0 or later. This is not easy to obtain on debian
 distributions at the time of writing, but details of how to compile from source
@@ -569,16 +565,6 @@ under the heading  <code class="docutils literal notranslate"><span class="pre">
 <p>The docker install page encourages you to install Docker Desktop. This is a paid
 for product and is not required for this tutorial. You can install the free linux
 CLI tools by clicking on the appropriate linux distribution link.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>To support docker we need to do one of two things: 1) use the docker cli
-in user mode or 2) set the user id and gid when launching the container.
-If we don’t do this then all files written to mounted volumes will be owned
-by root.</p>
-<p><strong>TODO</strong>: write up how to do this. <strong>TODO</strong> the container image may
-need some minor modifications to support docker. (I recently got this
-working <a class="reference external" href="https://github.com/gilesknap/gphotos-sync/issues/279#issuecomment-1475317852">here</a>)</p>
-</div>
 </section>
 </section>
 
