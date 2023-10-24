@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Setup a Kubernetes Server &#8212; epics-containers.github.io 0.10.dev41+gafc2308 documentation</title>
+    <title>Setup a Kubernetes Server &#8212; epics-containers.github.io 0.10.dev42+g2eec183 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
-    <script src="../../_static/documentation_options.js?v=740c714f"></script>
+    <script src="../../_static/documentation_options.js?v=335ca640"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -54,8 +54,8 @@
     <link rel="icon" href="../../_static/k8s-epics2.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Create a Beamline Repository" href="create_beamline.html" />
-    <link rel="prev" title="The EPICS Devcontainer" href="epics_devcontainer.html" />
+    <link rel="next" title="RTEMS - Creating a File Server" href="rtems_setup.html" />
+    <link rel="prev" title="Working with Support Modules" href="support_module.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -393,9 +393,6 @@ document.write(`
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Tutorials Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup_workstation.html">Setup a Developer Workstation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="devcontainer.html">Setup a Devcontainer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="epics_devcontainer.html">The EPICS Devcontainer</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Setup a Kubernetes Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="create_beamline.html">Create a Beamline Repository</a></li>
 <li class="toctree-l1"><a class="reference internal" href="deploy_example.html">Deploy The Example IOC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ioc_changes.html">Testing Changes to IOC Instances</a></li>
@@ -404,6 +401,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="debug_generic_ioc.html">Debugging Generic IOC Builds</a></li>
 <li class="toctree-l1"><a class="reference internal" href="test_generic_ioc.html">Testing and Deploying a Generic IOC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="support_module.html">Working with Support Modules</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Setup a Kubernetes Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rtems_setup.html">RTEMS - Creating a File Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rtems_ioc.html">RTEMS - Deploying an Example IOC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ibek.html">Defining IOC Instances using IBEK</a></li>
@@ -494,6 +492,10 @@ document.write(`
                   
   <section id="setup-a-kubernetes-server">
 <span id="setup-kubernetes"></span><h1>Setup a Kubernetes Server<a class="headerlink" href="#setup-a-kubernetes-server" title="Link to this heading">#</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This information is out of date. It will be updated soon.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>DLS Users</strong>: DLS already has the test cluster Pollux and further
@@ -609,10 +611,6 @@ sudo<span class="w"> </span>scp<span class="w">  </span>/etc/rancher/k3s/k3s.yam
 <p>If you do have separate workstation then edit the file .kube/config replacing
 127.0.0.1 with your server’s IP Address. For a single machine the file is left
 as is.</p>
-<p>Note that in the previous step  <a class="reference internal" href="epics_devcontainer.html#devcontainer-configure"><span class="std std-ref">Configuring the Devcontainer</span></a>
-you already configured the environment variable
-<code class="docutils literal notranslate"><span class="pre">KUBECONFIG</span></code> to point to the cluster configuration file at
-<code class="docutils literal notranslate"><span class="pre">~/.kube/config</span></code>.</p>
 </section>
 <section id="create-an-epics-iocs-namespace-and-context">
 <h3>Create an epics IOCs namespace and context<a class="headerlink" href="#create-an-epics-iocs-namespace-and-context" title="Link to this heading">#</a></h3>
@@ -683,20 +681,20 @@ simply use this command:</p>
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="epics_devcontainer.html"
+       href="support_module.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">The EPICS Devcontainer</p>
+        <p class="prev-next-title">Working with Support Modules</p>
       </div>
     </a>
     <a class="right-next"
-       href="create_beamline.html"
+       href="rtems_setup.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Create a Beamline Repository</p>
+        <p class="prev-next-title">RTEMS - Creating a File Server</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

@@ -5,14 +5,15 @@ Create a Beamline Repository
 
 In this tutorial we will create a new beamline source repository.
 
-All IOCs that we deploy to the cluster will be grouped into domains and each
-domain will have its own repository for the source code of the IOC instances
-that it contains.
+All IOC Instances that we deploy will be grouped into domains and each
+domain will have its own repository which defines those Instances.
+Typically each beamline would have its own domain and
+the accelerator would be split into a few functional domains.
 
-In the case of Beamlines, the domain is the beamline itself. Here
+In the case of Beamlines, the domain named after the beamline itself. At DLS
 we use the naming convention ``blxxc`` where ``xx`` is the beamline number,
 and c is the class of beamline. For example ``bl01t`` is the beamline 1,
-type test.
+type ``test``.
 
 .. note::
 

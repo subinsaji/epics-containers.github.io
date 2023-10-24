@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Create a Beamline Repository &#8212; epics-containers.github.io 0.10.dev41+gafc2308 documentation</title>
+    <title>Create a Beamline Repository &#8212; epics-containers.github.io 0.10.dev42+g2eec183 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
-    <script src="../../_static/documentation_options.js?v=740c714f"></script>
+    <script src="../../_static/documentation_options.js?v=335ca640"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -55,7 +55,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Deploy The Example IOC" href="deploy_example.html" />
-    <link rel="prev" title="Setup a Kubernetes Server" href="setup_k8s.html" />
+    <link rel="prev" title="Setup a Developer Workstation" href="setup_workstation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -393,9 +393,6 @@ document.write(`
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Tutorials Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup_workstation.html">Setup a Developer Workstation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="devcontainer.html">Setup a Devcontainer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="epics_devcontainer.html">The EPICS Devcontainer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="setup_k8s.html">Setup a Kubernetes Server</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Create a Beamline Repository</a></li>
 <li class="toctree-l1"><a class="reference internal" href="deploy_example.html">Deploy The Example IOC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ioc_changes.html">Testing Changes to IOC Instances</a></li>
@@ -404,6 +401,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="debug_generic_ioc.html">Debugging Generic IOC Builds</a></li>
 <li class="toctree-l1"><a class="reference internal" href="test_generic_ioc.html">Testing and Deploying a Generic IOC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="support_module.html">Working with Support Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_k8s.html">Setup a Kubernetes Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rtems_setup.html">RTEMS - Creating a File Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rtems_ioc.html">RTEMS - Deploying an Example IOC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ibek.html">Defining IOC Instances using IBEK</a></li>
@@ -495,13 +493,14 @@ document.write(`
   <section id="create-a-beamline-repository">
 <span id="create-beamline"></span><h1>Create a Beamline Repository<a class="headerlink" href="#create-a-beamline-repository" title="Link to this heading">#</a></h1>
 <p>In this tutorial we will create a new beamline source repository.</p>
-<p>All IOCs that we deploy to the cluster will be grouped into domains and each
-domain will have its own repository for the source code of the IOC instances
-that it contains.</p>
-<p>In the case of Beamlines, the domain is the beamline itself. Here
+<p>All IOC Instances that we deploy will be grouped into domains and each
+domain will have its own repository which defines those Instances.
+Typically each beamline would have its own domain and
+the accelerator would be split into a few functional domains.</p>
+<p>In the case of Beamlines, the domain named after the beamline itself. At DLS
 we use the naming convention <code class="docutils literal notranslate"><span class="pre">blxxc</span></code> where <code class="docutils literal notranslate"><span class="pre">xx</span></code> is the beamline number,
 and c is the class of beamline. For example <code class="docutils literal notranslate"><span class="pre">bl01t</span></code> is the beamline 1,
-type test.</p>
+type <code class="docutils literal notranslate"><span class="pre">test</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You may choose your own naming convention, but lower case letters,
@@ -657,12 +656,12 @@ and we will deploy and test the new example IOC.</p>
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="setup_k8s.html"
+       href="setup_workstation.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Setup a Kubernetes Server</p>
+        <p class="prev-next-title">Setup a Developer Workstation</p>
       </div>
     </a>
     <a class="right-next"
