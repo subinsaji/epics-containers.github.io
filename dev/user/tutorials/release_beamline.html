@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Setup a Developer Workstation &#8212; epics-containers.github.io 0.9.1.dev25+g3a35e59 documentation</title>
+    <title>Make a Release of Example Beamline bl01t &#8212; epics-containers.github.io 0.9.1.dev25+g3a35e59 documentation</title>
   
   
   
@@ -44,7 +44,7 @@
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=30646c52"></script>
     <script src="../../_static/design-tabs.js?v=36754332"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'user/tutorials/setup_workstation';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'user/tutorials/release_beamline';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.14.2';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://epics-containers.github.io/epics-containers.github.io/switcher.json';
@@ -54,8 +54,8 @@
     <link rel="icon" href="../../_static/k8s-epics2.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Create a Beamline Repository" href="create_beamline.html" />
-    <link rel="prev" title="Tutorials Introduction" href="intro.html" />
+    <link rel="next" title="Create a Generic IOC" href="generic_ioc.html" />
+    <link rel="prev" title="Testing Changes to IOC Instances" href="ioc_changes.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -411,12 +411,12 @@ document.write(`
   <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Tutorials Introduction</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Setup a Developer Workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_workstation.html">Setup a Developer Workstation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="create_beamline.html">Create a Beamline Repository</a></li>
 <li class="toctree-l1"><a class="reference internal" href="deploy_example.html">Deploy The Example IOC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ioc_changes.html">Testing Changes to IOC Instances</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="release_beamline.html">Make a Release of Example Beamline bl01t</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Make a Release of Example Beamline bl01t</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generic_ioc.html">Create a Generic IOC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debug_generic_ioc.html">Debugging Generic IOC Builds</a></li>
 <li class="toctree-l1"><a class="reference internal" href="test_generic_ioc.html">Testing and Deploying a Generic IOC</a></li>
@@ -493,7 +493,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="../index.html" class="nav-link">User Guide</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">Setup a...</li>
+    <li class="breadcrumb-item active" aria-current="page">Make a...</li>
   </ul>
 </nav>
 </div>
@@ -510,149 +510,53 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="setup-a-developer-workstation">
-<h1>Setup a Developer Workstation<a class="headerlink" href="#setup-a-developer-workstation" title="Link to this heading">#</a></h1>
-<p>This page will guide you through the steps to setup a developer workstation
-in readiness for the remaining tutorials.
-The tools you need to install are:</p>
-<ul class="simple">
-<li><p>Visual Studio Code</p></li>
-<li><p>a container platform, either podman or docker</p></li>
-<li><p>Python 3.9 or later + a Python virtual environment</p></li>
-<li><p>git client for version control</p></li>
-</ul>
-<p>Visual Studio Code is recommended because it has excellent integration with
-devcontainers. It also has useful extensions for working with Kubernetes,
-EPICS, WSL2 and more.</p>
-<section id="options">
-<h2>Options<a class="headerlink" href="#options" title="Link to this heading">#</a></h2>
-<p>You are not required to use VSCode to develop with epics-containers.
-If you have your own preferred code editor you can use that.</p>
-<p>See these how-to pages for more information:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="../how-to/own_tools.html#own-editor"><span class="std std-ref">Working with your own code editor</span></a></p></li>
-</ul>
-</section>
-<section id="platform-support">
-<h2>Platform Support<a class="headerlink" href="#platform-support" title="Link to this heading">#</a></h2>
-<p>epics-containers can use Linux, Windows or MacOS as the host operating system for
-the developer workstation.</p>
-<p>If you are using Windows then you must first
-install WSL2 and then work within the Linux subsystem. see
-<a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">WSL2 installation instructions</a>.
-Ubuntu is recommended as the Linux distribution for WSL2.</p>
-</section>
-<section id="installation-steps">
-<h2>Installation Steps<a class="headerlink" href="#installation-steps" title="Link to this heading">#</a></h2>
-<section id="setup-vscode">
-<h3>Setup VSCode<a class="headerlink" href="#setup-vscode" title="Link to this heading">#</a></h3>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><strong>DLS Users</strong>:  You can access VSCode with <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">vscode</span></code>.</p>
+  <section id="make-a-release-of-example-beamline-bl01t">
+<h1>Make a Release of Example Beamline bl01t<a class="headerlink" href="#make-a-release-of-example-beamline-bl01t" title="Link to this heading">#</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This information is out of date. It will be updated soon.</p>
 </div>
-<p>First download and install Visual Studio Code.</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://code.visualstudio.com/download">Download Visual Studio Code</a></p></li>
-<li><p><a class="reference external" href="https://code.visualstudio.com/learn/get-started/basics">Setup Visual Studio Code</a></p></li>
-</ul>
-<p>VSCode has an huge library of extensions. The following list of extensions are
-useful for working with epics-containers. You will need to install the <em>Required</em>
-extensions before proceeding to the next tutorial. See the links for instructions
-on how to do this.</p>
-<p>The recommended extensions will be installed for you when you launch the
-devcontainer in the next tutorial.</p>
-<ul class="simple">
-<li><p>Required: <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack">Remote Development</a></p></li>
-<li><p>Required for Windows: <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl">VSCode WSL2</a> (see <a class="reference external" href="https://code.visualstudio.com/blogs/2019/09/03/wsl2">How to use WSL2 and Visual Studio Code</a>)</p></li>
-<li><p>Recommended: <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=nsd.vscode-epics">VSCode EPICS</a></p></li>
-<li><p>Recommended: <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools">Kubernetes</a></p></li>
-</ul>
-</section>
-<section id="setup-docker-or-podman">
-<h3>Setup Docker or Podman<a class="headerlink" href="#setup-docker-or-podman" title="Link to this heading">#</a></h3>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><strong>DLS Users</strong>: RHEL 8 Workstations at DLS have podman 4.4.1 installed by default.
-RHEL 7 Workstations are not supported.</p>
-</div>
-<p>Next install docker or podman as the your container platform. epics-containers
-has been tested with podman 4.4.1 on RedHat 8, and Docker 24.0.5 on
-for Ubuntu 22.04.</p>
-<p>If you are using docker, simply replace <code class="docutils literal notranslate"><span class="pre">podman</span></code> with <code class="docutils literal notranslate"><span class="pre">docker</span></code> in the
-commands listed in these tutorials.</p>
-<p>The podman version required is 4.0 or later. Any version of docker since 20.10
-will also work. Pick the tool that has the most recent version for your platform.
-RedHat 8 and above have recent podman versions. Debian platforms don’t yet
-have recent podman versions available. If you have a choice then podman is
-preferred because it does not require root access and it is the tool with
-which epics-containers has had the most testing.</p>
-<p>The links below have details of how to install your choice of container platform:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://docs.docker.com/engine/install/">Install docker</a></p></li>
-<li><p><a class="reference external" href="https://podman.io/getting-started/installation">Install podman</a></p></li>
-</ul>
-<p>The docker install page encourages you to install Docker Desktop. This is a paid
-for product and is not required for this tutorial. You can install the free linux
-CLI tools by clicking on the appropriate linux distribution link.</p>
-</section>
-<section id="install-python">
-<span id="python-setup"></span><h3>Install Python<a class="headerlink" href="#install-python" title="Link to this heading">#</a></h3>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><strong>DLS Users</strong>: RHEL 8 Workstations at DLS have Python 3.9 installed by default.</p>
-</div>
-<p>Go ahead and install Python 3.9 or later. 3.11 is recommended as this is the
-highest version that epics-containers has been tested with.</p>
-<p>There are instructions for installing Python on all platforms here:
-<a class="reference external" href="https://docs.python-guide.org/starting/installation/">https://docs.python-guide.org/starting/installation/</a></p>
-<p>Once you have python set up a virtual environment for your epics-containers
-work. In the examples we will use <code class="docutils literal notranslate"><span class="pre">$HOME/ec-venv</span></code> as the virtual environment
-but you can choose any folder.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span><span class="nv">$HOME</span>/ec-venv
-<span class="nb">source</span><span class="w"> </span><span class="nv">$HOME</span>/ec-venv/bin/activate
-python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+<p>To make a release of the project we defined in <a class="reference internal" href="deploy_example.html"><span class="doc">Deploy The Example IOC</span></a>,
+we will
+tag your repo with a calendar based version number see (<a class="reference external" href="https://calver.org/">https://calver.org/</a>).</p>
+<p>We use YY.MM.MINOR for versioning things like beamlines and Generic IOCs. You
+can choose your own scheme, but because these projects do not have APIs as
+such it is more instructive to use a date based scheme.</p>
+<p>The example version below was the first revision in the month of April 2023.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>bl01t
+git<span class="w"> </span>tag<span class="w"> </span><span class="m">23</span>.4.1
+<span class="c1"># push the tag</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span><span class="m">23</span>.4.1
 </pre></div>
 </div>
-<p>Note that each time you open a new shell you will need to activate the virtual
-environment again. (Or place it’s bin folder in your path permanently).</p>
-</section>
-<section id="epics-containers-cli">
-<h3>epics-containers-cli<a class="headerlink" href="#epics-containers-cli" title="Link to this heading">#</a></h3>
-<p>Above we set up a python virtual environment. Now we will install
-the epics-containers-cli python tool into that environment.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>epics-containers-cli
-</pre></div>
-</div>
-<p>This is the developer’s ‘outside of the container’ helper tool. The command
-line entry point is <code class="docutils literal notranslate"><span class="pre">ec</span></code>. We will be using many <code class="docutils literal notranslate"><span class="pre">ec</span></code> command line
-functions in the next tutorial.</p>
-<p>See <a class="reference internal" href="../reference/cli.html#cli"><span class="std std-ref">Command Line Interface for IOC Management</span></a> for more details.</p>
-</section>
-</section>
-<section id="git">
-<h2>Git<a class="headerlink" href="#git" title="Link to this heading">#</a></h2>
-<p>If you don’t already have git installed see
-<a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">https://git-scm.com/book/en/v2/Getting-Started-Installing-Git</a>. Any recent
-version of git will work.</p>
-<section id="id1">
-<h3>Kubernetes<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<p>You don’t need Kubernetes yet.</p>
-<p>The following tutorials will take you through creating, deploying and
-debugging IOC instances, generic IOCs and support modules.</p>
-<p>For simplicity we don’t encourage using Kubernetes at this stage. Instead we
-will deploy containers to the local workstations docker or podman instance.</p>
-<p>However, everything in these tutorials would also work with Kubernetes. If you
-are particularly interested in Kubernetes then you can jump to
-<a class="reference internal" href="setup_k8s.html#setup-kubernetes"><span class="std std-ref">Setup a Kubernetes Server</span></a> and follow the instructions there. Then come back to this
-point and continue with the tutorials.</p>
-<p>If you are planning not to use Kubernetes at all then now might be
-a good time to install an alternative container management platform such
-as <a class="reference external" href="https://www.portainer.io/">Portainer</a>. Such tools will help you
-visualise and manage your local containers. They are not required and you
-could just manage everything from epics-containers command line interface
-if you prefer.</p>
-</section>
-</section>
+<p>This will cause GitHub to create a release of the project and trigger
+continuous integration. The continuous integration will look at all of
+the IOCs in the beamline and generate helm charts for each one. If the helm
+chart has changed since the last release then a new version of the helm chart
+is delivered to your GitHub account’s OCI registry.</p>
+<p>To watch the progress go to the Actions Panel for your project at
+<a class="github reference external" href="https://github.com">github</a>/&lt;YOUR USER NAME&gt;/bl01t/actions</p>
+<figure class="align-default">
+<img alt="../../_images/github_actions.png" src="../../_images/github_actions.png" />
+</figure>
+<p>Once the CI completes you should have a helm chart delivered in your project
+OCI registry. You can see this listed in project ‘packages’.
+Look for a link to the package on the right hand side of your
+project page.</p>
+<p>Go to the code pane and click on the example package circled below to see it.</p>
+<figure class="align-default">
+<img alt="../../_images/github_package.png" src="../../_images/github_package.png" />
+</figure>
+<p>The OCI registry name of the helm chart will be
+ghcr.io/&lt;YOUR USER NAME&gt;/bl01t/bl01t-ea-ioc-01:23.4.1.</p>
+<p>You have now completed this tutorial. Here you have created a new beamline
+repository and made a release of it. The release includes the example IOCs
+instance called <code class="docutils literal notranslate"><span class="pre">bl01t-ea-ioc-01</span></code>. This IOC has had a helm chart generated
+for it and published ready for deployment to your cluster.</p>
+<p>In the next tutorial we will look into what we have created in more detail
+and we will deploy and test the new example IOC.</p>
+<p>For details of what goes into the helm chart of an IOC instance see
+<a class="reference internal" href="../reference/ioc_helm_chart.html"><span class="doc">IOC Helm Chart Details</span></a>.</p>
 </section>
 
 
@@ -666,20 +570,20 @@ if you prefer.</p>
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="intro.html"
+       href="ioc_changes.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Tutorials Introduction</p>
+        <p class="prev-next-title">Testing Changes to IOC Instances</p>
       </div>
     </a>
     <a class="right-next"
-       href="create_beamline.html"
+       href="generic_ioc.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Create a Beamline Repository</p>
+        <p class="prev-next-title">Create a Generic IOC</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -693,31 +597,9 @@ if you prefer.</p>
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
   <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#options">Options</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#platform-support">Platform Support</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-steps">Installation Steps</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-vscode">Setup VSCode</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-docker-or-podman">Setup Docker or Podman</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-python">Install Python</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#epics-containers-cli">epics-containers-cli</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git">Git</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Kubernetes</a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-  <div class="sidebar-secondary-item">
   
   <div class="tocsection editthispage">
-    <a href="https://github.com/epics-containers/epics-containers.github.io/edit/dev/docs/user/tutorials/setup_workstation.rst">
+    <a href="https://github.com/epics-containers/epics-containers.github.io/edit/dev/docs/user/tutorials/release_beamline.rst">
       <i class="fa-solid fa-pencil"></i>
       
       
@@ -731,7 +613,7 @@ if you prefer.</p>
 
   <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">
-    <a href="../../_sources/user/tutorials/setup_workstation.rst.txt">
+    <a href="../../_sources/user/tutorials/release_beamline.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>

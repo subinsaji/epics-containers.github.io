@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Command Line Interface for IOC Management &#8212; epics-containers.github.io 0.10.dev42+gd7d50a3 documentation</title>
+    <title>Command Line Interface for IOC Management &#8212; epics-containers.github.io 0.9.1.dev25+g3a35e59 documentation</title>
   
   
   
@@ -18,12 +18,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -34,11 +34,11 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
 
-    <script src="../../_static/documentation_options.js?v=aed3db7c"></script>
+    <script src="../../_static/documentation_options.js?v=a38dd1d5"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -46,7 +46,7 @@
     <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user/reference/cli';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.14.1';
+        DOCUMENTATION_OPTIONS.theme_version = '0.14.2';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://epics-containers.github.io/epics-containers.github.io/switcher.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
@@ -55,7 +55,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="IOC Helm Chart Details" href="ioc_helm_chart.html" />
-    <link rel="prev" title="Frequently Asked Questions" href="faq.html" />
+    <link rel="prev" title="The Environment Configuration File" href="environment.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -126,13 +126,14 @@
   
   
   
+  
     
     
       
     
     
-    <img src="../../_static/k8s-epics2.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/k8s-epics2.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../_static/k8s-epics2.png" class="logo__image only-light" alt=""/>
+    <script>document.write(`<img src="../../_static/k8s-epics2.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
     <p class="title logo__title">epics-containers.github.io</p>
@@ -239,12 +240,21 @@ document.write(`
 <script>
 document.write(`
   <div class="version-switcher__container dropdown">
-    <button id="versionswitcherbutton" type="button" role="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="listbox" aria-controls="versionswitcherlist" aria-label="Version switcher list">
+    <button id="pst-version-switcher-button-2"
+      type="button"
+      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-2"
+      aria-label="Version switcher list"
+    >
       Choose version  <!-- this text may get changed later by javascript -->
       <span class="caret"></span>
     </button>
-    <div id="versionswitcherlist" class="version-switcher__menu dropdown-menu list-group-flush py-0" role="listbox" aria-labelledby="versionswitcherbutton">
-    <!-- dropdown will be populated by javascript on page load -->
+    <div id="pst-version-switcher-list-2"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-2">
+      <!-- dropdown will be populated by javascript on page load -->
     </div>
   </div>
 `);
@@ -370,12 +380,21 @@ document.write(`
 <script>
 document.write(`
   <div class="version-switcher__container dropdown">
-    <button id="versionswitcherbutton" type="button" role="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="listbox" aria-controls="versionswitcherlist" aria-label="Version switcher list">
+    <button id="pst-version-switcher-button-3"
+      type="button"
+      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-3"
+      aria-label="Version switcher list"
+    >
       Choose version  <!-- this text may get changed later by javascript -->
       <span class="caret"></span>
     </button>
-    <div id="versionswitcherlist" class="version-switcher__menu dropdown-menu list-group-flush py-0" role="listbox" aria-labelledby="versionswitcherbutton">
-    <!-- dropdown will be populated by javascript on page load -->
+    <div id="pst-version-switcher-list-3"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-3">
+      <!-- dropdown will be populated by javascript on page load -->
     </div>
   </div>
 `);
@@ -397,6 +416,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/deploy_example.html">Deploy The Example IOC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/ioc_changes.html">Testing Changes to IOC Instances</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/release_beamline.html">Make a Release of Example Beamline bl01t</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/generic_ioc.html">Create a Generic IOC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/debug_generic_ioc.html">Debugging Generic IOC Builds</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/test_generic_ioc.html">Testing and Deploying a Generic IOC</a></li>
@@ -424,12 +444,12 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="../explanations/kubernetes_cluster.html">Kubernetes Cluster Config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../explanations/docs-structure.html">About the documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../explanations/repositories.html">Source and Registry Locations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../explanations/cli-tools.html">CLI Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../explanations/repos.html">What is the /repos Folder?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment.html">The Environment Configuration File</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Command Line Interface for IOC Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ioc_helm_chart.html">IOC Helm Chart Details</a></li>
 <li class="toctree-l1"><a class="reference internal" href="k8s_resources.html">Kubernetes Resources in an IOC Instance</a></li>
@@ -492,21 +512,76 @@ document.write(`
                   
   <section id="command-line-interface-for-ioc-management">
 <span id="cli"></span><h1>Command Line Interface for IOC Management<a class="headerlink" href="#command-line-interface-for-ioc-management" title="Link to this heading">#</a></h1>
-<p>Built in to the devcontainer is epics-containers-cli, a command line interface
-for assisting with building and managing IOCs in the cluster.</p>
-<p>The CLI is just a thin wrapper around these tools:-</p>
+<p>The python project <code class="docutils literal notranslate"><span class="pre">epics-containers-cli</span></code> is installed as part of the
+Python section of the initial tutorial <a class="reference internal" href="../tutorials/setup_workstation.html"><span class="doc">Setup a Developer Workstation</span></a>.
+It provides a command line function <code class="docutils literal notranslate"><span class="pre">ec</span></code> with support for:</p>
 <ul class="simple">
-<li><p>kubectl</p></li>
-<li><p>helm</p></li>
-<li><p>podman (or docker)</p></li>
+<li><p>building and debugging Generic IOC Containers</p></li>
+<li><p>deploying, managing and debugging IOC Instances</p></li>
 </ul>
-<p>To help with learning the above tools. The CLI will print out the commands it
-executes before running them. This can be suppressed with the <code class="docutils literal notranslate"><span class="pre">--quiet</span></code> flag,
-or by setting the <code class="docutils literal notranslate"><span class="pre">K8S_QUIET=true</span></code> in your environment.</p>
-<p>The CLI entrypoint is <code class="docutils literal notranslate"><span class="pre">ec</span></code>. To see the available commands, run <code class="docutils literal notranslate"><span class="pre">ec</span> <span class="pre">--help</span></code>.
-Much of the functionality is available through subcommands dev and ioc.
-Below is pasted the current version of help for the CLI.</p>
-</section>
+<p>The CLI is just a thin wrapper around the underlying tools that do the real
+work:</p>
+<dl class="field-list simple">
+<dt class="field-odd">kubectl<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the command line interface to the Kubernetes APIs</p>
+</dd>
+<dt class="field-even">helm<span class="colon">:</span></dt>
+<dd class="field-even"><p>the command line interface to the Kubernetes Helm package manager</p>
+</dd>
+<dt class="field-odd">podman (or docker)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>CLIs for container engines</p>
+</dd>
+<dt class="field-even">git<span class="colon">:</span></dt>
+<dd class="field-even"><p>the git version control system client</p>
+</dd>
+</dl>
+<p><code class="docutils literal notranslate"><span class="pre">ec</span></code> is useful because it saves typing and provides a consistent interface
+when working on multiple beamlines. This is because it uses the environment
+setup by the beamline repo’s <code class="docutils literal notranslate"><span class="pre">environment.sh</span></code> script. See <a class="reference internal" href="environment.html"><span class="doc">The Environment Configuration File</span></a>.</p>
+<p>To see the available commands, run <code class="docutils literal notranslate"><span class="pre">ec</span> <span class="pre">--help</span></code>.
+Much of the functionality is available through subcommands dev and ioc. To get
+full details of a given command type the full command plus <code class="docutils literal notranslate"><span class="pre">--help</span></code>. For
+example:</p>
+<pre>$ ec dev launch --help
+<b>                                                                                 </b>
+<b> </b><font color="#A2734C"><b>Usage: </b></font><b>ec dev launch [OPTIONS] IOC_INSTANCE                                     </b>
+<b>                                                                                 </b>
+Launch an IOC instance using configuration from a domain repo. Or by passing a
+generic IOC image ID. Can be used for local testing of IOC instances. You may
+find the devcontainer a more convenient way to do this.
+
+<font color="#AAAAAA">╭─ Arguments ───────────────────────────────────────────────────────────────────╮</font>
+<font color="#AAAAAA">│ </font><font color="#C01C28">*</font>    ioc_instance      <font color="#A2734C"><b>DIRECTORY</b></font>  local IOC definition folder from domain     │
+<font color="#AAAAAA">│                                   repo                                        │</font>
+<font color="#AAAAAA">│                                   [default: None]                             │</font>
+<font color="#AAAAAA">│                                   </font><font color="#80121A">[required]                                 </font> │
+<font color="#AAAAAA">╰───────────────────────────────────────────────────────────────────────────────╯</font>
+<font color="#AAAAAA">╭─ Options ─────────────────────────────────────────────────────────────────────╮</font>
+<font color="#AAAAAA">│ </font><font color="#2AA1B3"><b>--execute</b></font>         <font color="#A2734C"><b>TEXT               </b></font>  command to execute in the container.   │
+<font color="#AAAAAA">│                                        Defaults to executing the IOC          │</font>
+<font color="#AAAAAA">│                                        [default: /epics/ioc/start.sh; bash]   │</font>
+<font color="#AAAAAA">│ </font><font color="#2AA1B3"><b>--target</b></font>          <font color="#6C4C32"><b>[developer|runtime]</b></font>  choose runtime or developer target     │
+<font color="#AAAAAA">│                                        [default: developer]                   │</font>
+<font color="#AAAAAA">│ </font><font color="#2AA1B3"><b>--image</b></font>           <font color="#A2734C"><b>TEXT               </b></font>  override container image to use        │
+<font color="#AAAAAA">│ </font><font color="#2AA1B3"><b>--tag</b></font>             <font color="#A2734C"><b>TEXT               </b></font>  override image tag to use.             │
+<font color="#AAAAAA">│                                        [default: None]                        │</font>
+<font color="#AAAAAA">│ </font><font color="#2AA1B3"><b>--args</b></font>            <font color="#A2734C"><b>TEXT               </b></font>  Additional args for podman/docker,     │
+<font color="#AAAAAA">│                                        &apos;must be quoted&apos;                       │</font>
+<font color="#AAAAAA">│ </font><font color="#2AA1B3"><b>--ioc-name</b></font>        <font color="#A2734C"><b>TEXT               </b></font>  container name override. Use to run    │
+<font color="#AAAAAA">│                                        multiple instances                     │</font>
+<font color="#AAAAAA">│                                        [default: test-ioc]                    │</font>
+<font color="#AAAAAA">│ </font><font color="#2AA1B3"><b>--help</b></font>            <font color="#A2734C"><b>                   </b></font>  Show this message and exit.            │
+<font color="#AAAAAA">╰───────────────────────────────────────────────────────────────────────────────╯</font>
+</pre><p>It may be instructive to understand the underlying tools and how they are
+are being called. For this reason <code class="docutils literal notranslate"><span class="pre">ec</span></code> supports a <code class="docutils literal notranslate"><span class="pre">-v</span></code> option to show
+the underlying commands being executed. e.g.</p>
+<pre>$ ec -v ps
+<font color="#5F8787">kubectl get namespace p38-iocs -o name</font>
+<font color="#5F8787">kubectl -n p38-iocs get pod -l is_ioc==True -o custom-columns=IOC_NAME:metadata.labels.app,VERSION:metadata.labels.ioc_version,STATE:status.phase,RESTARTS:status.containerStatuses[0].restartCount,STARTED:metadata.managedFields[0].time</font>
+IOC_NAME            VERSION             STATE     RESTARTS   STARTED
+bl38p-ea-ioc-03     2023.10.6           Running   0          2023-10-25T14:07:44Z
+bl38p-ea-panda-02   2023.10.25-b16.24   Running   0          2023-10-25T15:24:41Z
+</pre></section>
 
 
                 </article>
@@ -519,12 +594,12 @@ Below is pasted the current version of help for the CLI.</p>
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="faq.html"
+       href="environment.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Frequently Asked Questions</p>
+        <p class="prev-next-title">The Environment Configuration File</p>
       </div>
     </a>
     <a class="right-next"
@@ -581,8 +656,8 @@ Below is pasted the current version of help for the CLI.</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -592,7 +667,7 @@ Below is pasted the current version of help for the CLI.</p>
     <div class="footer-items__end">
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.1.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.2.
 </p></div>
       
     </div>
