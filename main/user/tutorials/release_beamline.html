@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Developer Contributing &#8212; epics-containers.github.io 0.9.1.dev27+gf76ead7 documentation</title>
+    <title>Make a Release of Example Beamline bl01t &#8212; epics-containers.github.io 0.9.1.dev27+gf76ead7 documentation</title>
   
   
   
@@ -44,7 +44,7 @@
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=30646c52"></script>
     <script src="../../_static/design-tabs.js?v=36754332"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'developer/tutorials/dev-install';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'user/tutorials/release_beamline';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.14.2';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://epics-containers.github.io/epics-containers.github.io/switcher.json';
@@ -54,8 +54,8 @@
     <link rel="icon" href="../../_static/k8s-epics2.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Contributing to the project" href="../how-to/contribute.html" />
-    <link rel="prev" title="Developer Guide" href="../index.html" />
+    <link rel="next" title="Create a Generic IOC" href="generic_ioc.html" />
+    <link rel="prev" title="Testing Changes to IOC Instances" href="ioc_changes.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -155,15 +155,15 @@
   </p>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../../user/index.html">
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
                         User Guide
                       </a>
                     </li>
                 
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="../index.html">
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../developer/index.html">
                         Developer Guide
                       </a>
                     </li>
@@ -308,15 +308,15 @@ document.write(`
   </p>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../../user/index.html">
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
                         User Guide
                       </a>
                     </li>
                 
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="../index.html">
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../developer/index.html">
                         Developer Guide
                       </a>
                     </li>
@@ -410,26 +410,49 @@ document.write(`
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Developer Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Tutorials Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_workstation.html">Setup a Developer Workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_beamline.html">Create a Beamline Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy_example.html">Deploy The Example IOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ioc_changes.html">Testing Changes to IOC Instances</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Make a Release of Example Beamline bl01t</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generic_ioc.html">Create a Generic IOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug_generic_ioc.html">Debugging Generic IOC Builds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test_generic_ioc.html">Testing and Deploying a Generic IOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support_module.html">Working with Support Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_k8s.html">Setup a Kubernetes Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rtems_setup.html">RTEMS - Creating a File Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rtems_ioc.html">RTEMS - Deploying an Example IOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ibek.html">Defining IOC Instances using IBEK</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../how-to/contribute.html">Contributing to the project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../how-to/build-docs.html">Build the docs using sphinx</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../how-to/update-tools.html">Update the tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../how-to/make-release.html">Make a release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/run_iocs.html">Run an IOC without Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/debug.html">Debug an IOC instance locally</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../how-to/contributing.html">Contributing to the project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/own_tools.html">Choose Your Developer Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/useful_k8s.html">Kubernetes Additional How To’s</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/update_templated.html">Updating Template Based Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/ibek-defs.html">Updating and Testing ibek-defs</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Explanations</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../explanations/decisions.html">Architectural Decision Records</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../explanations/decisions/0001-record-architecture-decisions.html">1. Record architecture decisions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../explanations/decisions/0002-switched-to-pip-skeleton.html">2. Adopt epics-containers.github.io for project structure</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/introduction.html">Essential Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/net_protocols.html">Channel Access and Other Protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/kubernetes_cluster.html">Kubernetes Cluster Config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/docs-structure.html">About the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/repositories.html">Source and Registry Locations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/repos.html">What is the /repos Folder?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../reference/standards.html">Standards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/environment.html">The Environment Configuration File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/cli.html">Command Line Interface for IOC Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/ioc_helm_chart.html">IOC Helm Chart Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/k8s_resources.html">Kubernetes Resources in an IOC Instance</a></li>
 </ul>
 </div>
 </nav></div>
@@ -468,9 +491,9 @@ document.write(`
       </a>
     </li>
     
-    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Developer Guide</a></li>
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">User Guide</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">Developer...</li>
+    <li class="breadcrumb-item active" aria-current="page">Make a...</li>
   </ul>
 </nav>
 </div>
@@ -487,62 +510,53 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="developer-contributing">
-<h1>Developer Contributing<a class="headerlink" href="#developer-contributing" title="Link to this heading">#</a></h1>
-<p>This project is documentation only. However the below steps set up a virtual
-python environment with the required tools to generate the sphinx documentation.</p>
-<p>Other projects in this repository do contain code and will have their own
-details on how to build and test them.</p>
-<p>These instructions will take you through the minimal steps required to get a dev
-environment setup, so you can build the documentation locally.</p>
-<p>Once completed see <a class="reference internal" href="../how-to/build-docs.html"><span class="doc">Build the docs using sphinx</span></a> for how to build the documentation.</p>
-<section id="clone-the-repository">
-<h2>Clone the repository<a class="headerlink" href="#clone-the-repository" title="Link to this heading">#</a></h2>
-<p>First clone the repository locally using <a class="reference external" href="https://git-scm.com/downloads">Git</a>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone git://github.com/epics-containers/epics-containers.github.io.git
+  <section id="make-a-release-of-example-beamline-bl01t">
+<h1>Make a Release of Example Beamline bl01t<a class="headerlink" href="#make-a-release-of-example-beamline-bl01t" title="Link to this heading">#</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This information is out of date. It will be updated soon.</p>
+</div>
+<p>To make a release of the project we defined in <a class="reference internal" href="deploy_example.html"><span class="doc">Deploy The Example IOC</span></a>,
+we will
+tag your repo with a calendar based version number see (<a class="reference external" href="https://calver.org/">https://calver.org/</a>).</p>
+<p>We use YY.MM.MINOR for versioning things like beamlines and Generic IOCs. You
+can choose your own scheme, but because these projects do not have APIs as
+such it is more instructive to use a date based scheme.</p>
+<p>The example version below was the first revision in the month of April 2023.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>bl01t
+git<span class="w"> </span>tag<span class="w"> </span><span class="m">23</span>.4.1
+<span class="c1"># push the tag</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span><span class="m">23</span>.4.1
 </pre></div>
 </div>
-</section>
-<section id="install-dependencies">
-<h2>Install dependencies<a class="headerlink" href="#install-dependencies" title="Link to this heading">#</a></h2>
-<p>You can choose to either develop on the host machine using a <a class="reference external" href="https://docs.python.org/3/library/venv.html#module-venv" title="(in Python v3.12)"><code class="xref any docutils literal notranslate"><span class="pre">venv</span></code></a> (which
-requires python 3.8 or later) or to run in a container under <a class="reference external" href="https://code.visualstudio.com/">VSCode</a></p>
-<div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
-</input><label class="sd-tab-label" for="sd-tab-item-0">
-Local virtualenv</label><div class="sd-tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd epics-containers.github.io
-$ python3 -m venv venv
-$ source venv/bin/activate
-$ pip install -e &#39;.[dev]&#39;
-</pre></div>
-</div>
-</div>
-<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
-</input><label class="sd-tab-label" for="sd-tab-item-1">
-VSCode devcontainer</label><div class="sd-tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ code epics-containers.github.io
-# Click on &#39;Reopen in Container&#39; when prompted
-# Open a new terminal
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="see-what-was-installed">
-<h2>See what was installed<a class="headerlink" href="#see-what-was-installed" title="Link to this heading">#</a></h2>
-<p>To see a graph of the python package dependency tree type:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pipdeptree
-</pre></div>
-</div>
-</section>
-<section id="build-and-check">
-<h2>Build and check<a class="headerlink" href="#build-and-check" title="Link to this heading">#</a></h2>
-<p>Now you have a development environment you can run checks in a terminal:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tox -p
-</pre></div>
-</div>
-</section>
+<p>This will cause GitHub to create a release of the project and trigger
+continuous integration. The continuous integration will look at all of
+the IOCs in the beamline and generate helm charts for each one. If the helm
+chart has changed since the last release then a new version of the helm chart
+is delivered to your GitHub account’s OCI registry.</p>
+<p>To watch the progress go to the Actions Panel for your project at
+<a class="github reference external" href="https://github.com">github</a>/&lt;YOUR USER NAME&gt;/bl01t/actions</p>
+<figure class="align-default">
+<img alt="../../_images/github_actions.png" src="../../_images/github_actions.png" />
+</figure>
+<p>Once the CI completes you should have a helm chart delivered in your project
+OCI registry. You can see this listed in project ‘packages’.
+Look for a link to the package on the right hand side of your
+project page.</p>
+<p>Go to the code pane and click on the example package circled below to see it.</p>
+<figure class="align-default">
+<img alt="../../_images/github_package.png" src="../../_images/github_package.png" />
+</figure>
+<p>The OCI registry name of the helm chart will be
+ghcr.io/&lt;YOUR USER NAME&gt;/bl01t/bl01t-ea-ioc-01:23.4.1.</p>
+<p>You have now completed this tutorial. Here you have created a new beamline
+repository and made a release of it. The release includes the example IOCs
+instance called <code class="docutils literal notranslate"><span class="pre">bl01t-ea-ioc-01</span></code>. This IOC has had a helm chart generated
+for it and published ready for deployment to your cluster.</p>
+<p>In the next tutorial we will look into what we have created in more detail
+and we will deploy and test the new example IOC.</p>
+<p>For details of what goes into the helm chart of an IOC instance see
+<a class="reference internal" href="../reference/ioc_helm_chart.html"><span class="doc">IOC Helm Chart Details</span></a>.</p>
 </section>
 
 
@@ -556,20 +570,20 @@ VSCode devcontainer</label><div class="sd-tab-content docutils">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../index.html"
+       href="ioc_changes.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Developer Guide</p>
+        <p class="prev-next-title">Testing Changes to IOC Instances</p>
       </div>
     </a>
     <a class="right-next"
-       href="../how-to/contribute.html"
+       href="generic_ioc.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Contributing to the project</p>
+        <p class="prev-next-title">Create a Generic IOC</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -583,22 +597,9 @@ VSCode devcontainer</label><div class="sd-tab-content docutils">
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
   <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-the-repository">Clone the repository</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dependencies">Install dependencies</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-what-was-installed">See what was installed</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-and-check">Build and check</a></li>
-</ul>
-  </nav></div>
-
-  <div class="sidebar-secondary-item">
   
   <div class="tocsection editthispage">
-    <a href="https://github.com/epics-containers/epics-containers.github.io/edit/main/docs/developer/tutorials/dev-install.rst">
+    <a href="https://github.com/epics-containers/epics-containers.github.io/edit/main/docs/user/tutorials/release_beamline.rst">
       <i class="fa-solid fa-pencil"></i>
       
       
@@ -612,7 +613,7 @@ VSCode devcontainer</label><div class="sd-tab-content docutils">
 
   <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">
-    <a href="../../_sources/developer/tutorials/dev-install.rst.txt">
+    <a href="../../_sources/user/tutorials/release_beamline.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>

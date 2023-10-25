@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Setup a Developer Workstation &#8212; epics-containers.github.io 0.9.1.dev14+g7251f53 documentation</title>
+    <title>Setup a Developer Workstation &#8212; epics-containers.github.io 0.9.1.dev27+gf76ead7 documentation</title>
   
   
   
@@ -18,12 +18,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -34,11 +34,11 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
 
-    <script src="../../_static/documentation_options.js?v=756008ad"></script>
+    <script src="../../_static/documentation_options.js?v=4dd3286e"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -46,7 +46,7 @@
     <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user/tutorials/setup_workstation';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.14.1';
+        DOCUMENTATION_OPTIONS.theme_version = '0.14.2';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://epics-containers.github.io/epics-containers.github.io/switcher.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'main';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
@@ -54,7 +54,7 @@
     <link rel="icon" href="../../_static/k8s-epics2.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Setup a Devcontainer" href="devcontainer.html" />
+    <link rel="next" title="Create a Beamline Repository" href="create_beamline.html" />
     <link rel="prev" title="Tutorials Introduction" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -126,13 +126,14 @@
   
   
   
+  
     
     
       
     
     
-    <img src="../../_static/k8s-epics2.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/k8s-epics2.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../_static/k8s-epics2.png" class="logo__image only-light" alt=""/>
+    <script>document.write(`<img src="../../_static/k8s-epics2.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
     <p class="title logo__title">epics-containers.github.io</p>
@@ -239,12 +240,21 @@ document.write(`
 <script>
 document.write(`
   <div class="version-switcher__container dropdown">
-    <button id="versionswitcherbutton" type="button" role="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="listbox" aria-controls="versionswitcherlist" aria-label="Version switcher list">
+    <button id="pst-version-switcher-button-2"
+      type="button"
+      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-2"
+      aria-label="Version switcher list"
+    >
       Choose version  <!-- this text may get changed later by javascript -->
       <span class="caret"></span>
     </button>
-    <div id="versionswitcherlist" class="version-switcher__menu dropdown-menu list-group-flush py-0" role="listbox" aria-labelledby="versionswitcherbutton">
-    <!-- dropdown will be populated by javascript on page load -->
+    <div id="pst-version-switcher-list-2"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-2">
+      <!-- dropdown will be populated by javascript on page load -->
     </div>
   </div>
 `);
@@ -370,12 +380,21 @@ document.write(`
 <script>
 document.write(`
   <div class="version-switcher__container dropdown">
-    <button id="versionswitcherbutton" type="button" role="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="listbox" aria-controls="versionswitcherlist" aria-label="Version switcher list">
+    <button id="pst-version-switcher-button-3"
+      type="button"
+      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-3"
+      aria-label="Version switcher list"
+    >
       Choose version  <!-- this text may get changed later by javascript -->
       <span class="caret"></span>
     </button>
-    <div id="versionswitcherlist" class="version-switcher__menu dropdown-menu list-group-flush py-0" role="listbox" aria-labelledby="versionswitcherbutton">
-    <!-- dropdown will be populated by javascript on page load -->
+    <div id="pst-version-switcher-list-3"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-3">
+      <!-- dropdown will be populated by javascript on page load -->
     </div>
   </div>
 `);
@@ -393,17 +412,16 @@ document.write(`
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Tutorials Introduction</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Setup a Developer Workstation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="devcontainer.html">Setup a Devcontainer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="epics_devcontainer.html">The EPICS Devcontainer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="setup_k8s.html">Setup a Kubernetes Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="create_beamline.html">Create a Beamline Repository</a></li>
 <li class="toctree-l1"><a class="reference internal" href="deploy_example.html">Deploy The Example IOC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ioc_changes.html">Testing Changes to IOC Instances</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="release_beamline.html">Make a Release of Example Beamline bl01t</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generic_ioc.html">Create a Generic IOC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debug_generic_ioc.html">Debugging Generic IOC Builds</a></li>
 <li class="toctree-l1"><a class="reference internal" href="test_generic_ioc.html">Testing and Deploying a Generic IOC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="support_module.html">Working with Support Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_k8s.html">Setup a Kubernetes Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rtems_setup.html">RTEMS - Creating a File Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rtems_ioc.html">RTEMS - Deploying an Example IOC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ibek.html">Defining IOC Instances using IBEK</a></li>
@@ -426,12 +444,12 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="../explanations/kubernetes_cluster.html">Kubernetes Cluster Config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../explanations/docs-structure.html">About the documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../explanations/repositories.html">Source and Registry Locations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../explanations/cli-tools.html">CLI Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../explanations/repos.html">What is the /repos Folder?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../reference/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/environment.html">The Environment Configuration File</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference/cli.html">Command Line Interface for IOC Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference/ioc_helm_chart.html">IOC Helm Chart Details</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference/k8s_resources.html">Kubernetes Resources in an IOC Instance</a></li>
@@ -496,32 +514,23 @@ document.write(`
 <h1>Setup a Developer Workstation<a class="headerlink" href="#setup-a-developer-workstation" title="Link to this heading">#</a></h1>
 <p>This page will guide you through the steps to setup a developer workstation
 in readiness for the remaining tutorials.
-The only tools you need to install are:</p>
+The tools you need to install are:</p>
 <ul class="simple">
 <li><p>Visual Studio Code</p></li>
 <li><p>a container platform, either podman or docker</p></li>
+<li><p>Python 3.9 or later + a Python virtual environment</p></li>
+<li><p>git client for version control</p></li>
 </ul>
-<p>That’s it. The reason the list is so short is that we will be using
-a developer container which includes all the tools needed. Thus you only need
-docker or podman to get the devcontainer up and running.</p>
-<p>Visual Studio Code is also recommended because it has excellent integration with
+<p>Visual Studio Code is recommended because it has excellent integration with
 devcontainers. It also has useful extensions for working with Kubernetes,
 EPICS, WSL2 and more.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><strong>DLS Users</strong>: RHEL 8 Workstations at DLS have podman installed by default.
-You can access VSCode with <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">vscode</span></code>. RHEL 7 Workstations
-are not supported.</p>
-</div>
 <section id="options">
 <h2>Options<a class="headerlink" href="#options" title="Link to this heading">#</a></h2>
-<p>You are not required to use the tools above to develop with epics-containers.
-If you have your own preferred code editor you can use that. If you prefer
-not to work inside a container to do development that is also a possibility.</p>
+<p>You are not required to use VSCode to develop with epics-containers.
+If you have your own preferred code editor you can use that.</p>
 <p>See these how-to pages for more information:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../how-to/own_tools.html#own-editor"><span class="std std-ref">Working with your own code editor</span></a></p></li>
-<li><p><a class="reference internal" href="../how-to/own_tools.html#no-devcontainer"><span class="std std-ref">Working without a Devcontainer</span></a></p></li>
 </ul>
 </section>
 <section id="platform-support">
@@ -533,8 +542,14 @@ install WSL2 and then work within the Linux subsystem. see
 <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">WSL2 installation instructions</a>.
 Ubuntu is recommended as the Linux distribution for WSL2.</p>
 </section>
-<section id="setup">
-<h2>Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h2>
+<section id="installation-steps">
+<h2>Installation Steps<a class="headerlink" href="#installation-steps" title="Link to this heading">#</a></h2>
+<section id="setup-vscode">
+<h3>Setup VSCode<a class="headerlink" href="#setup-vscode" title="Link to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>DLS Users</strong>:  You can access VSCode with <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">vscode</span></code>.</p>
+</div>
 <p>First download and install Visual Studio Code.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://code.visualstudio.com/download">Download Visual Studio Code</a></p></li>
@@ -552,15 +567,25 @@ devcontainer in the next tutorial.</p>
 <li><p>Recommended: <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=nsd.vscode-epics">VSCode EPICS</a></p></li>
 <li><p>Recommended: <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools">Kubernetes</a></p></li>
 </ul>
-<p>Next install docker or podman as the your container platform. I am using
-podman 4.2.0 on RHEL8, docker <em>could</em> also be supported but note the warning below.
-All commands in these tutorials will use <code class="docutils literal notranslate"><span class="pre">podman</span></code> cli commands.
-If you are using docker, simply replace <code class="docutils literal notranslate"><span class="pre">podman</span></code> with <code class="docutils literal notranslate"><span class="pre">docker</span></code> in the commands.</p>
-<p>The podman version required is 4.0 or later. This is not easy to obtain on debian
-distributions at the time of writing, but details of how to compile from source
-are contained
-<a class="reference external" href="https://github.com/epics-containers/dev-e7/blob/main/docker/Dockerfile">in this Dockerfile</a>
-under the heading  <code class="docutils literal notranslate"><span class="pre">Stage</span> <span class="pre">to</span> <span class="pre">add</span> <span class="pre">a</span> <span class="pre">recent</span> <span class="pre">podman</span> <span class="pre">client</span></code></p>
+</section>
+<section id="setup-docker-or-podman">
+<h3>Setup Docker or Podman<a class="headerlink" href="#setup-docker-or-podman" title="Link to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>DLS Users</strong>: RHEL 8 Workstations at DLS have podman 4.4.1 installed by default.
+RHEL 7 Workstations are not supported.</p>
+</div>
+<p>Next install docker or podman as the your container platform. epics-containers
+has been tested with podman 4.4.1 on RedHat 8, and Docker 24.0.5 on
+for Ubuntu 22.04.</p>
+<p>If you are using docker, simply replace <code class="docutils literal notranslate"><span class="pre">podman</span></code> with <code class="docutils literal notranslate"><span class="pre">docker</span></code> in the
+commands listed in these tutorials.</p>
+<p>The podman version required is 4.0 or later. Any version of docker since 20.10
+will also work. Pick the tool that has the most recent version for your platform.
+RedHat 8 and above have recent podman versions. Debian platforms don’t yet
+have recent podman versions available. If you have a choice then podman is
+preferred because it does not require root access and it is the tool with
+which epics-containers has had the most testing.</p>
 <p>The links below have details of how to install your choice of container platform:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.docker.com/engine/install/">Install docker</a></p></li>
@@ -569,16 +594,64 @@ under the heading  <code class="docutils literal notranslate"><span class="pre">
 <p>The docker install page encourages you to install Docker Desktop. This is a paid
 for product and is not required for this tutorial. You can install the free linux
 CLI tools by clicking on the appropriate linux distribution link.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>To support docker we need to do one of two things: 1) use the docker cli
-in user mode or 2) set the user id and gid when launching the container.
-If we don’t do this then all files written to mounted volumes will be owned
-by root.</p>
-<p><strong>TODO</strong>: write up how to do this. <strong>TODO</strong> the container image may
-need some minor modifications to support docker. (I recently got this
-working <a class="reference external" href="https://github.com/gilesknap/gphotos-sync/issues/279#issuecomment-1475317852">here</a>)</p>
+</section>
+<section id="install-python">
+<span id="python-setup"></span><h3>Install Python<a class="headerlink" href="#install-python" title="Link to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>DLS Users</strong>: RHEL 8 Workstations at DLS have Python 3.9 installed by default.</p>
 </div>
+<p>Go ahead and install Python 3.9 or later. 3.11 is recommended as this is the
+highest version that epics-containers has been tested with.</p>
+<p>There are instructions for installing Python on all platforms here:
+<a class="reference external" href="https://docs.python-guide.org/starting/installation/">https://docs.python-guide.org/starting/installation/</a></p>
+<p>Once you have python set up a virtual environment for your epics-containers
+work. In the examples we will use <code class="docutils literal notranslate"><span class="pre">$HOME/ec-venv</span></code> as the virtual environment
+but you can choose any folder.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span><span class="nv">$HOME</span>/ec-venv
+<span class="nb">source</span><span class="w"> </span><span class="nv">$HOME</span>/ec-venv/bin/activate
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+</pre></div>
+</div>
+<p>Note that each time you open a new shell you will need to activate the virtual
+environment again. (Or place it’s bin folder in your path permanently).</p>
+</section>
+<section id="epics-containers-cli">
+<h3>epics-containers-cli<a class="headerlink" href="#epics-containers-cli" title="Link to this heading">#</a></h3>
+<p>Above we set up a python virtual environment. Now we will install
+the epics-containers-cli python tool into that environment.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>epics-containers-cli
+</pre></div>
+</div>
+<p>This is the developer’s ‘outside of the container’ helper tool. The command
+line entry point is <code class="docutils literal notranslate"><span class="pre">ec</span></code>. We will be using many <code class="docutils literal notranslate"><span class="pre">ec</span></code> command line
+functions in the next tutorial.</p>
+<p>See <a class="reference internal" href="../reference/cli.html#cli"><span class="std std-ref">Command Line Interface for IOC Management</span></a> for more details.</p>
+</section>
+</section>
+<section id="git">
+<h2>Git<a class="headerlink" href="#git" title="Link to this heading">#</a></h2>
+<p>If you don’t already have git installed see
+<a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">https://git-scm.com/book/en/v2/Getting-Started-Installing-Git</a>. Any recent
+version of git will work.</p>
+<section id="id1">
+<h3>Kubernetes<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>You don’t need Kubernetes yet.</p>
+<p>The following tutorials will take you through creating, deploying and
+debugging IOC instances, generic IOCs and support modules.</p>
+<p>For simplicity we don’t encourage using Kubernetes at this stage. Instead we
+will deploy containers to the local workstations docker or podman instance.</p>
+<p>However, everything in these tutorials would also work with Kubernetes. If you
+are particularly interested in Kubernetes then you can jump to
+<a class="reference internal" href="setup_k8s.html#setup-kubernetes"><span class="std std-ref">Setup a Kubernetes Server</span></a> and follow the instructions there. Then come back to this
+point and continue with the tutorials.</p>
+<p>If you are planning not to use Kubernetes at all then now might be
+a good time to install an alternative container management platform such
+as <a class="reference external" href="https://www.portainer.io/">Portainer</a>. Such tools will help you
+visualise and manage your local containers. They are not required and you
+could just manage everything from epics-containers command line interface
+if you prefer.</p>
+</section>
 </section>
 </section>
 
@@ -602,11 +675,11 @@ working <a class="reference external" href="https://github.com/gilesknap/gphotos
       </div>
     </a>
     <a class="right-next"
-       href="devcontainer.html"
+       href="create_beamline.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Setup a Devcontainer</p>
+        <p class="prev-next-title">Create a Beamline Repository</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -627,7 +700,17 @@ working <a class="reference external" href="https://github.com/gilesknap/gphotos
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#options">Options</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#platform-support">Platform Support</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-steps">Installation Steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-vscode">Setup VSCode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-docker-or-podman">Setup Docker or Podman</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-python">Install Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#epics-containers-cli">epics-containers-cli</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git">Git</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Kubernetes</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
@@ -667,8 +750,8 @@ working <a class="reference external" href="https://github.com/gilesknap/gphotos
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -678,7 +761,7 @@ working <a class="reference external" href="https://github.com/gilesknap/gphotos
     <div class="footer-items__end">
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.1.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.2.
 </p></div>
       
     </div>
