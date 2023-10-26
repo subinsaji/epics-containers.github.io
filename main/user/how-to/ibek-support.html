@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>About the documentation &#8212; epics-containers.github.io 0.9.1.dev31+g566a51e documentation</title>
+    <title>Updating and Testing ibek-support &#8212; epics-containers.github.io 0.9.1.dev31+g566a51e documentation</title>
   
   
   
@@ -44,7 +44,7 @@
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=30646c52"></script>
     <script src="../../_static/design-tabs.js?v=36754332"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'user/explanations/docs-structure';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'user/how-to/ibek-support';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.14.2';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://epics-containers.github.io/epics-containers.github.io/switcher.json';
@@ -54,8 +54,8 @@
     <link rel="icon" href="../../_static/k8s-epics2.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Source and Registry Locations" href="repositories.html" />
-    <link rel="prev" title="Kubernetes Cluster Config" href="kubernetes_cluster.html" />
+    <link rel="next" title="Essential Concepts" href="../explanations/introduction.html" />
+    <link rel="prev" title="Kubernetes Additional How To’s" href="useful_k8s.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -427,21 +427,21 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/ibek.html">Defining IOC Instances using IBEK</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../how-to/debug.html">Debug an IOC instance locally</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="debug.html">Debug an IOC instance locally</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="../how-to/contributing.html">Contributing to the project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../how-to/own_tools.html">Choose Your Developer Environment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../how-to/useful_k8s.html">Kubernetes Additional How To’s</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../how-to/ibek-support.html">Updating and Testing ibek-support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to the project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="own_tools.html">Choose Your Developer Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="useful_k8s.html">Kubernetes Additional How To’s</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Updating and Testing ibek-support</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Explanations</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Essential Concepts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="net_protocols.html">Channel Access and Other Protocols</a></li>
-<li class="toctree-l1"><a class="reference internal" href="kubernetes_cluster.html">Kubernetes Cluster Config</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">About the documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="repositories.html">Source and Registry Locations</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../explanations/introduction.html">Essential Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/net_protocols.html">Channel Access and Other Protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/kubernetes_cluster.html">Kubernetes Cluster Config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/docs-structure.html">About the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/repositories.html">Source and Registry Locations</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="nav bd-sidenav">
@@ -490,7 +490,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="../index.html" class="nav-link">User Guide</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">About the...</li>
+    <li class="breadcrumb-item active" aria-current="page">Updating...</li>
   </ul>
 </nav>
 </div>
@@ -507,20 +507,38 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="about-the-documentation">
-<h1>About the documentation<a class="headerlink" href="#about-the-documentation" title="Link to this heading">#</a></h1>
-<blockquote>
-<div><p><svg version="4.0.0.63c5cb3" width="2.0em" height="2.0em" class="sd-material-icon sd-material-icon-format_quote" viewBox="0 0 24 24" aria-hidden="true"><path d="M0 0h24v24H0z" fill="none"></path><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"></path></svg></p>
-<p>The Grand Unified Theory of Documentation</p>
-<p class="attribution">—David Laing</p>
-</div></blockquote>
-<p>There is a secret that needs to be understood in order to write good software
-documentation: there isn’t one thing called <em>documentation</em>, there are four.</p>
-<p>They are: <em>tutorials</em>, <em>how-to guides</em>, <em>technical reference</em> and <em>explanation</em>.
-They represent four different purposes or functions, and require four different
-approaches to their creation. Understanding the implications of this will help
-improve most documentation - often immensely.</p>
-<p><a class="reference external" href="https://documentation.divio.com">More information on this topic.</a></p>
+  <section id="updating-and-testing-ibek-support">
+<h1>Updating and Testing ibek-support<a class="headerlink" href="#updating-and-testing-ibek-support" title="Link to this heading">#</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is draft only and out of date. It will be updated soon.</p>
+</div>
+<p>The ibek-defs repository contains ibek support yaml. Here is an example
+procedure for local testing of changes to support yaml in ibek-defs
+along side IOC yaml that uses it.</p>
+<p>(Suggest you do this inside a dev-e7 workspace devcontainer)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>my-workspace-folder
+
+<span class="c1"># clone ibek-defs</span>
+git<span class="w"> </span>clone<span class="w"> </span>git@github.com:epics-containers/ibek-defs.git
+<span class="c1"># clone an example domain repo with example IOC yaml</span>
+git<span class="w"> </span>clone<span class="w"> </span>git@gitlab.diamond.ac.uk:controls/containers/accelerator/acc-psc.git
+
+<span class="c1"># get latest ibek installed</span>
+pip<span class="w"> </span>install<span class="w"> </span>ibek
+
+<span class="nb">cd</span><span class="w"> </span>acc-psc/iocs/sr25a-ioc-01
+ibek<span class="w"> </span>build-startup<span class="w"> </span>config/ioc.boot.yaml<span class="w"> </span>../../../ibek-defs/*/*.yaml
+</pre></div>
+</div>
+<p>This will get ibek generate a startup script and database generation script
+in the config folder. It uses config/ioc.boot.yaml as the description of
+the IOC ‘entities’ to instantiate and all of the support yaml files
+in ibek-defs as a source of the definitions of the classes of entities
+available.</p>
+<p>The example currently uses the timingtemplates definitions only.</p>
+<p>Note that at present ibek generates a script of msi invocations instead
+of a substitution file. This will be changed in the future.</p>
 </section>
 
 
@@ -534,20 +552,20 @@ improve most documentation - often immensely.</p>
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="kubernetes_cluster.html"
+       href="useful_k8s.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Kubernetes Cluster Config</p>
+        <p class="prev-next-title">Kubernetes Additional How To’s</p>
       </div>
     </a>
     <a class="right-next"
-       href="repositories.html"
+       href="../explanations/introduction.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Source and Registry Locations</p>
+        <p class="prev-next-title">Essential Concepts</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -563,7 +581,7 @@ improve most documentation - often immensely.</p>
   <div class="sidebar-secondary-item">
   
   <div class="tocsection editthispage">
-    <a href="https://github.com/epics-containers/epics-containers.github.io/edit/main/docs/user/explanations/docs-structure.rst">
+    <a href="https://github.com/epics-containers/epics-containers.github.io/edit/main/docs/user/how-to/ibek-support.rst">
       <i class="fa-solid fa-pencil"></i>
       
       
@@ -577,7 +595,7 @@ improve most documentation - often immensely.</p>
 
   <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">
-    <a href="../../_sources/user/explanations/docs-structure.rst.txt">
+    <a href="../../_sources/user/how-to/ibek-support.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>

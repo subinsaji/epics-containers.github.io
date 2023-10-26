@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Create a Beamline Repository &#8212; epics-containers.github.io 0.9.1.dev27+gf76ead7 documentation</title>
+    <title>Create a Beamline Repository &#8212; epics-containers.github.io 0.9.1.dev31+g566a51e documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
 
-    <script src="../../_static/documentation_options.js?v=4dd3286e"></script>
+    <script src="../../_static/documentation_options.js?v=0faf6d59"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -54,7 +54,7 @@
     <link rel="icon" href="../../_static/k8s-epics2.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Deploy The Example IOC" href="deploy_example.html" />
+    <link rel="next" title="Deploying and Managing IOC Instances" href="deploy_example.html" />
     <link rel="prev" title="Setup a Developer Workstation" href="setup_workstation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -136,7 +136,7 @@
     <script>document.write(`<img src="../../_static/k8s-epics2.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">epics-containers.github.io</p>
+    <p class="title logo__title">EPICS Containers</p>
   
 </a></div>
     
@@ -413,10 +413,10 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Tutorials Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup_workstation.html">Setup a Developer Workstation</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Create a Beamline Repository</a></li>
-<li class="toctree-l1"><a class="reference internal" href="deploy_example.html">Deploy The Example IOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy_example.html">Deploying and Managing IOC Instances</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_ioc.html">Create a Working Example IOC Instance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ioc_changes.html">Testing Changes to IOC Instances</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="release_beamline.html">Make a Release of Example Beamline bl01t</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generic_ioc.html">Create a Generic IOC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debug_generic_ioc.html">Debugging Generic IOC Builds</a></li>
 <li class="toctree-l1"><a class="reference internal" href="test_generic_ioc.html">Testing and Deploying a Generic IOC</a></li>
@@ -428,14 +428,12 @@ document.write(`
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../how-to/run_iocs.html">Run an IOC without Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../how-to/debug.html">Debug an IOC instance locally</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../how-to/contributing.html">Contributing to the project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../how-to/own_tools.html">Choose Your Developer Environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../how-to/useful_k8s.html">Kubernetes Additional How To’s</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../how-to/update_templated.html">Updating Template Based Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../how-to/ibek-defs.html">Updating and Testing ibek-defs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/ibek-support.html">Updating and Testing ibek-support</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Explanations</span></p>
 <ul class="nav bd-sidenav">
@@ -444,7 +442,6 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="../explanations/kubernetes_cluster.html">Kubernetes Cluster Config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../explanations/docs-structure.html">About the documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../explanations/repositories.html">Source and Registry Locations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../explanations/repos.html">What is the /repos Folder?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="nav bd-sidenav">
@@ -530,12 +527,13 @@ IOC names. This is a restriction that helm introduces for package names.</p>
 When the project <code class="docutils literal notranslate"><span class="pre">bl01t</span></code> is pushed to GitHub, continuous integration will
 verify that each of the IOCs in the beamline are valid by launching them
 with basic configuration.</p>
-<p>It’s not feasible to run full system tests with these IOCs Instances
-because they are configured to run with real hardware on a beamline.
-But note that each of these IOC instances will be launched using a
+<p>The tests on beamline repositories are basic at present. However the intention
+is that eventually each device on a beamline will be simulated using
+<a class="reference external" href="https://github.com/dls-controls/tickit">Tickit</a> and that the CI so system
+tests of each IOC against simulated hardware.</p>
+<p>Also note that each of these IOC instances will be launched using a
 Generic IOC image. Ideally the CI for each Generic IOC should have already run
-system tests against simulated hardware. (this is something we aspire to
-using simulations provided by <a class="reference external" href="https://github.com/dls-controls/tickit">Tickit</a>)</p>
+system tests against simulated (but not beamline specific) hardware.</p>
 <p>This beamline repo will be taken from a template that comes with a single example
 IOC and further steps in the following tutorials will teach you how to add your own.</p>
 <p>For accelerator domains the approach described here will be identical. The
@@ -606,7 +604,8 @@ in order to setup their environment to work with the beamline.</p>
 to determine where to deploy IOCS and where to find container images etc.</p>
 <p>For details of what goes in this file see <a class="reference internal" href="../reference/environment.html"><span class="doc">The Environment Configuration File</span></a>.
 For the purpose of this tutorial for <code class="docutils literal notranslate"><span class="pre">bl01t</span></code> you should have the following
-in your environment.sh:</p>
+in your environment.sh (make sure you insert your GitHub account name
+where indicated):</p>
 <ul>
 <li><p>SECTION 1:</p>
 <ul class="simple">
@@ -656,14 +655,14 @@ then now so that bl01t is ready for Kubernetes when we get to that tutorial.</p>
 <section id="wrapping-up">
 <h2>Wrapping Up<a class="headerlink" href="#wrapping-up" title="Link to this heading">#</a></h2>
 <p>You should now have a working beamline repository. It contains a single
-IOC Instance and that is only a non-functional example. In the following
-tutorials we will investigate the example and then create a real IOC Instance.</p>
+IOC Instance which is a non-functional example. In the following
+tutorial we will investigate the example and then create a real IOC Instance.</p>
 <p>You can now push the repository up to GitHub and give it a version tag like this:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>.
 git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;changed blxxi to bl01t&quot;</span>
 git<span class="w"> </span>push
 git<span class="w"> </span>tag<span class="w"> </span><span class="m">2023</span>.11.1
-git<span class="w"> </span>push<span class="w"> </span>--tags
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span><span class="m">2023</span>.11.1
 </pre></div>
 </div>
 <p>We use <code class="docutils literal notranslate"><span class="pre">CalVer</span></code> version numbers for beamline repositories and Generic IOCs.
@@ -699,7 +698,7 @@ dependencies and does not have a clear API.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Deploy The Example IOC</p>
+        <p class="prev-next-title">Deploying and Managing IOC Instances</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

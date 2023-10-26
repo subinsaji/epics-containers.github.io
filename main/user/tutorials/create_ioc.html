@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>About the documentation &#8212; epics-containers.github.io 0.9.1.dev31+g566a51e documentation</title>
+    <title>Create a Working Example IOC Instance &#8212; epics-containers.github.io 0.9.1.dev31+g566a51e documentation</title>
   
   
   
@@ -44,7 +44,7 @@
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=30646c52"></script>
     <script src="../../_static/design-tabs.js?v=36754332"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'user/explanations/docs-structure';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'user/tutorials/create_ioc';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.14.2';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://epics-containers.github.io/epics-containers.github.io/switcher.json';
@@ -54,8 +54,8 @@
     <link rel="icon" href="../../_static/k8s-epics2.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Source and Registry Locations" href="repositories.html" />
-    <link rel="prev" title="Kubernetes Cluster Config" href="kubernetes_cluster.html" />
+    <link rel="next" title="Testing Changes to IOC Instances" href="ioc_changes.html" />
+    <link rel="prev" title="Deploying and Managing IOC Instances" href="deploy_example.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -409,22 +409,22 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/intro.html">Tutorials Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/setup_workstation.html">Setup a Developer Workstation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/create_beamline.html">Create a Beamline Repository</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/deploy_example.html">Deploying and Managing IOC Instances</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/create_ioc.html">Create a Working Example IOC Instance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/ioc_changes.html">Testing Changes to IOC Instances</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Tutorials Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_workstation.html">Setup a Developer Workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_beamline.html">Create a Beamline Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy_example.html">Deploying and Managing IOC Instances</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Create a Working Example IOC Instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ioc_changes.html">Testing Changes to IOC Instances</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/generic_ioc.html">Create a Generic IOC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/debug_generic_ioc.html">Debugging Generic IOC Builds</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/test_generic_ioc.html">Testing and Deploying a Generic IOC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/support_module.html">Working with Support Modules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/setup_k8s.html">Setup a Kubernetes Server</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/rtems_setup.html">RTEMS - Creating a File Server</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/rtems_ioc.html">RTEMS - Deploying an Example IOC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/ibek.html">Defining IOC Instances using IBEK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generic_ioc.html">Create a Generic IOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug_generic_ioc.html">Debugging Generic IOC Builds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test_generic_ioc.html">Testing and Deploying a Generic IOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support_module.html">Working with Support Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_k8s.html">Setup a Kubernetes Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rtems_setup.html">RTEMS - Creating a File Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rtems_ioc.html">RTEMS - Deploying an Example IOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ibek.html">Defining IOC Instances using IBEK</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
 <ul class="nav bd-sidenav">
@@ -436,12 +436,12 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="../how-to/ibek-support.html">Updating and Testing ibek-support</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Explanations</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Essential Concepts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="net_protocols.html">Channel Access and Other Protocols</a></li>
-<li class="toctree-l1"><a class="reference internal" href="kubernetes_cluster.html">Kubernetes Cluster Config</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">About the documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="repositories.html">Source and Registry Locations</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../explanations/introduction.html">Essential Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/net_protocols.html">Channel Access and Other Protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/kubernetes_cluster.html">Kubernetes Cluster Config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/docs-structure.html">About the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/repositories.html">Source and Registry Locations</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="nav bd-sidenav">
@@ -490,7 +490,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="../index.html" class="nav-link">User Guide</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">About the...</li>
+    <li class="breadcrumb-item active" aria-current="page">Create a...</li>
   </ul>
 </nav>
 </div>
@@ -507,20 +507,21 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="about-the-documentation">
-<h1>About the documentation<a class="headerlink" href="#about-the-documentation" title="Link to this heading">#</a></h1>
-<blockquote>
-<div><p><svg version="4.0.0.63c5cb3" width="2.0em" height="2.0em" class="sd-material-icon sd-material-icon-format_quote" viewBox="0 0 24 24" aria-hidden="true"><path d="M0 0h24v24H0z" fill="none"></path><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"></path></svg></p>
-<p>The Grand Unified Theory of Documentation</p>
-<p class="attribution">—David Laing</p>
-</div></blockquote>
-<p>There is a secret that needs to be understood in order to write good software
-documentation: there isn’t one thing called <em>documentation</em>, there are four.</p>
-<p>They are: <em>tutorials</em>, <em>how-to guides</em>, <em>technical reference</em> and <em>explanation</em>.
-They represent four different purposes or functions, and require four different
-approaches to their creation. Understanding the implications of this will help
-improve most documentation - often immensely.</p>
-<p><a class="reference external" href="https://documentation.divio.com">More information on this topic.</a></p>
+  <section id="create-a-working-example-ioc-instance">
+<h1>Create a Working Example IOC Instance<a class="headerlink" href="#create-a-working-example-ioc-instance" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>The last section covered deploying and managing the example Instance that
+came with the template beamline repository. Here we will create a new
+IOC Instance that implements a simulated detector.</p>
+<p>TODO - complete this.</p>
+<figure class="align-default" id="id1">
+<img alt="../../_images/c2dv.png" src="../../_images/c2dv.png" />
+<figcaption>
+<p><span class="caption-text">the c2dv viewer showing an image from the example IOC</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
 </section>
 
 
@@ -534,20 +535,20 @@ improve most documentation - often immensely.</p>
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="kubernetes_cluster.html"
+       href="deploy_example.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Kubernetes Cluster Config</p>
+        <p class="prev-next-title">Deploying and Managing IOC Instances</p>
       </div>
     </a>
     <a class="right-next"
-       href="repositories.html"
+       href="ioc_changes.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Source and Registry Locations</p>
+        <p class="prev-next-title">Testing Changes to IOC Instances</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -561,9 +562,19 @@ improve most documentation - often immensely.</p>
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
   <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
   
   <div class="tocsection editthispage">
-    <a href="https://github.com/epics-containers/epics-containers.github.io/edit/main/docs/user/explanations/docs-structure.rst">
+    <a href="https://github.com/epics-containers/epics-containers.github.io/edit/main/docs/user/tutorials/create_ioc.rst">
       <i class="fa-solid fa-pencil"></i>
       
       
@@ -577,7 +588,7 @@ improve most documentation - often immensely.</p>
 
   <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">
-    <a href="../../_sources/user/explanations/docs-structure.rst.txt">
+    <a href="../../_sources/user/tutorials/create_ioc.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>

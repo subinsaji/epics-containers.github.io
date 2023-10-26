@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>RTEMS - Deploying an Example IOC &#8212; epics-containers.github.io 0.9.1.dev27+gf76ead7 documentation</title>
+    <title>RTEMS - Deploying an Example IOC &#8212; epics-containers.github.io 0.9.1.dev31+g566a51e documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
 
-    <script src="../../_static/documentation_options.js?v=4dd3286e"></script>
+    <script src="../../_static/documentation_options.js?v=0faf6d59"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -136,7 +136,7 @@
     <script>document.write(`<img src="../../_static/k8s-epics2.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">epics-containers.github.io</p>
+    <p class="title logo__title">EPICS Containers</p>
   
 </a></div>
     
@@ -413,10 +413,10 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Tutorials Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup_workstation.html">Setup a Developer Workstation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="create_beamline.html">Create a Beamline Repository</a></li>
-<li class="toctree-l1"><a class="reference internal" href="deploy_example.html">Deploy The Example IOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy_example.html">Deploying and Managing IOC Instances</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_ioc.html">Create a Working Example IOC Instance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ioc_changes.html">Testing Changes to IOC Instances</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="release_beamline.html">Make a Release of Example Beamline bl01t</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generic_ioc.html">Create a Generic IOC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debug_generic_ioc.html">Debugging Generic IOC Builds</a></li>
 <li class="toctree-l1"><a class="reference internal" href="test_generic_ioc.html">Testing and Deploying a Generic IOC</a></li>
@@ -428,14 +428,12 @@ document.write(`
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../how-to/run_iocs.html">Run an IOC without Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../how-to/debug.html">Debug an IOC instance locally</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../how-to/contributing.html">Contributing to the project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../how-to/own_tools.html">Choose Your Developer Environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../how-to/useful_k8s.html">Kubernetes Additional How To’s</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../how-to/update_templated.html">Updating Template Based Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../how-to/ibek-defs.html">Updating and Testing ibek-defs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/ibek-support.html">Updating and Testing ibek-support</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Explanations</span></p>
 <ul class="nav bd-sidenav">
@@ -444,7 +442,6 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="../explanations/kubernetes_cluster.html">Kubernetes Cluster Config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../explanations/docs-structure.html">About the documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../explanations/repositories.html">Source and Registry Locations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../explanations/repos.html">What is the /repos Folder?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="nav bd-sidenav">
@@ -512,6 +509,10 @@ document.write(`
                   
   <section id="rtems-deploying-an-example-ioc">
 <h1>RTEMS - Deploying an Example IOC<a class="headerlink" href="#rtems-deploying-an-example-ioc" title="Link to this heading">#</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This tutorial is out of date and will be updated in November 2023.</p>
+</div>
 <p>The previous tutorials walked through how to create a Generic linux soft
 IOC and how to deploy an IOC instance using that Generic IOC.</p>
 <p>epics-containers also supports RTEMS 5 running on MVVME5500. We will
@@ -522,7 +523,7 @@ serving the IOC binaries and instance files to the RTEMS devices. This
 needs to be set up for your test beamline before proceeding,
 see <a class="reference internal" href="rtems_setup.html"><span class="doc">RTEMS - Creating a File Server</span></a>.</p>
 <p>Once you have the file server set up, deploying an IOC instance that uses
-an RTEMS Generic IOC is very similar to <a class="reference internal" href="deploy_example.html"><span class="doc">Deploy The Example IOC</span></a>.</p>
+an RTEMS Generic IOC is very similar to <a class="reference internal" href="deploy_example.html"><span class="doc">Deploying and Managing IOC Instances</span></a>.</p>
 <p>We will be adding
 a new IOC instance to the <code class="docutils literal notranslate"><span class="pre">bl01t</span></code> beamline that we created in the previous
 tutorials. You will need to have worked through the previous tutorials in
@@ -763,7 +764,7 @@ add the following lines to <code class="docutils literal notranslate"><span clas
 <ul class="simple">
 <li><p>push your beamline repo to GitHub and tag it. Then use <code class="docutils literal notranslate"><span class="pre">ec</span> <span class="pre">ioc</span> <span class="pre">deploy</span></code> to
 deploy the resulting versioned IOC instance. This was covered for linux IOCs
-in <a class="reference internal" href="deploy_example.html"><span class="doc">Deploy The Example IOC</span></a>.</p></li>
+in <a class="reference internal" href="deploy_example.html"><span class="doc">Deploying and Managing IOC Instances</span></a>.</p></li>
 <li><p>use <code class="docutils literal notranslate"><span class="pre">ec</span> <span class="pre">ioc</span> <span class="pre">deploy-local</span></code> to directly deploy the local copy of the IOC
 instance helm chart to kubernetes as a beta version. This was covered for
 linux IOCs in <a class="reference internal" href="ioc_changes.html#local-deploy-ioc"><span class="std std-ref">Deploying a Beta IOC Instance to The Cluster</span></a>.</p></li>

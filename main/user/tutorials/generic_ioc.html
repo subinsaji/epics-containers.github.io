@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Create a Generic IOC &#8212; epics-containers.github.io 0.9.1.dev27+gf76ead7 documentation</title>
+    <title>Create a Generic IOC &#8212; epics-containers.github.io 0.9.1.dev31+g566a51e documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
 
-    <script src="../../_static/documentation_options.js?v=4dd3286e"></script>
+    <script src="../../_static/documentation_options.js?v=0faf6d59"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -55,7 +55,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Debugging Generic IOC Builds" href="debug_generic_ioc.html" />
-    <link rel="prev" title="Make a Release of Example Beamline bl01t" href="release_beamline.html" />
+    <link rel="prev" title="Testing Changes to IOC Instances" href="ioc_changes.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -136,7 +136,7 @@
     <script>document.write(`<img src="../../_static/k8s-epics2.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">epics-containers.github.io</p>
+    <p class="title logo__title">EPICS Containers</p>
   
 </a></div>
     
@@ -413,10 +413,10 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Tutorials Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup_workstation.html">Setup a Developer Workstation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="create_beamline.html">Create a Beamline Repository</a></li>
-<li class="toctree-l1"><a class="reference internal" href="deploy_example.html">Deploy The Example IOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy_example.html">Deploying and Managing IOC Instances</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_ioc.html">Create a Working Example IOC Instance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ioc_changes.html">Testing Changes to IOC Instances</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="release_beamline.html">Make a Release of Example Beamline bl01t</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Create a Generic IOC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debug_generic_ioc.html">Debugging Generic IOC Builds</a></li>
 <li class="toctree-l1"><a class="reference internal" href="test_generic_ioc.html">Testing and Deploying a Generic IOC</a></li>
@@ -428,14 +428,12 @@ document.write(`
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../how-to/run_iocs.html">Run an IOC without Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../how-to/debug.html">Debug an IOC instance locally</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../how-to/contributing.html">Contributing to the project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../how-to/own_tools.html">Choose Your Developer Environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../how-to/useful_k8s.html">Kubernetes Additional How To’s</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../how-to/update_templated.html">Updating Template Based Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../how-to/ibek-defs.html">Updating and Testing ibek-defs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/ibek-support.html">Updating and Testing ibek-support</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Explanations</span></p>
 <ul class="nav bd-sidenav">
@@ -444,7 +442,6 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="../explanations/kubernetes_cluster.html">Kubernetes Cluster Config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../explanations/docs-structure.html">About the documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../explanations/repositories.html">Source and Registry Locations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../explanations/repos.html">What is the /repos Folder?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="nav bd-sidenav">
@@ -512,6 +509,10 @@ document.write(`
                   
   <section id="create-a-generic-ioc">
 <h1>Create a Generic IOC<a class="headerlink" href="#create-a-generic-ioc" title="Link to this heading">#</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This tutorial is out of date and will be updated soon.</p>
+</div>
 <p>In this tutorial we will learn how to create a Generic IOC container image and
 test our changes locally before deploying it.</p>
 <p>This is a type 2. change from the list at <a class="reference internal" href="ioc_changes.html#ioc-change-types"><span class="std std-ref">Types of Changes</span></a>.</p>
@@ -554,9 +555,6 @@ git<span class="w"> </span>push<span class="w"> </span>--set-upstream<span class
 </div>
 </li>
 </ol>
-<p>Note that creating your project in this way means it is possible to
-synchronize changes from the original ioc-template project.
-See <a class="reference internal" href="../how-to/update_templated.html"><span class="doc">Updating Template Based Projects</span></a>.</p>
 </section>
 <section id="prepare-the-new-repo-for-development">
 <h3>Prepare the New Repo for Development<a class="headerlink" href="#prepare-the-new-repo-for-development" title="Link to this heading">#</a></h3>
@@ -737,12 +735,6 @@ files.</p></li>
 </ul>
 <p>ADCore and ADSupport already have ibek-defs files as they were previously created
 when making <code class="docutils literal notranslate"><span class="pre">ioc-adsimdetector</span></code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The folder /repos is where all externally fetched source code is stored
-inside our containers. For a detailed explanation see
-<a class="reference internal" href="../explanations/repos.html"><span class="doc">What is the /repos Folder?</span></a></p>
-</div>
 </section>
 <section id="update-the-ioc-makefile">
 <h2>Update the IOC Makefile<a class="headerlink" href="#update-the-ioc-makefile" title="Link to this heading">#</a></h2>
@@ -825,12 +817,12 @@ Tutorial.</p>
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="release_beamline.html"
+       href="ioc_changes.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Make a Release of Example Beamline bl01t</p>
+        <p class="prev-next-title">Testing Changes to IOC Instances</p>
       </div>
     </a>
     <a class="right-next"
