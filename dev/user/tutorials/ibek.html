@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Defining IOC Instances using IBEK &#8212; epics-containers.github.io 0.9.1.dev25+g3a35e59 documentation</title>
+    <title>Defining IOC Instances using IBEK &#8212; epics-containers.github.io 0.9.1.dev26+gbfd12cf documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
 
-    <script src="../../_static/documentation_options.js?v=a38dd1d5"></script>
+    <script src="../../_static/documentation_options.js?v=ef8e1985"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -519,10 +519,13 @@ document.write(`
 <p>TODO: do some of these titles belong in explanations or reference sections? If so then the tutorial will need to reference them at the start.</p>
 <section id="what-is-ibek">
 <h2>What is IBEK<a class="headerlink" href="#what-is-ibek" title="Link to this heading">#</a></h2>
+<p>IOC Builder for EPICS on Kubernetes. It is a python module which supports all
+the features of epics-containers required inside of generic IOC containers.
+It is used at container build time and container run time.</p>
 <ul class="simple">
-<li><p>IOC Builder for EPICS on Kubernetes</p></li>
 <li><p>uses Support YAML to define what each support module can supply</p></li>
 <li><p>uses IOC YAML to instantiate instances of support features that make up an IOC instances</p></li>
+<li><p>provides build time functions for acquiring and compiling support modules</p></li>
 </ul>
 </section>
 <section id="why-use-ibek">
@@ -538,22 +541,28 @@ document.write(`
 <h2>Alternatives<a class="headerlink" href="#alternatives" title="Link to this heading">#</a></h2>
 <p>epics-containers supports out of the box dropping a startup script and
 substitution file into the config folder as an alternative to supplying
-ibek IOC YAML. But you can override start.sh and work in any way you choose
-at runtime.</p>
+ibek IOC YAML. You can also override the default start.sh and work in any
+way you choose by placing a script called start.sh in the config folder.</p>
 </section>
-<section id="ibek-defs">
-<h2>ibek-defs<a class="headerlink" href="#ibek-defs" title="Link to this heading">#</a></h2>
+<section id="ibek-support">
+<h2>ibek-support<a class="headerlink" href="#ibek-support" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>defines the support modules YAML in a single place.</p></li>
-<li><p>exists to avoid duplication of support module definitions</p></li>
+<li><p>also supplies install.sh for each support module that defines where the source
+can be found and how to build it.</p></li>
+<li><p>exists to avoid duplication of support module definitions in Generic IOCs</p></li>
 <li><p>and to avoid working on multiple support modules while kicking off epics-containers</p></li>
-<li><p>in future YAML could be supplied in each support module itself - but until epics-containers is widely used, this is a good way to get started</p></li>
-<li><p>the ibek-defs repo is added as a git-submodule to every Generic ioc (ioc-xxx) repo and in this ensures that a rebuild of a Generic ioc will be with a consistent set of YAML files until a developer explicitly updates the submodule.</p></li>
+<li><p>the ibek-support repo is added as a git-submodule to every Generic ioc
+(ioc-xxx) repo and in this ensures that a rebuild of a Generic ioc will be
+with a consistent set of YAML files and install.sh files until a developer
+explicitly updates the submodule.</p></li>
 </ul>
 </section>
-<section id="how-to-work-on-ibek-defs">
-<h2>How to work on ibek-defs<a class="headerlink" href="#how-to-work-on-ibek-defs" title="Link to this heading">#</a></h2>
-<p>Building a new Generic ioc and making it compatible with ibek means creating ibek support YAML for all of its dependent support modules (where they do not already exist)</p>
+<section id="how-to-work-on-ibek-support">
+<h2>How to work on ibek-support<a class="headerlink" href="#how-to-work-on-ibek-support" title="Link to this heading">#</a></h2>
+<p>Building a new Generic ioc and making it compatible with ibek means creating
+ibek support YAML for all of its dependent support modules
+(where they do not already exist)</p>
 <p>These steps assume you have a Generic ioc for ADUrl based on ioc_template as discussed in <a class="reference internal" href="generic_ioc.html"><span class="doc">Create a Generic IOC</span></a>.
 Your Generic ioc has a default ioc instance used for testing.
 In ioc/config/st.cmd we have a default startup script for the example IOC.
@@ -637,8 +646,8 @@ these two pages into something coherent).</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-ibek">What is IBEK</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-ibek">Why Use IBEK</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternatives">Alternatives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ibek-defs">ibek-defs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-work-on-ibek-defs">How to work on ibek-defs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ibek-support">ibek-support</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-work-on-ibek-support">How to work on ibek-support</a></li>
 </ul>
   </nav></div>
 

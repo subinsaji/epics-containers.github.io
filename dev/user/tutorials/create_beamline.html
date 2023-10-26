@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Create a Beamline Repository &#8212; epics-containers.github.io 0.9.1.dev25+g3a35e59 documentation</title>
+    <title>Create a Beamline Repository &#8212; epics-containers.github.io 0.9.1.dev26+gbfd12cf documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
 
-    <script src="../../_static/documentation_options.js?v=a38dd1d5"></script>
+    <script src="../../_static/documentation_options.js?v=ef8e1985"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -530,12 +530,13 @@ IOC names. This is a restriction that helm introduces for package names.</p>
 When the project <code class="docutils literal notranslate"><span class="pre">bl01t</span></code> is pushed to GitHub, continuous integration will
 verify that each of the IOCs in the beamline are valid by launching them
 with basic configuration.</p>
-<p>It’s not feasible to run full system tests with these IOCs Instances
-because they are configured to run with real hardware on a beamline.
-But note that each of these IOC instances will be launched using a
+<p>The tests on beamline repositories are basic at present. However the intention
+is that eventually each device on a beamline will be simulated using
+<a class="reference external" href="https://github.com/dls-controls/tickit">Tickit</a> and that the CI so system
+tests of each IOC against simulated hardware.</p>
+<p>Also note that each of these IOC instances will be launched using a
 Generic IOC image. Ideally the CI for each Generic IOC should have already run
-system tests against simulated hardware. (this is something we aspire to
-using simulations provided by <a class="reference external" href="https://github.com/dls-controls/tickit">Tickit</a>)</p>
+system tests against simulated (but not beamline specific) hardware.</p>
 <p>This beamline repo will be taken from a template that comes with a single example
 IOC and further steps in the following tutorials will teach you how to add your own.</p>
 <p>For accelerator domains the approach described here will be identical. The
@@ -606,7 +607,8 @@ in order to setup their environment to work with the beamline.</p>
 to determine where to deploy IOCS and where to find container images etc.</p>
 <p>For details of what goes in this file see <a class="reference internal" href="../reference/environment.html"><span class="doc">The Environment Configuration File</span></a>.
 For the purpose of this tutorial for <code class="docutils literal notranslate"><span class="pre">bl01t</span></code> you should have the following
-in your environment.sh:</p>
+in your environment.sh (make sure you insert your GitHub account name
+where indicated):</p>
 <ul>
 <li><p>SECTION 1:</p>
 <ul class="simple">
