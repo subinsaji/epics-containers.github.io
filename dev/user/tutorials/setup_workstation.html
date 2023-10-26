@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Setup a Developer Workstation &#8212; epics-containers.github.io 0.9.1.dev26+gbfd12cf documentation</title>
+    <title>Setup a Developer Workstation &#8212; epics-containers.github.io 0.9.1.dev27+gd86f031 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
 
-    <script src="../../_static/documentation_options.js?v=ef8e1985"></script>
+    <script src="../../_static/documentation_options.js?v=e8bf7a3e"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -136,7 +136,7 @@
     <script>document.write(`<img src="../../_static/k8s-epics2.png" class="logo__image only-dark" alt=""/>`);</script>
   
   
-    <p class="title logo__title">epics-containers.github.io</p>
+    <p class="title logo__title">EPICS Containers</p>
   
 </a></div>
     
@@ -413,10 +413,10 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Tutorials Introduction</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Setup a Developer Workstation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="create_beamline.html">Create a Beamline Repository</a></li>
-<li class="toctree-l1"><a class="reference internal" href="deploy_example.html">Deploy The Example IOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy_example.html">Deploying and Managing IOC Instances</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_ioc.html">Create a Working Example IOC Instance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ioc_changes.html">Testing Changes to IOC Instances</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="release_beamline.html">Make a Release of Example Beamline bl01t</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generic_ioc.html">Create a Generic IOC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debug_generic_ioc.html">Debugging Generic IOC Builds</a></li>
 <li class="toctree-l1"><a class="reference internal" href="test_generic_ioc.html">Testing and Deploying a Generic IOC</a></li>
@@ -640,10 +640,10 @@ version of git will work.</p>
 <p>The following tutorials will take you through creating, deploying and
 debugging IOC instances, generic IOCs and support modules.</p>
 <p>For simplicity we don’t encourage using Kubernetes at this stage. Instead we
-will deploy containers to the local workstations docker or podman instance.</p>
+will deploy containers to the local workstation’s docker or podman instance.</p>
 <p>However, everything in these tutorials would also work with Kubernetes. If you
 are particularly interested in Kubernetes then you can jump to
-<a class="reference internal" href="setup_k8s.html#setup-kubernetes"><span class="std std-ref">Setup a Kubernetes Server</span></a> and follow the instructions there. Then come back to this
+<a class="reference internal" href="setup_k8s.html#setup-kubernetes"><span class="std std-ref">Setup a Kubernetes Server</span></a> and follow the instructions there. Then ‘{{(index (index .NetworkSettings.Ports “8787/tcp”) 0).HostPort}}’come back to this
 point and continue with the tutorials.</p>
 <p>If you are planning not to use Kubernetes at all then now might be
 a good time to install an alternative container management platform such
