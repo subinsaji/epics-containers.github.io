@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Kubernetes Additional How To’s &#8212; epics-containers.github.io 0.9.1.dev27+gd86f031 documentation</title>
+    <title>Kubernetes Additional How To’s &#8212; epics-containers.github.io 0.9.1.dev28+g4214c89 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
 
-    <script src="../../_static/documentation_options.js?v=e8bf7a3e"></script>
+    <script src="../../_static/documentation_options.js?v=8b7d417c"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -54,7 +54,7 @@
     <link rel="icon" href="../../_static/k8s-epics2.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Updating Template Based Projects" href="update_templated.html" />
+    <link rel="next" title="Updating and Testing ibek-support" href="ibek-support.html" />
     <link rel="prev" title="Choose Your Developer Environment" href="own_tools.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -428,14 +428,12 @@ document.write(`
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="run_iocs.html">Run an IOC without Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debug.html">Debug an IOC instance locally</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to the project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="own_tools.html">Choose Your Developer Environment</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Kubernetes Additional How To’s</a></li>
-<li class="toctree-l1"><a class="reference internal" href="update_templated.html">Updating Template Based Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ibek-defs.html">Updating and Testing ibek-defs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ibek-support.html">Updating and Testing ibek-support</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Explanations</span></p>
 <ul class="nav bd-sidenav">
@@ -444,7 +442,6 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="../explanations/kubernetes_cluster.html">Kubernetes Cluster Config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../explanations/docs-structure.html">About the documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../explanations/repositories.html">Source and Registry Locations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../explanations/repos.html">What is the /repos Folder?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="nav bd-sidenav">
@@ -517,7 +514,8 @@ document.write(`
 <p>The dashboard gives you a nice GUI for exploring and controlling your cluster.
 It is very useful for new users to get an understanding of what Kubernetes
 has to offer.</p>
-<p>These commands should be run INSIDE the devcontainer.</p>
+<p>These commands should be run after you have set up your Kubernetes cluster and
+setup the environment variables as described in <a class="reference internal" href="../tutorials/setup_k8s.html"><span class="doc">Setup a Kubernetes Server</span></a>.</p>
 <p>Execute this on your workstation:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">GITHUB_URL</span><span class="o">=</span>https://github.com/kubernetes/dashboard/releases
 <span class="nv">VERSION_KUBE_DASHBOARD</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-w<span class="w"> </span><span class="s1">&#39;%{url_effective}&#39;</span><span class="w"> </span>-I<span class="w"> </span>-L<span class="w"> </span>-s<span class="w"> </span>-S<span class="w"> </span><span class="si">${</span><span class="nv">GITHUB_URL</span><span class="si">}</span>/latest<span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s|.*/||&#39;</span><span class="k">)</span>
@@ -548,10 +546,6 @@ kubectl<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> 
 </pre></div>
 </div>
 <p>Get a token for the user and copy the token into your clipboard.</p>
-<p>On k3s v1.23 and older:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kubectl</span> <span class="o">-</span><span class="n">n</span> <span class="n">kubernetes</span><span class="o">-</span><span class="n">dashboard</span> <span class="n">describe</span> <span class="n">secret</span> <span class="n">admin</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="n">token</span> <span class="o">|</span> <span class="n">grep</span> <span class="s1">&#39;^token&#39;</span>
-</pre></div>
-</div>
 <p>On k3s v1.24 and newer:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kubectl</span> <span class="o">-</span><span class="n">n</span> <span class="n">kubernetes</span><span class="o">-</span><span class="n">dashboard</span> <span class="n">create</span> <span class="n">token</span> <span class="n">admin</span><span class="o">-</span><span class="n">user</span>
 </pre></div>
@@ -661,11 +655,11 @@ export LIBGL_ALWAYS_INDIRECT=1
       </div>
     </a>
     <a class="right-next"
-       href="update_templated.html"
+       href="ibek-support.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Updating Template Based Projects</p>
+        <p class="prev-next-title">Updating and Testing ibek-support</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

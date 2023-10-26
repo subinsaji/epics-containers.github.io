@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Defining IOC Instances using IBEK &#8212; epics-containers.github.io 0.9.1.dev27+gd86f031 documentation</title>
+    <title>Defining IOC Instances using IBEK &#8212; epics-containers.github.io 0.9.1.dev28+g4214c89 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
 
-    <script src="../../_static/documentation_options.js?v=e8bf7a3e"></script>
+    <script src="../../_static/documentation_options.js?v=8b7d417c"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -54,7 +54,7 @@
     <link rel="icon" href="../../_static/k8s-epics2.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Run an IOC without Kubernetes" href="../how-to/run_iocs.html" />
+    <link rel="next" title="Debug an IOC instance locally" href="../how-to/debug.html" />
     <link rel="prev" title="RTEMS - Deploying an Example IOC" href="rtems_ioc.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -428,14 +428,12 @@ document.write(`
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../how-to/run_iocs.html">Run an IOC without Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../how-to/debug.html">Debug an IOC instance locally</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../how-to/contributing.html">Contributing to the project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../how-to/own_tools.html">Choose Your Developer Environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../how-to/useful_k8s.html">Kubernetes Additional How To’s</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../how-to/update_templated.html">Updating Template Based Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../how-to/ibek-defs.html">Updating and Testing ibek-defs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/ibek-support.html">Updating and Testing ibek-support</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Explanations</span></p>
 <ul class="nav bd-sidenav">
@@ -444,7 +442,6 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="../explanations/kubernetes_cluster.html">Kubernetes Cluster Config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../explanations/docs-structure.html">About the documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../explanations/repositories.html">Source and Registry Locations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../explanations/repos.html">What is the /repos Folder?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="nav bd-sidenav">
@@ -573,7 +570,7 @@ during build, this will also be used for creating and editing support yaml files
 <p>NOTE: these steps are for building and testing the example IOC that comes with
 the Generic ioc template. This will break the system test and that would need
 to be updated accordingly. To just work on ibek support files using an external
-ioc instance YAML file see <a class="reference internal" href="../how-to/ibek-defs.html"><span class="doc">Updating and Testing ibek-defs</span></a> (I probably need to combine
+ioc instance YAML file see <a class="reference internal" href="../how-to/ibek-support.html"><span class="doc">Updating and Testing ibek-support</span></a> (I probably need to combine
 these two pages into something coherent).</p>
 <p>STEPS:</p>
 <ul class="simple">
@@ -620,11 +617,11 @@ these two pages into something coherent).</p>
       </div>
     </a>
     <a class="right-next"
-       href="../how-to/run_iocs.html"
+       href="../how-to/debug.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Run an IOC without Kubernetes</p>
+        <p class="prev-next-title">Debug an IOC instance locally</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
