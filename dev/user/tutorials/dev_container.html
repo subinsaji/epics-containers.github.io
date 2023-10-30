@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Developer Containers &#8212; epics-containers.github.io 0.9.1.dev33+gfa76e42 documentation</title>
+    <title>Developer Containers &#8212; epics-containers.github.io 0.9.1.dev34+g7830b63 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
 
-    <script src="../../_static/documentation_options.js?v=f55f2b9a"></script>
+    <script src="../../_static/documentation_options.js?v=7d03ff57"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -640,6 +640,15 @@ something that requires some steps to be rebuilt.</p>
 for working on Generic IOCs from <em>outside</em> of the container. These commands
 are useful for debugging container builds: although most work is done inside
 the container, you will need these commands if it fails to build.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Before continuing this tutorial make sure you have not left the IOC
+bl01t-ea-ioc-02 running from a previous tutorial. Execute this command
+outside of the devcontainer to stop it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ec<span class="w"> </span>ioc<span class="w"> </span>stop<span class="w"> </span>bl01t-ea-ioc-02
+</pre></div>
+</div>
+</div>
 <p>Once built, open the project in VSCode:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>code<span class="w"> </span>.
 </pre></div>
