@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Create an IOC Instance &#8212; epics-containers.github.io 0.9.1.dev35+ge1a49e2 documentation</title>
+    <title>Create an IOC Instance &#8212; epics-containers.github.io 0.9.1.dev36+g123111d documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
 
-    <script src="../../_static/documentation_options.js?v=2c1bb036"></script>
+    <script src="../../_static/documentation_options.js?v=2476cba8"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -542,7 +542,7 @@ code<span class="w"> </span>values.yaml
 </pre></div>
 </div>
 <p>This should launch vscode and open the values.yaml file. Add the following:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/epics-containers/ioc-adsimdetector-linux-runtime:2023.10.6b1</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/epics-containers/ioc-adsimdetector-linux-runtime:2023.10.7</span>
 </pre></div>
 </div>
 <p>This tells the IOC Instance to run in the <code class="docutils literal notranslate"><span class="pre">ioc-adsimdetector-linux-runtime</span></code>
@@ -675,7 +675,7 @@ database template. Finally it declares some lines to go into the startup script
 (before iocInit).</p>
 <p>Therefore, we can create an <em>IOC yaml</em> file that instantiates a simulation
 detector as follows:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># yaml-language-server: $schema=https://github.com/epics-containers/ioc-adsimdetector/releases/download/2023.10.6b1/ibek.ioc.schema.json</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># yaml-language-server: $schema=https://github.com/epics-containers/ioc-adsimdetector/releases/download/2023.10.7/ibek.ioc.schema.json</span>
 
 <span class="nt">ioc_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bl01t-ea-ioc-02</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Example simulated camera for BL01T</span>
@@ -684,7 +684,7 @@ detector as follows:</p>
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ADSimDetector.simDetector</span>
 <span class="w">  </span><span class="nt">PORT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DET.DET</span>
-<span class="w">  </span><span class="nt">P</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BL01T-EA-TST-01</span>
+<span class="w">  </span><span class="nt">P</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BL01T-EA-TST-02</span>
 <span class="w">  </span><span class="nt">R</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;:DET:&quot;</span>
 </pre></div>
 </div>
@@ -699,21 +699,21 @@ of key value pairs. The first key is <code class="docutils literal notranslate">
 <code class="docutils literal notranslate"><span class="pre">ADSimDetector.simDetector</span></code>.</p>
 </div>
 <p>This will create us a simulation detector driver with PV prefix
-<code class="docutils literal notranslate"><span class="pre">BL01T-EA-TST-01:DET:</span></code> that publishes its output on the Asyn port <code class="docutils literal notranslate"><span class="pre">DET.DET</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">BL01T-EA-TST-02:DET:</span></code> that publishes its output on the Asyn port <code class="docutils literal notranslate"><span class="pre">DET.DET</span></code>.</p>
 <p>Note that the Generic IOC includes all of the support modules that are dependencies
 of <code class="docutils literal notranslate"><span class="pre">ADSimDetector</span></code> and each of those contributes its own set of definitions in its
 own <em>Support yaml</em> file. Let us also add an <code class="docutils literal notranslate"><span class="pre">AreaDetector</span></code> plugin and wire
 it to our simulation detector by adding this to our <em>IOC yaml</em> file:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ADCore.NDPvaPlugin</span>
 <span class="w">  </span><span class="nt">PORT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DET.PVA</span>
-<span class="w">  </span><span class="nt">PVNAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BL01T-EA-TST-01:PVA:OUTPUT</span>
-<span class="w">  </span><span class="nt">P</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BL01T-EA-TST-01</span>
+<span class="w">  </span><span class="nt">PVNAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BL01T-EA-TST-02:PVA:OUTPUT</span>
+<span class="w">  </span><span class="nt">P</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BL01T-EA-TST-02</span>
 <span class="w">  </span><span class="nt">R</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;:PVA:&quot;</span>
 <span class="w">  </span><span class="nt">NDARRAY_PORT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DET.DET</span>
 </pre></div>
 </div>
 <p>This adds a PVA plugin to the IOC that will publish the output of the simulation
-detector over a PVAccess channel called <code class="docutils literal notranslate"><span class="pre">BL01T-EA-TST-01:PVA:OUTPUT</span></code>. The
+detector over a PVAccess channel called <code class="docutils literal notranslate"><span class="pre">BL01T-EA-TST-02:PVA:OUTPUT</span></code>. The
 <em>Support yaml</em> that declared that plugin came from the ADCore module. This is
 a dependency of ADSimDetector and so is included in the Generic IOC container.</p>
 <p>Try putting the two snippets of <em>IOC yaml</em> together and saving it as
@@ -753,12 +753,12 @@ will be here <a class="reference internal" href="../how-to/phoebus.html"><span c
 We can view it using the <code class="docutils literal notranslate"><span class="pre">c2dv</span></code> tool. Theses commands will install <code class="docutils literal notranslate"><span class="pre">c2dv</span></code>
 and launch it to view the IOC output:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>c2dataviewer
-c2dv<span class="w"> </span>--pv<span class="w"> </span>BL01T-EA-TST-01:PVA:OUTPUT<span class="w"> </span><span class="p">&amp;</span>
+c2dv<span class="w"> </span>--pv<span class="w"> </span>BL01T-EA-TST-02:PVA:OUTPUT<span class="w"> </span><span class="p">&amp;</span>
 </pre></div>
 </div>
 <p>Now we can start our simulation detector like this:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ec<span class="w"> </span>ioc<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>bl01t-ea-ioc-02
-caput<span class="w"> </span>BL01T-EA-TST-01:DET:Acquire<span class="w"> </span><span class="m">1</span>
+caput<span class="w"> </span>BL01T-EA-TST-02:DET:Acquire<span class="w"> </span><span class="m">1</span>
 </pre></div>
 </div>
 <p>You should see a moving image appear in the <code class="docutils literal notranslate"><span class="pre">c2dv</span></code> window. For smoothest
@@ -785,12 +785,12 @@ inside a given Generic IOC we can still make a meaningful <em>IOC yaml</em> file
 That is because every Generic IOC publishes an <em>IOC schema</em> that describes
 the set of entities that an instance of that IOC may instantiate.</p>
 <p>The Generic IOC we used was released at this location:
-<a class="github reference external" href="https://github.com/epics-containers/ioc-adsimdetector/releases/tag/2023.10.6b1">epics-containers/ioc-adsimdetector</a>.
+<a class="github reference external" href="https://github.com/epics-containers/ioc-adsimdetector/releases/tag/2023.10.7">epics-containers/ioc-adsimdetector</a>.
 This page includes the assets that are published as part of the release and
 one of those is <code class="docutils literal notranslate"><span class="pre">ibek.ioc.schema.json</span></code>. This is the <em>IOC schema</em> for the
 <code class="docutils literal notranslate"><span class="pre">ioc-adsimdetector</span></code> Generic IOC. This is what we referred to at the top of
 our <em>IOC yaml</em> file like this:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># yaml-language-server: $schema=https://github.com/epics-containers/ioc-adsimdetector/releases/download/2023.10.6b1/ibek.ioc.schema.json</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># yaml-language-server: $schema=https://github.com/epics-containers/ioc-adsimdetector/releases/download/2023.10.7/ibek.ioc.schema.json</span>
 </pre></div>
 </div>
 <p>When editing with a YAML aware editor like VSCode this will enable auto
