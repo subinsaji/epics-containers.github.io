@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Create an IOC Instance &#8212; epics-containers.github.io 0.9.1.dev34+g7830b63 documentation</title>
+    <title>Create an IOC Instance &#8212; epics-containers.github.io 0.9.1.dev35+ge1a49e2 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
 
-    <script src="../../_static/documentation_options.js?v=7d03ff57"></script>
+    <script src="../../_static/documentation_options.js?v=2c1bb036"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -814,7 +814,7 @@ prefer hand coding them, this is also supported.</p>
 <section id="raw-startup-script-and-database">
 <h2>Raw Startup Script and Database<a class="headerlink" href="#raw-startup-script-and-database" title="Link to this heading">#</a></h2>
 <p>This section demonstrates how to use your own startup assets. This involves
-placing your own <code class="docutils literal notranslate"><span class="pre">st.cmd</span></code> and <code class="docutils literal notranslate"><span class="pre">ioc.substitutions</span></code> files in the <code class="docutils literal notranslate"><span class="pre">config</span></code>
+placing your own <code class="docutils literal notranslate"><span class="pre">st.cmd</span></code> and <code class="docutils literal notranslate"><span class="pre">ioc.subst</span></code> files in the <code class="docutils literal notranslate"><span class="pre">config</span></code>
 folder. Or alternatively you could override behaviour completely by placing
 <code class="docutils literal notranslate"><span class="pre">start.sh</span></code> in the <code class="docutils literal notranslate"><span class="pre">config</span></code> folder, this can contain any script you like.</p>
 <p>To see what ibek generated you can go and look inside the IOC container:</p>
@@ -836,7 +836,7 @@ database then you can copy these two files out of the container and into
 your IOC Instance config folder like this (replace podman with
 docker if that is what you are using):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>podman<span class="w"> </span>cp<span class="w"> </span>bl01t-ea-ioc-02:/tmp/st.cmd<span class="w"> </span>iocs/bl01t-ea-ioc-02/config
-podman<span class="w"> </span>cp<span class="w"> </span>bl01t-ea-ioc-02:/tmp/ioc.subst<span class="w"> </span>iocs/bl01t-ea-ioc-02/config/ioc.substitutions
+podman<span class="w"> </span>cp<span class="w"> </span>bl01t-ea-ioc-02:/tmp/ioc.subst<span class="w"> </span>iocs/bl01t-ea-ioc-02/config/ioc.subst
 <span class="c1"># no longer need an ibek ioc yaml file</span>
 rm<span class="w"> </span>iocs/bl01t-ea-ioc-02/config/ioc.yaml
 <span class="c1"># re-deploy from local filesystem</span>
