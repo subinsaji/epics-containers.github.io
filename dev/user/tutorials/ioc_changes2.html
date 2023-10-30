@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Updating and Testing ibek-support &#8212; epics-containers.github.io 0.9.1.dev37+g7cf0bc0 documentation</title>
+    <title>Changing the Generic IOC &#8212; epics-containers.github.io 0.9.1.dev37+g7cf0bc0 documentation</title>
   
   
   
@@ -44,7 +44,7 @@
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=30646c52"></script>
     <script src="../../_static/design-tabs.js?v=36754332"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'user/how-to/ibek-support';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'user/tutorials/ioc_changes2';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.14.2';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://epics-containers.github.io/epics-containers.github.io/switcher.json';
@@ -54,8 +54,8 @@
     <link rel="icon" href="../../_static/k8s-epics2.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Essential Concepts" href="../explanations/introduction.html" />
-    <link rel="prev" title="Kubernetes Additional How To’s" href="useful_k8s.html" />
+    <link rel="next" title="Making a new Support Module" href="ioc_changes3.html" />
+    <link rel="prev" title="Changing the IOC Instance" href="ioc_changes1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -409,34 +409,34 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/intro.html">Tutorials Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/setup_workstation.html">Setup a Developer Workstation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/create_beamline.html">Create a Beamline Repository</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/deploy_example.html">Deploying and Managing IOC Instances</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/create_ioc.html">Create an IOC Instance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/dev_container.html">Developer Containers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/ioc_changes1.html">Changing the IOC Instance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/ioc_changes2.html">Changing the Generic IOC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/ioc_changes3.html">Making a new Support Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/generic_ioc.html">Create a Generic IOC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/debug_generic_ioc.html">Debugging Generic IOC Builds</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/test_generic_ioc.html">Testing and Deploying a Generic IOC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/support_module.html">Working with Support Modules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/setup_k8s.html">Setup a Kubernetes Server</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/rtems_setup.html">RTEMS - Creating a File Server</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/rtems_ioc.html">RTEMS - Deploying an Example IOC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/ibek.html">Defining IOC Instances using IBEK</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Tutorials Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_workstation.html">Setup a Developer Workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_beamline.html">Create a Beamline Repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy_example.html">Deploying and Managing IOC Instances</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_ioc.html">Create an IOC Instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev_container.html">Developer Containers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ioc_changes1.html">Changing the IOC Instance</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Changing the Generic IOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ioc_changes3.html">Making a new Support Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generic_ioc.html">Create a Generic IOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug_generic_ioc.html">Debugging Generic IOC Builds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test_generic_ioc.html">Testing and Deploying a Generic IOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support_module.html">Working with Support Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_k8s.html">Setup a Kubernetes Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rtems_setup.html">RTEMS - Creating a File Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rtems_ioc.html">RTEMS - Deploying an Example IOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ibek.html">Defining IOC Instances using IBEK</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="phoebus.html">Viewing Operator Interfaces with Phoebus</a></li>
-<li class="toctree-l1"><a class="reference internal" href="debug.html">Debug an IOC instance locally</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../how-to/phoebus.html">Viewing Operator Interfaces with Phoebus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/debug.html">Debug an IOC instance locally</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to the project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="own_tools.html">Choose Your Developer Environment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="useful_k8s.html">Kubernetes Additional How To’s</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Updating and Testing ibek-support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/contributing.html">Contributing to the project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/own_tools.html">Choose Your Developer Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/useful_k8s.html">Kubernetes Additional How To’s</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/ibek-support.html">Updating and Testing ibek-support</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Explanations</span></p>
 <ul class="nav bd-sidenav">
@@ -493,7 +493,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="../index.html" class="nav-link">User Guide</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">Updating...</li>
+    <li class="breadcrumb-item active" aria-current="page">Changing...</li>
   </ul>
 </nav>
 </div>
@@ -510,38 +510,18 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="updating-and-testing-ibek-support">
-<h1>Updating and Testing ibek-support<a class="headerlink" href="#updating-and-testing-ibek-support" title="Link to this heading">#</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This is draft only and out of date. It will be updated soon.</p>
-</div>
-<p>The ibek-defs repository contains ibek support yaml. Here is an example
-procedure for local testing of changes to support yaml in ibek-defs
-along side IOC yaml that uses it.</p>
-<p>(Suggest you do this inside a dev-e7 workspace devcontainer)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>my-workspace-folder
-
-<span class="c1"># clone ibek-defs</span>
-git<span class="w"> </span>clone<span class="w"> </span>git@github.com:epics-containers/ibek-defs.git
-<span class="c1"># clone an example domain repo with example IOC yaml</span>
-git<span class="w"> </span>clone<span class="w"> </span>git@gitlab.diamond.ac.uk:controls/containers/accelerator/acc-psc.git
-
-<span class="c1"># get latest ibek installed</span>
-pip<span class="w"> </span>install<span class="w"> </span>ibek
-
-<span class="nb">cd</span><span class="w"> </span>acc-psc/iocs/sr25a-ioc-01
-ibek<span class="w"> </span>build-startup<span class="w"> </span>config/ioc.boot.yaml<span class="w"> </span>../../../ibek-defs/*/*.yaml
-</pre></div>
-</div>
-<p>This will get ibek generate a startup script and database generation script
-in the config folder. It uses config/ioc.boot.yaml as the description of
-the IOC ‘entities’ to instantiate and all of the support yaml files
-in ibek-defs as a source of the definitions of the classes of entities
-available.</p>
-<p>The example currently uses the timingtemplates definitions only.</p>
-<p>Note that at present ibek generates a script of msi invocations instead
-of a substitution file. This will be changed in the future.</p>
+  <section id="changing-the-generic-ioc">
+<h1>Changing the Generic IOC<a class="headerlink" href="#changing-the-generic-ioc" title="Link to this heading">#</a></h1>
+<p>This tutorial will make a simple change to the Generic IOC <code class="docutils literal notranslate"><span class="pre">ioc-adsimdetector</span></code>.
+We will also update the IOC instance <code class="docutils literal notranslate"><span class="pre">bl01t-ea-ioc-02</span></code> use the new feature of
+the Generic IOC.
+This is a type 2 change from <a class="reference internal" href="dev_container.html#ioc-change-types"><span class="std std-ref">Types of Changes</span></a>.</p>
+<p>We are going to add an additional support module to the Generic IOC and then
+use it to add a new record to the IOC instance to use this new support.</p>
+<p>For this exercise all changes will be local so you will not need to make a
+fork of <code class="docutils literal notranslate"><span class="pre">ioc-adsimdetector</span></code>. The next tutorial will show how to a new
+Generic IOC and we will look at the Generic IOC CI at that time.</p>
+<p>TODO: WIP.</p>
 </section>
 
 
@@ -555,20 +535,20 @@ of a substitution file. This will be changed in the future.</p>
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="useful_k8s.html"
+       href="ioc_changes1.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Kubernetes Additional How To’s</p>
+        <p class="prev-next-title">Changing the IOC Instance</p>
       </div>
     </a>
     <a class="right-next"
-       href="../explanations/introduction.html"
+       href="ioc_changes3.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Essential Concepts</p>
+        <p class="prev-next-title">Making a new Support Module</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -584,7 +564,7 @@ of a substitution file. This will be changed in the future.</p>
   <div class="sidebar-secondary-item">
   
   <div class="tocsection editthispage">
-    <a href="https://github.com/epics-containers/epics-containers.github.io/edit/dev/docs/user/how-to/ibek-support.rst">
+    <a href="https://github.com/epics-containers/epics-containers.github.io/edit/dev/docs/user/tutorials/ioc_changes2.rst">
       <i class="fa-solid fa-pencil"></i>
       
       
@@ -598,7 +578,7 @@ of a substitution file. This will be changed in the future.</p>
 
   <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">
-    <a href="../../_sources/user/how-to/ibek-support.rst.txt">
+    <a href="../../_sources/user/tutorials/ioc_changes2.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>
