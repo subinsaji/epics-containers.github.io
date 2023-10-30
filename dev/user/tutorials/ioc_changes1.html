@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Changing the IOC Instance &#8212; epics-containers.github.io 0.9.1.dev32+g0dc11a5 documentation</title>
+    <title>Changing the IOC Instance &#8212; epics-containers.github.io 0.9.1.dev33+gfa76e42 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
 
-    <script src="../../_static/documentation_options.js?v=d642e074"></script>
+    <script src="../../_static/documentation_options.js?v=f55f2b9a"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -417,7 +417,6 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="create_ioc.html">Create an IOC Instance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dev_container.html">Developer Containers</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Changing the IOC Instance</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="generic_ioc.html">Create a Generic IOC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debug_generic_ioc.html">Debugging Generic IOC Builds</a></li>
 <li class="toctree-l1"><a class="reference internal" href="test_generic_ioc.html">Testing and Deploying a Generic IOC</a></li>
@@ -511,22 +510,21 @@ document.write(`
                   
   <section id="changing-the-ioc-instance">
 <h1>Changing the IOC Instance<a class="headerlink" href="#changing-the-ioc-instance" title="Link to this heading">#</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This tutorial is out of date and will be updated in November 2023.</p>
-</div>
-<p>This tutorial will make a very simple change to the example IOC <code class="docutils literal notranslate"><span class="pre">bl01t-ea-ioc-01</span></code>.
-This is a type 1. change from the above list, types 2, 3 will be covered in the
+<p>This tutorial will make a very simple change to the example IOC <code class="docutils literal notranslate"><span class="pre">bl01t-ea-ioc-02</span></code>.
+This is a type 1 change from <a class="reference internal" href="dev_container.html#ioc-change-types"><span class="std std-ref">Types of Changes</span></a>, types 2, 3 will be covered in the
 following 2 tutorials.</p>
+<p>Strictly speaking, Type 1 changes do not require a devcontainer. You created
+and deployed the IOC instance a previous tutorial without one. It is up to
+you how you choose to make these types of changes. Types 2,3 do require a
+devcontainer because they involve compiling Generic IOC / support module code.</p>
 <p>We are going to add a hand crafted EPICS DB file to the IOC instance. This will
 be a simple record that we will be able to query to verify that the change
 is working.</p>
 <p>Make the following changes in your test IOC config folder
-(<code class="docutils literal notranslate"><span class="pre">bl01t/iocs/bl01t-ea-ioc-01/config</span></code>):</p>
+(<code class="docutils literal notranslate"><span class="pre">bl01t/iocs/bl01t-ea-ioc-02/config</span></code>):</p>
 <ol class="arabic">
-<li><p>Add a file called <code class="docutils literal notranslate"><span class="pre">extra.db</span></code> with the following contents.
-IMPORTANT replace [$USER] with your username:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>record(ai, &quot;[$USER]-EA-IOC-01:TEST&quot;) {
+<li><p>Add a file called <code class="docutils literal notranslate"><span class="pre">extra.db</span></code> with the following contents.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>record(ai, &quot;BL01T-EA-IOC-01:TEST&quot;) {
    field(DESC, &quot;Test record&quot;)
    field(DTYP, &quot;Soft Channel&quot;)
    field(SCAN, &quot;Passive&quot;)
@@ -535,9 +533,10 @@ IMPORTANT replace [$USER] with your username:</p>
 </pre></div>
 </div>
 </li>
-<li><p>Add the following line to the <code class="docutils literal notranslate"><span class="pre">st.cmd</span></code> file after the last <code class="docutils literal notranslate"><span class="pre">dbLoadRecords</span></code>
-line:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>dbLoadRecords(config/extra.db)
+<li><p>Add the following lines to the end <code class="docutils literal notranslate"><span class="pre">ioc.yaml</span></code> (verify that the indentation
+matches the above entry so that <code class="docutils literal notranslate"><span class="pre">-</span> <span class="pre">type:</span></code> statements line up):</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">epics.StartupCommand</span>
+<span class="w">  </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dbLoadRecords(config/extra.db)</span>
 </pre></div>
 </div>
 </li>
@@ -547,13 +546,14 @@ line:</p>
 <p>You can immediately test your changes by running the IOC locally. The following
 command will run the IOC locally using the config files in your test IOC config
 folder:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ec<span class="w"> </span>dev<span class="w"> </span>ioc-launch<span class="w"> </span>iocs/bl01t-ea-ioc-01
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># stop the first IOC shell by hitting Ctrl-D or typing exit</span>
+<span class="nb">cd</span><span class="w"> </span>/epics/ioc
+./start.sh
 </pre></div>
 </div>
-<p>This will launch Generic IOC container specified in the <code class="docutils literal notranslate"><span class="pre">bl01t-ea-ioc-01</span></code>
-helm chart and mount into it the local config specified in
-<code class="docutils literal notranslate"><span class="pre">/iocs/bl01t-ea-ioc-01/config</span></code>.</p>
-<p>If all is well you should see your iocShell prompt and you can test your change
+<p>If all is well you should see your iocShell prompt and the output should
+show <code class="docutils literal notranslate"><span class="pre">dbLoadRecords(config/extra.db)</span></code>.</p>
+<p>Test your change
 from another terminal (VSCode menus -&gt; Terminal -&gt; New Terminal) like so:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>caget<span class="w"> </span><span class="nv">$USER</span>-EA-IOC-01:TEST
 </pre></div>
@@ -561,71 +561,52 @@ from another terminal (VSCode menus -&gt; Terminal -&gt; New Terminal) like so:<
 <p>If you see the value 1 then your change is working.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you also wanted to make local changes
-to the Generic IOC itself you could clone the Generic IOC source repo,
-locally build the container image and then use <code class="docutils literal notranslate"><span class="pre">ec</span> <span class="pre">dev</span> <span class="pre">ioc-launch</span></code> as
-follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># advanced example - not part of this tutorial</span>
-<span class="nb">cd</span><span class="w"> </span>&lt;root<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>workspace&gt;
-git<span class="w"> </span>clone<span class="w"> </span>git@github.com:epics-containers/ioc-adsimdetector.git
-<span class="nb">cd</span><span class="w"> </span>ioc-adsimdetector
-<span class="c1"># this makes a local image with tag :local</span>
-ec<span class="w"> </span>dev<span class="w"> </span>build
-<span class="nb">cd</span><span class="w"> </span>../bl01t
-ec<span class="w"> </span>dev<span class="w"> </span>ioc-launch<span class="w"> </span>iocs/bl01t-ea-ioc-01<span class="w"> </span>../ioc-adsimdetector
+<p>You are likely to see
+<em>“Identical process variable names on multiple servers”</em> warnings. This is
+because caget can see the PV on the host network and the container network,
+but as these are the same IOC this is not a problem.</p>
+<p>You can change this and make your devcontainer network isolated by removing
+the line <code class="docutils literal notranslate"><span class="pre">&quot;--net=host&quot;,</span></code> from <code class="docutils literal notranslate"><span class="pre">.devcontainer/devcontainer.json</span></code>, but
+it is convenient to leave it if you want to run OPI tools locally on the
+host. You may want to isolate your development network if multiple
+developers are working on the same subnet. In this case some other solution
+is required for running OPI tools on the host (TODO add link to solution).</p>
+</div>
+<p>Because of the symlink between <code class="docutils literal notranslate"><span class="pre">/epics/ioc/config</span></code> and
+<code class="docutils literal notranslate"><span class="pre">/repos/bl01t/iocs/bl01t-ea-ioc-02/config</span></code> the same files you are testing
+by launching the ioc inside of the devcontainer are also ready to be
+committed and pushed to the bl01t repo. i.e.:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do this from the host terminal (not the devcontainer terminal)</span>
+<span class="nb">cd</span><span class="w"> </span>bl01t
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Added extra.db&quot;</span>
+git<span class="w"> </span>push
+<span class="c1"># tag a new version of the beamline repo</span>
+git<span class="w"> </span>tag<span class="w"> </span><span class="m">2023</span>.11.2
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span><span class="m">2023</span>.11.2
+ec<span class="w"> </span>deploy<span class="w"> </span>bl01t-ea-ioc-02<span class="w"> </span><span class="m">2023</span>.11.2
 </pre></div>
 </div>
-</div>
-<p>Note you can see your running IOC in podman using this command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>podman<span class="w"> </span>ps
-</pre></div>
-</div>
-<p>You should see a container named bl01t-ea-ioc-01 and also a another one with a
-random name and an image called <code class="docutils literal notranslate"><span class="pre">localhost/vsc-work...</span></code>. The latter is the
-container that is running your developer environment.</p>
-<p>If you would like to take a look inside the container you can run a bash shell
-in the container like this:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>podman<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>bl01t-ea-ioc-01<span class="w"> </span>bash
-</pre></div>
-</div>
-<p>When you type exit on the iocShell the container will stop and and be removed.</p>
+<p>The above steps were performed on a host terminal because we are using <code class="docutils literal notranslate"><span class="pre">ec</span></code>
+but all of the previous steps could have been done <em>inside</em> the devcontainer
+starting with <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/repos/bl01t</span></code>.</p>
 </section>
+<section id="raw-startup-assets">
+<h2>Raw Startup Assets<a class="headerlink" href="#raw-startup-assets" title="Link to this heading">#</a></h2>
+<p>If you plan not to use <a class="reference internal" href="ibek.html"><span class="doc">Defining IOC Instances using IBEK</span></a> runtime asset creation you could use the raw
+startup assets from the previous tutorial. If you do this then the process
+above is identical except that you will add the <code class="docutils literal notranslate"><span class="pre">dbLoadRecords</span></code> command to
+the end of <code class="docutils literal notranslate"><span class="pre">st.cmd</span></code>.</p>
 </section>
-<section id="deploying-a-beta-ioc-instance-to-the-cluster">
-<span id="local-deploy-ioc"></span><h1>Deploying a Beta IOC Instance to The Cluster<a class="headerlink" href="#deploying-a-beta-ioc-instance-to-the-cluster" title="Link to this heading">#</a></h1>
-<p>In <code class="docutils literal notranslate"><span class="pre">05_deploy_example</span></code> we deployed a tagged version of the IOC instance to
-the cluster. This the correct way to deploy a production IOC instance as it
-means there is a record of version of the IOC instance in the Helm Chart
-OCI registry and you can always roll back to that version if needed.</p>
-<p>However, it is also possible to directly deploy a version of the IOC instance
-from your local machine to the cluster.
-This is useful for testing changes to the IOC instance
-before publishing a new version. In this case
-your IOC will be given a beta tag in the cluster, indicating that it has
-not yet been released.</p>
-<p>To deploy your changes direct to the cluster use the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ec<span class="w"> </span>ioc<span class="w"> </span>deploy-local<span class="w"> </span>iocs/bl01t-ea-ioc-01
-</pre></div>
-</div>
-<p>You will get a warning that this is a temporary deployment and you will see that
-the version number will look something like <code class="docutils literal notranslate"><span class="pre">2023.3.29-b14.29</span></code> this
-indicates that this is a beta deployment made at 14:29 on 29th March 2023.</p>
-<p>Now when you ask for the IOCs running in your domain you should see your IOC
-with beta version listed:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ec<span class="w"> </span>ps<span class="w"> </span>-w
-POD<span class="w">                                </span>VERSION<span class="w">            </span>STATE<span class="w">     </span>RESTARTS<span class="w">   </span>STARTED<span class="w">                </span>IP<span class="w">             </span>GENERIC_IOC_IMAGE
-bl01t-ea-ioc-01-7d7c5bc759-5bjsr<span class="w">   </span><span class="m">2023</span>.3.29-b14.29<span class="w">   </span>Running<span class="w">   </span><span class="m">0</span><span class="w">          </span><span class="m">2023</span>-03-29T14:29:18Z<span class="w">   </span><span class="m">192</span>.168.0.32<span class="w">   </span>ghcr.io/epics-containers/ioc-adsimdetector-linux-runtime:23.3.4
-</pre></div>
-</div>
-<p>You can check it is working as before (replace the IP with yours
-from the above command):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">EPICS_CA_ADDR_LIST</span><span class="o">=</span><span class="m">192</span>.168.0.32
-caget<span class="w"> </span><span class="nv">$USER</span>-EA-IOC-01:TEST
-</pre></div>
-</div>
-<p>Once you are happy with your changes you can push and tag your beamline repo.
-This will publish a new version of the IOC instance helm chart to the OCI helm
-registry. You can then deploy the versioned IOC instance to the cluster.</p>
+<section id="more-about-ibek-runtime-asset-creation">
+<h2>More about ibek Runtime Asset Creation<a class="headerlink" href="#more-about-ibek-runtime-asset-creation" title="Link to this heading">#</a></h2>
+<p>The set of <code class="docutils literal notranslate"><span class="pre">entities</span></code> that you may create in your ioc.yaml is defined by the
+<code class="docutils literal notranslate"><span class="pre">ibek</span></code> IOC schema that we reference at the top of <code class="docutils literal notranslate"><span class="pre">ioc.yaml</span></code>.
+The schema is in turn defined by the set of support modules that were compiled
+into the Generic IOC (ioc-adsimdetector). Each support module has an
+<code class="docutils literal notranslate"><span class="pre">ibek</span></code> <em>support YAML</em> file that contributes to the schema.</p>
+<p>The <em>Support yaml</em> files are in the folder <code class="docutils literal notranslate"><span class="pre">/epics/ibek</span></code></p>
+</section>
 </section>
 
 
@@ -671,13 +652,10 @@ registry. You can then deploy the versioned IOC instance to the cluster.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Changing the IOC Instance</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#locally-testing-your-changes">Locally Testing Your changes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#raw-startup-assets">Raw Startup Assets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-about-ibek-runtime-asset-creation">More about ibek Runtime Asset Creation</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deploying-a-beta-ioc-instance-to-the-cluster">Deploying a Beta IOC Instance to The Cluster</a></li>
-</ul>
-
   </nav></div>
 
   <div class="sidebar-secondary-item">
