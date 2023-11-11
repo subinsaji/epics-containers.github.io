@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Create an IOC Instance &#8212; epics-containers.github.io 0.9.1.dev40+gd5ef3ec documentation</title>
+    <title>Create an IOC Instance &#8212; epics-containers.github.io 0.9.1.dev63+gc5d2e32 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
-    <script src="../../_static/documentation_options.js?v=39f8423e"></script>
+    <script src="../../_static/documentation_options.js?v=b5e0879a"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -537,10 +537,12 @@ can take a number of forms
 <a class="reference external" href="https://github.com/epics-containers/ibek/blob/ea9da7e1cfe88f2a300ad236f820221837dd9dcf/src/ibek/templates/ioc/config/start.sh">listed here</a>.</p>
 </dd>
 </dl>
+<section id="values-yaml">
+<h3>values.yaml<a class="headerlink" href="#values-yaml" title="Link to this heading">#</a></h3>
 <p>We will start by creating the values.yaml file:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>bl01t
 mkdir<span class="w"> </span>iocs/bl01t-ea-ioc-02
-code<span class="w"> </span>values.yaml
+code<span class="w"> </span>iocs/bl01t-ea-ioc-02/values.yaml
 </pre></div>
 </div>
 <p>This should launch vscode and open the values.yaml file. Add the following:</p>
@@ -585,8 +587,8 @@ extracting runtime assets for the runtime container target.</p></li>
 above. So now we will provide some <em>IOC yaml</em> files to <code class="docutils literal notranslate"><span class="pre">ibek</span></code> so that it
 will generate startup assets for our IOC Instance.</p>
 </section>
-<section id="make-an-ioc-yaml-file">
-<h2>Make an <em>IOC yaml</em> File<a class="headerlink" href="#make-an-ioc-yaml-file" title="Link to this heading">#</a></h2>
+<section id="config">
+<h3>config<a class="headerlink" href="#config" title="Link to this heading">#</a></h3>
 <p><em>IOC yaml</em> files are a sequence of <code class="docutils literal notranslate"><span class="pre">entities</span></code>. Each entity is an instance of
 a <code class="docutils literal notranslate"><span class="pre">definition</span></code> declared in the <em>Support yaml</em> that one of the support
 modules provides. <code class="docutils literal notranslate"><span class="pre">definitions</span></code> can:</p>
@@ -671,12 +673,17 @@ baked into the container:</p>
 <span class="w">        </span><span class="no">simDetectorConfig(&quot;{{PORT}}&quot;, {{WIDTH}}, {{HEIGHT}}, {{DATATYPE}}, {{BUFFERS}}, {{MEMORY}})</span>
 </pre></div>
 </div>
-<p>You can see that this lists a a number of arguments that it expects. It then
+<p>You can see that this lists a number of arguments that it expects. It then
 declares how these will be used to substitute values into the simDetector
 database template. Finally it declares some lines to go into the startup script
 (before iocInit).</p>
 <p>Therefore, we can create an <em>IOC yaml</em> file that instantiates a simulation
 detector as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>iocs/bl01t-ea-ioc-02/config
+code<span class="w"> </span>iocs/bl01t-ea-ioc-02/config/ioc.yaml
+</pre></div>
+</div>
+<p>This should launch vscode and open the ioc.yaml file. Add the following:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># yaml-language-server: $schema=https://github.com/epics-containers/ioc-adsimdetector/releases/download/2023.10.7/ibek.ioc.schema.json</span>
 
 <span class="nt">ioc_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bl01t-ea-ioc-02</span>
@@ -719,8 +726,9 @@ detector over a PVAccess channel called <code class="docutils literal notranslat
 <em>Support yaml</em> that declared that plugin came from the ADCore module. This is
 a dependency of ADSimDetector and so is included in the Generic IOC container.</p>
 <p>Try putting the two snippets of <em>IOC yaml</em> together and saving it as
-<code class="docutils literal notranslate"><span class="pre">ioc.yaml</span></code> in the <code class="docutils literal notranslate"><span class="pre">iocs/bl01t-ea-ioc-02</span></code> folder.</p>
+<code class="docutils literal notranslate"><span class="pre">ioc.yaml</span></code> in the <code class="docutils literal notranslate"><span class="pre">iocs/bl01t-ea-ioc-02/config</span></code> folder.</p>
 <p>You have now defined your first IOC instance.</p>
+</section>
 </section>
 <section id="trying-out-the-ioc-instance">
 <h2>Trying Out The IOC Instance<a class="headerlink" href="#trying-out-the-ioc-instance" title="Link to this heading">#</a></h2>
@@ -905,8 +913,11 @@ use the <code class="docutils literal notranslate"><span class="pre">-v</span></
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-ioc-instance">Create a New IOC Instance</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-an-ioc-yaml-file">Make an <em>IOC yaml</em> File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-ioc-instance">Create a New IOC Instance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#values-yaml">values.yaml</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#config">config</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trying-out-the-ioc-instance">Trying Out The IOC Instance</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-the-ioc-instance">Launch the IOC Instance</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operator-interface">Operator Interface</a></li>
