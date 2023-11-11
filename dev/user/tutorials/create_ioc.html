@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Create an IOC Instance &#8212; epics-containers.github.io 0.9.1.dev63+gc5d2e32 documentation</title>
+    <title>Create an IOC Instance &#8212; epics-containers.github.io 0.9.1.dev64+gc0d5f63 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
-    <script src="../../_static/documentation_options.js?v=b5e0879a"></script>
+    <script src="../../_static/documentation_options.js?v=70e19a9c"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -546,7 +546,7 @@ code<span class="w"> </span>iocs/bl01t-ea-ioc-02/values.yaml
 </pre></div>
 </div>
 <p>This should launch vscode and open the values.yaml file. Add the following:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/epics-containers/ioc-adsimdetector-linux-runtime:2023.10.7</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/epics-containers/ioc-adsimdetector-linux-runtime:2023.11.1</span>
 </pre></div>
 </div>
 <p>This tells the IOC Instance to run in the <code class="docutils literal notranslate"><span class="pre">ioc-adsimdetector-linux-runtime</span></code>
@@ -684,7 +684,7 @@ code<span class="w"> </span>iocs/bl01t-ea-ioc-02/config/ioc.yaml
 </pre></div>
 </div>
 <p>This should launch vscode and open the ioc.yaml file. Add the following:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># yaml-language-server: $schema=https://github.com/epics-containers/ioc-adsimdetector/releases/download/2023.10.7/ibek.ioc.schema.json</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># yaml-language-server: $schema=https://github.com/epics-containers/ioc-adsimdetector/releases/download/2023.11.1/ibek.ioc.schema.json</span>
 
 <span class="nt">ioc_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bl01t-ea-ioc-02</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Example simulated camera for BL01T</span>
@@ -768,6 +768,9 @@ c2dv<span class="w"> </span>--pv<span class="w"> </span>BL01T-EA-TST-02:PVA:OUTP
 </div>
 <p>Now we can start our simulation detector like this:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ec<span class="w"> </span>ioc<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>bl01t-ea-ioc-02
+<span class="c1"># enable the PVA plugin that publishes the output</span>
+caput<span class="w"> </span>BL01T-EA-TST-02:PVA:EnableCallbacks<span class="w"> </span><span class="m">1</span>
+<span class="c1"># start the simulation detector</span>
 caput<span class="w"> </span>BL01T-EA-TST-02:DET:Acquire<span class="w"> </span><span class="m">1</span>
 </pre></div>
 </div>
@@ -795,12 +798,12 @@ inside a given Generic IOC we can still make a meaningful <em>IOC yaml</em> file
 That is because every Generic IOC publishes an <em>IOC schema</em> that describes
 the set of entities that an instance of that IOC may instantiate.</p>
 <p>The Generic IOC we used was released at this location:
-<a class="github reference external" href="https://github.com/epics-containers/ioc-adsimdetector/releases/tag/2023.10.7">epics-containers/ioc-adsimdetector</a>.
+<a class="github reference external" href="https://github.com/epics-containers/ioc-adsimdetector/releases/tag/2023.11.1">epics-containers/ioc-adsimdetector</a>.
 This page includes the assets that are published as part of the release and
 one of those is <code class="docutils literal notranslate"><span class="pre">ibek.ioc.schema.json</span></code>. This is the <em>IOC schema</em> for the
 <code class="docutils literal notranslate"><span class="pre">ioc-adsimdetector</span></code> Generic IOC. This is what we referred to at the top of
 our <em>IOC yaml</em> file like this:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># yaml-language-server: $schema=https://github.com/epics-containers/ioc-adsimdetector/releases/download/2023.10.7/ibek.ioc.schema.json</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># yaml-language-server: $schema=https://github.com/epics-containers/ioc-adsimdetector/releases/download/2023.11.1/ibek.ioc.schema.json</span>
 </pre></div>
 </div>
 <p>When editing with a YAML aware editor like VSCode this will enable auto
@@ -829,24 +832,25 @@ folder. Or alternatively you could override behaviour completely by placing
 <code class="docutils literal notranslate"><span class="pre">start.sh</span></code> in the <code class="docutils literal notranslate"><span class="pre">config</span></code> folder, this can contain any script you like.</p>
 <p>To see what ibek generated you can go and look inside the IOC container:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ec<span class="w"> </span>ioc<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>bl01t-ea-ioc-02
-ls<span class="w"> </span>/opt/epics/ioc/iocBoot/iocbl01t-ea-ioc-02
-cat<span class="w"> </span>/tmp/ioc.subst
-cat<span class="w"> </span>/tmp/st.cmd
+<span class="nb">cd</span><span class="w"> </span>/epics/runtime/
+cat<span class="w"> </span>ioc.subst
+cat<span class="w"> </span>st.cmd
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The startup script and database are generated at container run time,
-by <code class="docutils literal notranslate"><span class="pre">ibek</span></code>. They are generated in the /tmp folder of the container.
-This is because this is the only folder that is guaranteed to be
-writeable due to container security considerations.</p>
+by <code class="docutils literal notranslate"><span class="pre">ibek</span></code>. They are generated in the /epics/runtime folder
+of the container.
+In Kubernetes this will be a persistent volume so that it can be
+shared for easy debugging of IOC Instances.</p>
 </div>
 <p>If you would like to see an IOC Instance that uses a raw startup script and
 database then you can copy these two files out of the container and into
 your IOC Instance config folder like this (replace podman with
 docker if that is what you are using):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>podman<span class="w"> </span>cp<span class="w"> </span>bl01t-ea-ioc-02:/tmp/st.cmd<span class="w"> </span>iocs/bl01t-ea-ioc-02/config
-podman<span class="w"> </span>cp<span class="w"> </span>bl01t-ea-ioc-02:/tmp/ioc.subst<span class="w"> </span>iocs/bl01t-ea-ioc-02/config/ioc.subst
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>podman<span class="w"> </span>cp<span class="w"> </span>bl01t-ea-ioc-02:/epics/runtime/st.cmd<span class="w"> </span>iocs/bl01t-ea-ioc-02/config
+podman<span class="w"> </span>cp<span class="w"> </span>bl01t-ea-ioc-02:/epics/runtime/ioc.subst<span class="w"> </span>iocs/bl01t-ea-ioc-02/config/ioc.subst
 <span class="c1"># no longer need an ibek ioc yaml file</span>
 rm<span class="w"> </span>iocs/bl01t-ea-ioc-02/config/ioc.yaml
 <span class="c1"># re-deploy from local filesystem</span>
