@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Developer Containers &#8212; epics-containers.github.io 0.9.1.dev58+g01aaf31 documentation</title>
+    <title>Developer Containers &#8212; epics-containers.github.io 2023.11.2.dev7+gba97463 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
-    <script src="../../_static/documentation_options.js?v=acfb287d"></script>
+    <script src="../../_static/documentation_options.js?v=d1a5f09e"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -601,17 +601,9 @@ at the time of writing
 that makes it incompatible with podman and an SELinux enabled /tmp directory.
 This will affect most Redhat users and you will see an error regarding
 permissions on the /tmp folder when VSCode is building your devcontainer.</p>
-<p>Here is a temporary workaround, paste this into a terminal:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;</span>
-<span class="s1">#!/bin/bash</span>
-<span class="s1">if [[  &quot;${@}&quot; == &quot;buildx build&quot;* ]] ; then</span>
-<span class="s1">  shift 2</span>
-<span class="s1">  /usr/bin/podman buildx build --security-opt=label=disable &quot;${@}&quot;</span>
-<span class="s1">else</span>
-<span class="s1">  /usr/bin/podman &quot;${@}&quot;</span>
-<span class="s1">fi</span>
-<span class="s1">&#39;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$HOME</span>/.local/bin/podman
-chmod<span class="w"> </span>+x<span class="w"> </span><span class="nv">$HOME</span>/.local/bin/podman
+<p>Here is a workaround that disables SELinux labels in podman.
+Paste this into a terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sed<span class="w"> </span>-i<span class="w"> </span>~/.config/containers/containers.conf<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;/label=false/d&#39;</span><span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;/^\[containers\]$/a label=false&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -624,7 +616,7 @@ specific version of the Generic IOC source so that future changes don’t break
 this tutorial:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># starting from folder bl01t so that the clone is next to bl01t</span>
 <span class="nb">cd</span><span class="w"> </span>..
-git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>git@github.com:epics-containers/ioc-adsimdetector.git<span class="w"> </span>-b<span class="w"> </span><span class="m">2023</span>.10.7
+git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>git@github.com:epics-containers/ioc-adsimdetector.git<span class="w"> </span>-b<span class="w"> </span><span class="m">2023</span>.11.1
 <span class="nb">cd</span><span class="w"> </span>ioc-adsimdetector
 ec<span class="w"> </span>dev<span class="w"> </span>build
 </pre></div>
@@ -707,6 +699,17 @@ folder (see <a class="reference internal" href="#container-layout"><span class="
 workspace - you may see an error but if so clicking “reload window” will
 clear it.</p>
 <p>Also take this opportunity to add the folder <code class="docutils literal notranslate"><span class="pre">/epics</span></code> to the workspace.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Docker Users: your account inside the container will not be the owner of
+/epics files. vscode will try to open the repos in epics-base and support/*
+and git will complain about ownership. You can cancel out of these errors
+as you should not edit project folders inside of <code class="docutils literal notranslate"><span class="pre">/epics</span></code> - they were
+built by the container and should be considered immutable. We will learn
+how to work on support modules in later tuorials. This error should only
+be seen on first launch. podman users will have no such problem becuase they
+will be root inside the container and root build the container.</p>
+</div>
 <p>You can now easily browse around the <code class="docutils literal notranslate"><span class="pre">/epics</span></code> folder and see all the
 support modules and epics-base. This will give you a feel for the layout of
 files in the container. Here is a summary (where WS is your workspace on your
@@ -762,10 +765,12 @@ host. i.e. the root folder under which your projects are all cloned):</p>
 <p>Now that we have the beamline repo visible in our container we can
 easily supply some instance configuration to the Generic IOC.
 Try the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">epics</span><span class="o">/</span><span class="n">ioc</span><span class="o">-</span><span class="n">adsimdetector</span>
-<span class="n">rm</span> <span class="o">-</span><span class="n">r</span> <span class="n">ioc</span><span class="o">/</span><span class="n">config</span>
-<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">repos</span><span class="o">/</span><span class="n">bl01t</span><span class="o">/</span><span class="n">iocs</span><span class="o">/</span><span class="n">bl01t</span><span class="o">-</span><span class="n">ea</span><span class="o">-</span><span class="n">ioc</span><span class="o">-</span><span class="mi">02</span><span class="o">/</span><span class="n">config</span> <span class="n">ioc</span>
-<span class="n">ioc</span><span class="o">/</span><span class="n">start</span><span class="o">.</span><span class="n">sh</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">epics</span><span class="o">/</span><span class="n">ioc</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">r</span> <span class="n">config</span>
+<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">repos</span><span class="o">/</span><span class="n">bl02t</span><span class="o">/</span><span class="n">iocs</span><span class="o">/</span><span class="n">bl02t</span><span class="o">-</span><span class="n">ea</span><span class="o">-</span><span class="n">ioc</span><span class="o">-</span><span class="mi">02</span><span class="o">/</span><span class="n">config</span> <span class="o">.</span>
+<span class="c1"># check the ln worked</span>
+<span class="n">ls</span> <span class="o">-</span><span class="n">l</span> <span class="n">config</span>
+<span class="o">./</span><span class="n">start</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
 <p>This removed the boilerplate config and replaced it with the config from

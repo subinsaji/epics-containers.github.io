@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Deploying and Managing IOC Instances &#8212; epics-containers.github.io 0.9.1.dev58+g01aaf31 documentation</title>
+    <title>Deploying and Managing IOC Instances &#8212; epics-containers.github.io 2023.11.2.dev7+gba97463 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
-    <script src="../../_static/documentation_options.js?v=acfb287d"></script>
+    <script src="../../_static/documentation_options.js?v=d1a5f09e"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -614,6 +614,14 @@ check that the IOC instance version is available as expected:</p>
 Available<span class="w"> </span>instance<span class="w"> </span>versions<span class="w"> </span><span class="k">for</span><span class="w"> </span>bl01t-ea-ioc-01:
 <span class="w">    </span><span class="m">2023</span>.11.1
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above command is the first one to look at your github repository.
+This is how it finds out the versions
+of the IOC instance that are available. If you get an error it may be
+because you set EC_DOMAIN_REPO incorrectly in environment.sh. Check it
+and source it again to pick up any changes.</p>
 </div>
 <p>Now that we know the latest version number we can deploy a release version.
 This command will extract the IOC instance using the tag from GitHub and deploy
