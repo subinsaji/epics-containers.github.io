@@ -615,6 +615,14 @@ Available<span class="w"> </span>instance<span class="w"> </span>versions<span c
 <span class="w">    </span><span class="m">2023</span>.11.1
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above command is the first one to look at your github repository.
+This is how it finds out the versions
+of the IOC instance that are available. If you get an error it may be
+because you set EC_DOMAIN_REPO incorrectly in environment.sh. Check it
+and source it again to pick up any changes.</p>
+</div>
 <p>Now that we know the latest version number we can deploy a release version.
 This command will extract the IOC instance using the tag from GitHub and deploy
 it to your local machine:</p>
