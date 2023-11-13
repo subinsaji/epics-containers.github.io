@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Developer Containers &#8212; epics-containers.github.io 2023.11.2.dev7+gba97463 documentation</title>
+    <title>Developer Containers &#8212; epics-containers.github.io 2023.11.2.dev2+ga858814 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
-    <script src="../../_static/documentation_options.js?v=d1a5f09e"></script>
+    <script src="../../_static/documentation_options.js?v=2d70e088"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -692,7 +692,10 @@ work with <code class="docutils literal notranslate"><span class="pre">bl01t</sp
 <section id="adding-the-beamline-to-the-workspace">
 <h2>Adding the Beamline to the Workspace<a class="headerlink" href="#adding-the-beamline-to-the-workspace" title="Link to this heading">#</a></h2>
 <p>To meaningfully test the Generic IOC we will need an instance to test it
-against. We will use the <code class="docutils literal notranslate"><span class="pre">bl01t</span></code> beamline that you already made.</p>
+against. We will use the <code class="docutils literal notranslate"><span class="pre">bl01t</span></code> beamline that you already made. The container
+has been configured to mount some useful local files from the user’s home directory,
+including the parent folder of the workspace as <code class="docutils literal notranslate"><span class="pre">/repos</span></code> so we can work on
+multiple peer projects.</p>
 <p>In VSCode click the <code class="docutils literal notranslate"><span class="pre">File</span></code> menu and select <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">Folder</span> <span class="pre">to</span> <span class="pre">Workspace</span></code>.
 Navigate to <code class="docutils literal notranslate"><span class="pre">/repos</span></code> and you will see all the peers of your <code class="docutils literal notranslate"><span class="pre">ioc-adsimdetector</span></code>
 folder (see <a class="reference internal" href="#container-layout"><span class="std std-ref">Developer Container Layout</span></a> below) . Choose the <code class="docutils literal notranslate"><span class="pre">bl01t</span></code> folder and add it to the
