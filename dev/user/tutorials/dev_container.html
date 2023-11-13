@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Developer Containers &#8212; epics-containers.github.io 0.9.1.dev64+gc0d5f63 documentation</title>
+    <title>Developer Containers &#8212; epics-containers.github.io 0.9.1.dev65+ge486a7f documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
-    <script src="../../_static/documentation_options.js?v=70e19a9c"></script>
+    <script src="../../_static/documentation_options.js?v=e213a45b"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -611,12 +611,10 @@ Paste this into a terminal:</p>
 used in previous tutorials. Let’s go and fetch a version of the Generic IOC
 source and build it locally.</p>
 <p>For the purposes of this tutorial we will place the source in a folder right
-next to your test beamline <code class="docutils literal notranslate"><span class="pre">bl01t</span></code> folder. We will also be getting a
-specific version of the Generic IOC source so that future changes don’t break
-this tutorial:</p>
+next to your test beamline <code class="docutils literal notranslate"><span class="pre">bl01t</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># starting from folder bl01t so that the clone is next to bl01t</span>
 <span class="nb">cd</span><span class="w"> </span>..
-git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>git@github.com:epics-containers/ioc-adsimdetector.git<span class="w"> </span>-b<span class="w"> </span><span class="m">2023</span>.11.1
+git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>git@github.com:epics-containers/ioc-adsimdetector.git
 <span class="nb">cd</span><span class="w"> </span>ioc-adsimdetector
 ec<span class="w"> </span>dev<span class="w"> </span>build
 </pre></div>
@@ -653,6 +651,15 @@ the green icon in the bottom left of the VSCode window and select
 <p>You should now be <em>inside</em> the container. All terminals started in VSCode will
 be inside the container. Every file that you open with the VSCode editor
 will be inside the container.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Troubleshooting: if you are experiencing problems with the devcontainer you
+can try resetting your vscode and vscode server caches on your host machine.
+To do this, exit vscode use the following command and restart vscode:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rm<span class="w"> </span>-rf<span class="w"> </span>~/.vscode/*<span class="w"> </span>~/.vscode-server/*
+</pre></div>
+</div>
+</div>
 <p>There are some caveats because some folders are mounted from the host file
 system. For example, the <code class="docutils literal notranslate"><span class="pre">ioc-adsimdetector</span></code> project folder
 is mounted into the container as a volume. It is mounted under
