@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Setup a Developer Workstation &#8212; epics-containers.github.io 2023.11.2.dev7+g7c94c5f documentation</title>
+    <title>Set up a Developer Workstation &#8212; epics-containers.github.io 2023.11.2.dev11+g17522b7 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
-    <script src="../../_static/documentation_options.js?v=c030f118"></script>
+    <script src="../../_static/documentation_options.js?v=aa09d5fa"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -411,7 +411,7 @@ document.write(`
   <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Tutorials Introduction</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Setup a Developer Workstation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Set up a Developer Workstation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="create_beamline.html">Create a Beamline Repository</a></li>
 <li class="toctree-l1"><a class="reference internal" href="deploy_example.html">Deploying and Managing IOC Instances</a></li>
 <li class="toctree-l1"><a class="reference internal" href="create_ioc.html">Create an IOC Instance</a></li>
@@ -493,7 +493,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="../index.html" class="nav-link">User Guide</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">Setup a...</li>
+    <li class="breadcrumb-item active" aria-current="page">Set up a...</li>
   </ul>
 </nav>
 </div>
@@ -510,9 +510,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="setup-a-developer-workstation">
-<h1>Setup a Developer Workstation<a class="headerlink" href="#setup-a-developer-workstation" title="Link to this heading">#</a></h1>
-<p>This page will guide you through the steps to setup a developer workstation
+  <section id="set-up-a-developer-workstation">
+<h1>Set up a Developer Workstation<a class="headerlink" href="#set-up-a-developer-workstation" title="Link to this heading">#</a></h1>
+<p>This page will guide you through the steps to set up a developer workstation
 in readiness for the remaining tutorials.
 The tools you need to install are:</p>
 <ul class="simple">
@@ -548,14 +548,14 @@ Ubuntu is recommended as the Linux distribution for WSL2.</p>
 <h3>Setup VSCode<a class="headerlink" href="#setup-vscode" title="Link to this heading">#</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><strong>DLS Users</strong>:  You can access VSCode with <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">vscode</span></code>.</p>
+<p><strong>DLS Users</strong>: You can access VSCode with <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">vscode</span></code>.</p>
 </div>
 <p>First download and install Visual Studio Code.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://code.visualstudio.com/download">Download Visual Studio Code</a></p></li>
 <li><p><a class="reference external" href="https://code.visualstudio.com/learn/get-started/basics">Setup Visual Studio Code</a></p></li>
 </ul>
-<p>VSCode has an huge library of extensions. The following list of extensions are
+<p>VSCode has a huge library of extensions. The following list of extensions are
 useful for working with epics-containers. You will need to install the <em>Required</em>
 extensions before proceeding to the next tutorial. See the links for instructions
 on how to do this.</p>
@@ -575,7 +575,7 @@ devcontainer in the next tutorial.</p>
 <p><strong>DLS Users</strong>: RHEL 8 Workstations at DLS have podman 4.4.1 installed by default.
 RHEL 7 Workstations are not supported.</p>
 </div>
-<p>Next install docker or podman as the your container platform. epics-containers
+<p>Next install docker or podman as your container platform. epics-containers
 has been tested with podman 4.4.1 on RedHat 8, and Docker 24.0.5 on
 for Ubuntu 22.04.</p>
 <p>If you are using docker, simply replace <code class="docutils literal notranslate"><span class="pre">podman</span></code> with <code class="docutils literal notranslate"><span class="pre">docker</span></code> in the
@@ -614,7 +614,7 @@ python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </sp
 </pre></div>
 </div>
 <p>Note that each time you open a new shell you will need to activate the virtual
-environment again. (Or place it’s bin folder in your path permanently).</p>
+environment again. (Or place its bin folder in your path permanently).</p>
 </section>
 <section id="epics-containers-cli">
 <span id="ec"></span><h3>epics-containers-cli<a class="headerlink" href="#epics-containers-cli" title="Link to this heading">#</a></h3>

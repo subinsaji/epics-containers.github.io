@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Changing the IOC Instance &#8212; epics-containers.github.io 2023.11.2.dev7+g7c94c5f documentation</title>
+    <title>Changing the IOC Instance &#8212; epics-containers.github.io 2023.11.2.dev11+g17522b7 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
-    <script src="../../_static/documentation_options.js?v=c030f118"></script>
+    <script src="../../_static/documentation_options.js?v=aa09d5fa"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -411,7 +411,7 @@ document.write(`
   <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Tutorials Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="setup_workstation.html">Setup a Developer Workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_workstation.html">Set up a Developer Workstation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="create_beamline.html">Create a Beamline Repository</a></li>
 <li class="toctree-l1"><a class="reference internal" href="deploy_example.html">Deploying and Managing IOC Instances</a></li>
 <li class="toctree-l1"><a class="reference internal" href="create_ioc.html">Create an IOC Instance</a></li>
@@ -585,7 +585,7 @@ is required for running OPI tools on the host (TODO add link to solution).</p>
 </div>
 <p>Because of the symlink between <code class="docutils literal notranslate"><span class="pre">/epics/ioc/config</span></code> and
 <code class="docutils literal notranslate"><span class="pre">/repos/bl01t/iocs/bl01t-ea-ioc-02/config</span></code> the same files you are testing
-by launching the ioc inside of the devcontainer are also ready to be
+by launching the IOC inside of the devcontainer are also ready to be
 committed and pushed to the bl01t repo. i.e.:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do this from a host terminal (not a devcontainer terminal)</span>
 <span class="nb">cd</span><span class="w"> </span>bl01t
@@ -620,7 +620,7 @@ The schema is in turn defined by the set of support modules that were compiled
 into the Generic IOC (ioc-adsimdetector). Each support module has an
 <code class="docutils literal notranslate"><span class="pre">ibek</span></code> <em>support YAML</em> file that contributes to the schema.</p>
 <p>The <em>Support yaml</em> files are in the folder <code class="docutils literal notranslate"><span class="pre">/epics/ibek</span></code> inside of the
-container. They were placed their during the compilation of the support
+container. They were placed there during the compilation of the support
 modules at Generic IOC build time.</p>
 <p>It can be instructive to look at these files to see what entities are available
 to <em>IOC instances</em>. For example the global support yaml file

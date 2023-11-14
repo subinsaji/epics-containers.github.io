@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Create a Beamline Repository &#8212; epics-containers.github.io 2023.11.2.dev7+g7c94c5f documentation</title>
+    <title>Create a Beamline Repository &#8212; epics-containers.github.io 2023.11.2.dev11+g17522b7 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
-    <script src="../../_static/documentation_options.js?v=c030f118"></script>
+    <script src="../../_static/documentation_options.js?v=aa09d5fa"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -55,7 +55,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Deploying and Managing IOC Instances" href="deploy_example.html" />
-    <link rel="prev" title="Setup a Developer Workstation" href="setup_workstation.html" />
+    <link rel="prev" title="Set up a Developer Workstation" href="setup_workstation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -411,7 +411,7 @@ document.write(`
   <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Tutorials Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="setup_workstation.html">Setup a Developer Workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_workstation.html">Set up a Developer Workstation</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Create a Beamline Repository</a></li>
 <li class="toctree-l1"><a class="reference internal" href="deploy_example.html">Deploying and Managing IOC Instances</a></li>
 <li class="toctree-l1"><a class="reference internal" href="create_ioc.html">Create an IOC Instance</a></li>
@@ -552,7 +552,7 @@ which to place the new repo. If you do not have one then follow GitHub’s
 </section>
 <section id="create-a-new-repository">
 <h2>Create a New Repository<a class="headerlink" href="#create-a-new-repository" title="Link to this heading">#</a></h2>
-<p>Here we will copy the beamline template repository and change it’s name to bl01t.
+<p>Here we will copy the beamline template repository and change its name to bl01t.
 We will then step through the changes that are required to make it your own.</p>
 <p>NOTE: for these tutorials we will use your personal GitHub Account to
 store everything we do, all source repositories and container images. For
@@ -587,7 +587,7 @@ sections of this page.</p>
 <ol class="arabic simple">
 <li><p>Replace README.md with your own README.md as you see fit.</p></li>
 <li><p>edit <code class="docutils literal notranslate"><span class="pre">environment.sh</span></code></p></li>
-<li><p>change the name of the example ioc from <code class="docutils literal notranslate"><span class="pre">iocs/blxxi-ea-ioc-01</span></code> to
+<li><p>change the name of the example IOC from <code class="docutils literal notranslate"><span class="pre">iocs/blxxi-ea-ioc-01</span></code> to
 <code class="docutils literal notranslate"><span class="pre">iocs/bl01t-ea-ioc-01</span></code></p></li>
 <li><p>change the beamline name in the two bash scripts in the <code class="docutils literal notranslate"><span class="pre">services</span></code>
 directory.</p></li>
@@ -600,7 +600,7 @@ next tutorial.</p></li>
 <section id="environment-sh">
 <h3>Environment.sh<a class="headerlink" href="#environment-sh" title="Link to this heading">#</a></h3>
 <p>Environment.sh is a bash script that is sourced by a beamline user or developer
-in order to setup their environment to work with the beamline.</p>
+in order to set up their environment to work with the beamline.</p>
 <p>The command line tool <code class="docutils literal notranslate"><span class="pre">ec</span></code> uses the environment configured by this script
 to determine where to deploy IOCS and where to find container images etc.</p>
 <p>For details of what goes in this file see <a class="reference internal" href="../reference/environment.html"><span class="doc">The Environment Configuration File</span></a>.
@@ -694,7 +694,7 @@ dependencies and does not have a clear API.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Setup a Developer Workstation</p>
+        <p class="prev-next-title">Set up a Developer Workstation</p>
       </div>
     </a>
     <a class="right-next"

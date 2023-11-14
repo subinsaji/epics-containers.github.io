@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Deploying and Managing IOC Instances &#8212; epics-containers.github.io 2023.11.2.dev7+g7c94c5f documentation</title>
+    <title>Deploying and Managing IOC Instances &#8212; epics-containers.github.io 2023.11.2.dev11+g17522b7 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
-    <script src="../../_static/documentation_options.js?v=c030f118"></script>
+    <script src="../../_static/documentation_options.js?v=aa09d5fa"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -411,7 +411,7 @@ document.write(`
   <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Tutorials Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="setup_workstation.html">Setup a Developer Workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_workstation.html">Set up a Developer Workstation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="create_beamline.html">Create a Beamline Repository</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Deploying and Managing IOC Instances</a></li>
 <li class="toctree-l1"><a class="reference internal" href="create_ioc.html">Create an IOC Instance</a></li>
@@ -568,7 +568,7 @@ curl<span class="w"> </span>-o<span class="w"> </span>~/.local/bin/bl01t<span cl
 </pre></div>
 </div>
 <p>Once you have done this and logged out and back in again to pick up your new
-profile you should be able enable the <code class="docutils literal notranslate"><span class="pre">bl01t</span></code> environment as follows:</p>
+profile you should be able to enable the <code class="docutils literal notranslate"><span class="pre">bl01t</span></code> environment as follows:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># first make sure you have loaded your virtual environment</span>
 <span class="nb">source</span><span class="w"> </span><span class="nv">$HOME</span>/ec-venv/bin/activate
 <span class="nb">source</span><span class="w"> </span>bl01t
@@ -589,7 +589,7 @@ the IOC Instances that are currently running:</p>
 IOC Instance.</p>
 <p>The following command will deploy the example IOC instance to your local
 machine (unless you have skipped ahead and set up your Kubernetes config
-in which case the same command  will deploy to your Kubernetes cluster).</p>
+in which case the same command will deploy to your Kubernetes cluster).</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>bl01t<span class="w"> </span><span class="c1"># (if you are not already in your beamline repo)</span>
 ec<span class="w"> </span>ioc<span class="w"> </span>deploy-local<span class="w"> </span>iocs/bl01t-ea-ioc-01
 </pre></div>
@@ -639,7 +639,7 @@ bl01t-ea-ioc-01<span class="w">     </span><span class="m">2023</span>.11.1<span
 <h2>Managing the Example IOC Instance<a class="headerlink" href="#managing-the-example-ioc-instance" title="Link to this heading">#</a></h2>
 <section id="starting-and-stopping-iocs">
 <h3>Starting and Stopping IOCs<a class="headerlink" href="#starting-and-stopping-iocs" title="Link to this heading">#</a></h3>
-<p>To stop / start  the example IOC try the following commands. Note that
+<p>To stop / start the example IOC try the following commands. Note that
 <code class="docutils literal notranslate"><span class="pre">ec</span> <span class="pre">ps</span> <span class="pre">-a</span></code> shows you all IOCs including stopped ones.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ec<span class="w"> </span>ps<span class="w"> </span>-a
 ec<span class="w"> </span>ioc<span class="w"> </span>stop<span class="w"> </span>bl01t-ea-ioc-01
@@ -660,7 +660,7 @@ not functional, it could have been based on any Generic IOC.</p>
 </section>
 <section id="monitoring-and-interacting-with-an-ioc-shell">
 <h3>Monitoring and interacting with an IOC shell<a class="headerlink" href="#monitoring-and-interacting-with-an-ioc-shell" title="Link to this heading">#</a></h3>
-<p>To attach to the ioc shell you can use the following command. HOWEVER, this
+<p>To attach to the IOC shell you can use the following command. HOWEVER, this
 will attach you to nothing in the case of this example IOC as it has no
 shell. In the next tutorial we will use this command to interact with
 iocShell.</p>

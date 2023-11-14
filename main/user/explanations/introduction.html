@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Essential Concepts &#8212; epics-containers.github.io 2023.11.2.dev7+g7c94c5f documentation</title>
+    <title>Essential Concepts &#8212; epics-containers.github.io 2023.11.2.dev11+g17522b7 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
-    <script src="../../_static/documentation_options.js?v=c030f118"></script>
+    <script src="../../_static/documentation_options.js?v=aa09d5fa"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -411,7 +411,7 @@ document.write(`
   <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/intro.html">Tutorials Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/setup_workstation.html">Setup a Developer Workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/setup_workstation.html">Set up a Developer Workstation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/create_beamline.html">Create a Beamline Repository</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/deploy_example.html">Deploying and Managing IOC Instances</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/create_ioc.html">Create an IOC Instance</a></li>
@@ -613,7 +613,7 @@ implementing these features:</p>
 <li><p>View the current log</p></li>
 <li><p>View historical logs (via graylog or other centralized logging system)</p></li>
 <li><p>Connect to an IOC and interact with its shell</p></li>
-<li><p>debug an ioc by starting a bash shell inside it’s container</p></li>
+<li><p>debug an IOC by starting a bash shell inside it’s container</p></li>
 </ul>
 </section>
 <section id="kubernetes-alternative">
@@ -744,7 +744,7 @@ or other OCI registry</p></li>
 </dd>
 <dt class="field-even">beamline definition source<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p>prepares a helm chart from each ioc instance definition</p></li>
+<li><p>prepares a helm chart from each IOC instance definition</p></li>
 <li><p>tests that the helm chart is deployable (but does not deploy it)</p></li>
 <li><p>locally launches each IOC instance and loads its configuration to
 verify that the configuration is valid (no system tests because this
