@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Changing the IOC Instance &#8212; epics-containers.github.io 2023.11.2.dev11+g17522b7 documentation</title>
+    <title>Changing the IOC Instance &#8212; epics-containers.github.io 2023.11.2.dev13+g5e7c7ee documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
-    <script src="../../_static/documentation_options.js?v=aa09d5fa"></script>
+    <script src="../../_static/documentation_options.js?v=a798e28d"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -619,12 +619,12 @@ the end of <code class="docutils literal notranslate"><span class="pre">st.cmd</
 The schema is in turn defined by the set of support modules that were compiled
 into the Generic IOC (ioc-adsimdetector). Each support module has an
 <code class="docutils literal notranslate"><span class="pre">ibek</span></code> <em>support YAML</em> file that contributes to the schema.</p>
-<p>The <em>Support yaml</em> files are in the folder <code class="docutils literal notranslate"><span class="pre">/epics/ibek</span></code> inside of the
+<p>The <em>Support yaml</em> files are in the folder <code class="docutils literal notranslate"><span class="pre">/epics/ibek-defs</span></code> inside of the
 container. They were placed there during the compilation of the support
 modules at Generic IOC build time.</p>
 <p>It can be instructive to look at these files to see what entities are available
 to <em>IOC instances</em>. For example the global support yaml file
-<code class="docutils literal notranslate"><span class="pre">/epics/ibek/epics.ibek.support.yaml</span></code> contains the following:</p>
+<code class="docutils literal notranslate"><span class="pre">/epics/ibek-defs/epics.ibek.support.yaml</span></code> contains the following:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StartupCommand</span>
 <span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Adds an arbitrary command in the startup script before iocInit</span>
 <span class="w">  </span><span class="nt">args</span><span class="p">:</span>
