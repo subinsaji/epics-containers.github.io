@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Changing the IOC Instance &#8212; epics-containers.github.io 2023.11.2.dev2+ga858814 documentation</title>
+    <title>Changing the IOC Instance &#8212; epics-containers.github.io 2023.11.2.dev5+ga6fe483 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
-    <script src="../../_static/documentation_options.js?v=2d70e088"></script>
+    <script src="../../_static/documentation_options.js?v=4166eec4"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -535,7 +535,7 @@ outside of the devcontainer to stop it:</p>
 (<code class="docutils literal notranslate"><span class="pre">bl01t/iocs/bl01t-ea-ioc-02/config</span></code>):</p>
 <ol class="arabic">
 <li><p>Add a file called <code class="docutils literal notranslate"><span class="pre">extra.db</span></code> with the following contents.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>record(ai, &quot;BL02T-EA-IOC-01:TEST&quot;) {
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>record(ai, &quot;BL01T-EA-IOC-02:TEST&quot;) {
    field(DESC, &quot;Test record&quot;)
    field(DTYP, &quot;Soft Channel&quot;)
    field(SCAN, &quot;Passive&quot;)
@@ -566,7 +566,7 @@ folder:</p>
 show <code class="docutils literal notranslate"><span class="pre">dbLoadRecords(config/extra.db)</span></code>.</p>
 <p>Test your change
 from another terminal (VSCode menus -&gt; Terminal -&gt; New Terminal) like so:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>caget<span class="w"> </span>BL02T-EA-IOC-02:TEST
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>caget<span class="w"> </span>BL01T-EA-IOC-02:TEST
 </pre></div>
 </div>
 <p>If you see the value 1 then your change is working.</p>
